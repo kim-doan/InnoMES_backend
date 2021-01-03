@@ -1,0 +1,41 @@
+spring:
+  resources:
+    add-mappings: true
+  jackson:
+     mapper:
+       USE-STD-BEAN-NAMING: true
+       ACCEPT_CASE_INSENSITIVE_PROPERTIES: true
+     time-zone: Asia/Seoul
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8
+  rabbitmq:
+    host: 192.168.10.41
+    port: 5672
+    username: 3view
+    password: 3view
+    queue: MACHINEDATA_DEBUG
+    listener.simple.auto-startup: false
+  alarmmq:
+    exchange: alarm.topic
+    queue: ALARM_QUE_
+    multipleSize: 5
+  jpa:
+   database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+   properties:
+     hibernate:
+       format_sql: true
+     generate-ddl: false
+     open-in-view: false
+  redis:
+    host: 127.0.0.1
+    port: 6379
+server:
+  port: 8080
+restTemplate:
+   factory:
+      readTimeout: 5000
+      connectTimeout: 3000
+   httpClient:
+      maxConnTotal: 100
+      maxConnPerRoute: 5

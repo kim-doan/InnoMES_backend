@@ -1,0 +1,1436 @@
+DEBUG 20-12-18 00:00:04[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=20, active=0, idle=20, waiting=0)
+INFO  20-12-18 00:00:18[RMI TCP Connection(15)-127.0.0.1] [SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin:159] - Application shutdown requested.
+INFO  20-12-18 00:00:18[RMI TCP Connection(15)-127.0.0.1] [ThreadPoolTaskScheduler:208] - Shutting down ExecutorService 'scheduler'
+INFO  20-12-18 00:00:18[RMI TCP Connection(15)-127.0.0.1] [LocalContainerEntityManagerFactoryBean:598] - Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO  20-12-18 00:00:18[RMI TCP Connection(15)-127.0.0.1] [HikariDataSource:350] - HikariPool-1 - Shutdown initiated...
+DEBUG 20-12-18 00:00:18[RMI TCP Connection(15)-127.0.0.1] [HikariPool:417] - HikariPool-1 - Before shutdown stats (total=20, active=0, idle=20, waiting=0)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6e9a10cd: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6d0a18b8: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2c371283: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@582f4f40: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@615cb065: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@48565565: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4c458e81: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@76373f22: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3024e818: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@631900bc: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5a1e21e0: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1f068f8b: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1277fe44: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@682a240: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@49cee9b6: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@531dd5c6: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@312af25: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@175504e: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3134fa5d: (connection evicted)
+DEBUG 20-12-18 00:00:18[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7ef8d4c2: (connection evicted)
+DEBUG 20-12-18 00:00:18[RMI TCP Connection(15)-127.0.0.1] [HikariPool:417] - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+INFO  20-12-18 00:00:18[RMI TCP Connection(15)-127.0.0.1] [HikariDataSource:352] - HikariPool-1 - Shutdown completed.
+INFO  20-12-18 00:00:20[main] [InnoMesApplication:55] - Starting InnoMesApplication on gimdoan-ui-MacBook-Pro.local with PID 11489 (/Users/kimdoan/Desktop/git/InnoMES/target/classes started by kimdoan in /Users/kimdoan/Desktop/git/InnoMES)
+INFO  20-12-18 00:00:20[main] [InnoMesApplication:655] - The following profiles are active: local
+WARN  20-12-18 00:00:21[main] [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[com.innomes.main.mapper]' package. Please check your configuration.
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 4ms. Found 0 MongoDB repository interfaces.
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 0ms. Found 0 Redis repository interfaces.
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 39ms. Found 1 JPA repository interfaces.
+WARN  20-12-18 00:00:21[main] [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[com.innomes.main]' package. Please check your configuration.
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationExtensionSupport:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.innomes.main.repository.MST140Repository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+INFO  20-12-18 00:00:21[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+INFO  20-12-18 00:00:22[main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+INFO  20-12-18 00:00:22[main] [TomcatWebServer:92] - Tomcat initialized with port(s): 8080 (http)
+INFO  20-12-18 00:00:22[main] [Http11NioProtocol:173] - Initializing ProtocolHandler ["http-nio-8080"]
+INFO  20-12-18 00:00:22[main] [StandardService:173] - Starting service [Tomcat]
+INFO  20-12-18 00:00:22[main] [StandardEngine:173] - Starting Servlet engine: [Apache Tomcat/9.0.30]
+INFO  20-12-18 00:00:22[main] [TldScanner:173] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+INFO  20-12-18 00:00:22[main] [[/]:173] - Initializing Spring embedded WebApplicationContext
+INFO  20-12-18 00:00:22[main] [ContextLoader:284] - Root WebApplicationContext: initialization completed in 1905 ms
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:900] - Driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+sun.misc.Launcher$AppClassLoader@764c12b6
+
+INFO  20-12-18 00:00:23[main] [cluster:71] - Cluster created with settings {hosts=[192.168.10.41:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO  20-12-18 00:00:23[main] [cluster:71] - Adding discovered server 192.168.10.41:27017 to client view of cluster
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1020] - HikariPool-1 - configuration:
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - allowPoolSuspension.............false
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - autoCommit......................true
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - catalog.........................none
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - connectionInitSql...............none
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - connectionTestQuery.............none
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - connectionTimeout...............30000
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - dataSource......................none
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - dataSourceClassName.............none
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - dataSourceJNDI..................none
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - dataSourceProperties............{password=<masked>}
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - driverClassName................."net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - healthCheckProperties...........{}
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - healthCheckRegistry.............none
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - idleTimeout.....................600000
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - initializationFailTimeout.......1
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - isolateInternalQueries..........false
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - jdbcUrl.........................jdbc:log4jdbc:sqlserver://database-1.cy5qk7fgotat.ap-northeast-2.rds.amazonaws.com:1433;databaseName=InnoMES
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - leakDetectionThreshold..........0
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - maxLifetime.....................1800000
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - maximumPoolSize.................20
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - metricRegistry..................none
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - metricsTrackerFactory...........none
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - minimumIdle.....................20
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - password........................<masked>
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - poolName........................"HikariPool-1"
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - readOnly........................false
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - registerMbeans..................false
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - scheduledExecutor...............none
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - schema..........................none
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - threadFactory...................internal
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - transactionIsolation............default
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - username........................"admin"
+DEBUG 20-12-18 00:00:23[main] [HikariConfig:1052] - validationTimeout...............5000
+INFO  20-12-18 00:00:23[main] [HikariDataSource:110] - HikariPool-1 - Starting...
+DEBUG 20-12-18 00:00:24[main] [HikariPool:558] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@22c8ee48
+INFO  20-12-18 00:00:24[main] [HikariDataSource:123] - HikariPool-1 - Start completed.
+INFO  20-12-18 00:00:24[main] [LogHelper:31] - HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO  20-12-18 00:00:24[main] [Version:46] - HHH000412: Hibernate Core {5.4.10.Final}
+DEBUG 20-12-18 00:00:24[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+INFO  20-12-18 00:00:24[main] [Version:49] - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+INFO  20-12-18 00:00:24[main] [Dialect:172] - HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+DEBUG 20-12-18 00:00:24[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@14a1754f
+DEBUG 20-12-18 00:00:24[main] [sqltiming:368] -  com.zaxxer.hikari.pool.ProxyStatement.executeQuery(ProxyStatement.java:111)
+1. select * from INFORMATION_SCHEMA.SEQUENCES
+ {executed in 22 msec}
+DEBUG 20-12-18 00:00:24[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@559c7f74
+DEBUG 20-12-18 00:00:24[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3e238ec
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@ad14cb8
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@31fdd929
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4278011e
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1548ae90
+INFO  20-12-18 00:00:25[main] [JtaPlatformInitiator:52] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1767c385
+INFO  20-12-18 00:00:25[main] [LocalContainerEntityManagerFactoryBean:416] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+INFO  20-12-18 00:00:25[main] [InnoMesApplication:36] - ==============================    active_name : local  ==============================
+INFO  20-12-18 00:00:25[main] [InnoMesApplication:37] - ==============================    zone_id : Asia/Seoul==============================
+INFO  20-12-18 00:00:25[main] [InnoMesApplication:38] - ==============================    현재시각 : Fri Dec 18 00:00:25 KST 2020==============================
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@79b55c3c
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3e2ae0ee
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@33f80a3a
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@34aea511
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@58e189f0
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:00:25[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@60eb4119
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7d86c20c
+DEBUG 20-12-18 00:00:25[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@c324b3a
+DEBUG 20-12-18 00:00:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1828e7bc
+DEBUG 20-12-18 00:00:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@41c0f71d
+INFO  20-12-18 00:00:26[main] [EndpointLinksResolver:58] - Exposing 2 endpoint(s) beneath base path '/actuator'
+DEBUG 20-12-18 00:00:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63497dcb
+DEBUG 20-12-18 00:00:26[HikariPool-1 connection adder] [HikariPool:417] - HikariPool-1 - After adding stats (total=20, active=0, idle=20, waiting=0)
+INFO  20-12-18 00:00:26[main] [ScheduledConfig:20] - scheduler
+INFO  20-12-18 00:00:26[main] [ThreadPoolTaskScheduler:171] - Initializing ExecutorService 'scheduler'
+WARN  20-12-18 00:00:26[main] [JpaBaseConfiguration$JpaWebConfiguration:220] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+WARN  20-12-18 00:00:26[main] [JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration:123] - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+INFO  20-12-18 00:00:26[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/**'], []
+INFO  20-12-18 00:00:26[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/webjars/**'], []
+INFO  20-12-18 00:00:26[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/static/**'], []
+INFO  20-12-18 00:00:26[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/static/static/**'], []
+INFO  20-12-18 00:00:26[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/js/**'], []
+INFO  20-12-18 00:00:26[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/css/**'], []
+INFO  20-12-18 00:00:26[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/img/**'], []
+INFO  20-12-18 00:00:26[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+INFO  20-12-18 00:00:26[main] [DefaultSecurityFilterChain:43] - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ba02f70, org.springframework.security.web.context.SecurityContextPersistenceFilter@1e37cb10, org.springframework.security.web.header.HeaderWriterFilter@2d4f1ddd, org.springframework.security.web.authentication.logout.LogoutFilter@51d34f02, com.innomes.main.jwt.JwtAuthenticationFilter@2e88ad38, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6892d403, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18d09283, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2148849f, org.springframework.security.web.session.SessionManagementFilter@5ae67f05, org.springframework.security.web.access.ExceptionTranslationFilter@3ef7fb04, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3a36da5e]
+INFO  20-12-18 00:00:26[main] [Http11NioProtocol:173] - Starting ProtocolHandler ["http-nio-8080"]
+INFO  20-12-18 00:00:26[main] [TomcatWebServer:204] - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  20-12-18 00:00:26[main] [InnoMesApplication:61] - Started InnoMesApplication in 6.482 seconds (JVM running for 7.124)
+INFO  20-12-18 00:00:31[http-nio-8080-exec-1] [[/]:173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  20-12-18 00:00:31[http-nio-8080-exec-1] [DispatcherServlet:525] - Initializing Servlet 'dispatcherServlet'
+INFO  20-12-18 00:00:31[http-nio-8080-exec-1] [DispatcherServlet:547] - Completed initialization in 8 ms
+INFO  20-12-18 00:00:43[cluster-ClusterId{value='5fdb72871397b7696a789d09', description='null'}-192.168.10.41:27017] [cluster:76] - Exception in monitor thread while connecting to server 192.168.10.41:27017
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70)
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:128)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:64)
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79)
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65)
+	... 3 common frames omitted
+DEBUG 20-12-18 00:00:54[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=20, active=0, idle=20, waiting=0)
+INFO  20-12-18 00:01:00[RMI TCP Connection(10)-127.0.0.1] [SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin:159] - Application shutdown requested.
+INFO  20-12-18 00:01:00[RMI TCP Connection(10)-127.0.0.1] [ThreadPoolTaskScheduler:208] - Shutting down ExecutorService 'scheduler'
+INFO  20-12-18 00:01:00[RMI TCP Connection(10)-127.0.0.1] [LocalContainerEntityManagerFactoryBean:598] - Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO  20-12-18 00:01:00[RMI TCP Connection(10)-127.0.0.1] [HikariDataSource:350] - HikariPool-1 - Shutdown initiated...
+DEBUG 20-12-18 00:01:00[RMI TCP Connection(10)-127.0.0.1] [HikariPool:417] - HikariPool-1 - Before shutdown stats (total=20, active=0, idle=20, waiting=0)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@22c8ee48: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@14a1754f: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@559c7f74: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3e238ec: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@ad14cb8: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@31fdd929: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4278011e: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1548ae90: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1767c385: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@79b55c3c: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3e2ae0ee: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@33f80a3a: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@34aea511: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@58e189f0: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@60eb4119: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7d86c20c: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@c324b3a: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1828e7bc: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@41c0f71d: (connection evicted)
+DEBUG 20-12-18 00:01:00[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63497dcb: (connection evicted)
+DEBUG 20-12-18 00:01:00[RMI TCP Connection(10)-127.0.0.1] [HikariPool:417] - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+INFO  20-12-18 00:01:00[RMI TCP Connection(10)-127.0.0.1] [HikariDataSource:352] - HikariPool-1 - Shutdown completed.
+INFO  20-12-18 00:01:22[main] [InnoMesApplication:55] - Starting InnoMesApplication on gimdoan-ui-MacBook-Pro.local with PID 11593 (/Users/kimdoan/Desktop/git/InnoMES/target/classes started by kimdoan in /Users/kimdoan/Desktop/git/InnoMES)
+INFO  20-12-18 00:01:22[main] [InnoMesApplication:655] - The following profiles are active: local
+WARN  20-12-18 00:01:22[main] [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[com.innomes.main.mapper]' package. Please check your configuration.
+INFO  20-12-18 00:01:22[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:01:22[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+INFO  20-12-18 00:01:22[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 5ms. Found 0 MongoDB repository interfaces.
+INFO  20-12-18 00:01:22[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:01:22[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+INFO  20-12-18 00:01:22[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 0ms. Found 0 Redis repository interfaces.
+INFO  20-12-18 00:01:22[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:01:22[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO  20-12-18 00:01:22[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 42ms. Found 1 JPA repository interfaces.
+WARN  20-12-18 00:01:23[main] [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[com.innomes.main]' package. Please check your configuration.
+INFO  20-12-18 00:01:23[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:01:23[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+INFO  20-12-18 00:01:23[main] [RepositoryConfigurationExtensionSupport:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.innomes.main.repository.MST140Repository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+INFO  20-12-18 00:01:23[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+INFO  20-12-18 00:01:23[main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+INFO  20-12-18 00:01:24[main] [TomcatWebServer:92] - Tomcat initialized with port(s): 8080 (http)
+INFO  20-12-18 00:01:24[main] [Http11NioProtocol:173] - Initializing ProtocolHandler ["http-nio-8080"]
+INFO  20-12-18 00:01:24[main] [StandardService:173] - Starting service [Tomcat]
+INFO  20-12-18 00:01:24[main] [StandardEngine:173] - Starting Servlet engine: [Apache Tomcat/9.0.30]
+INFO  20-12-18 00:01:24[main] [TldScanner:173] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+INFO  20-12-18 00:01:24[main] [[/]:173] - Initializing Spring embedded WebApplicationContext
+INFO  20-12-18 00:01:24[main] [ContextLoader:284] - Root WebApplicationContext: initialization completed in 2199 ms
+DEBUG 20-12-18 00:01:24[main] [HikariConfig:900] - Driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+sun.misc.Launcher$AppClassLoader@764c12b6
+
+INFO  20-12-18 00:01:24[main] [cluster:71] - Cluster created with settings {hosts=[192.168.10.41:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO  20-12-18 00:01:24[main] [cluster:71] - Adding discovered server 192.168.10.41:27017 to client view of cluster
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1020] - HikariPool-1 - configuration:
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - allowPoolSuspension.............false
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - autoCommit......................true
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - catalog.........................none
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - connectionInitSql...............none
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - connectionTestQuery.............none
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - connectionTimeout...............30000
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - dataSource......................none
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - dataSourceClassName.............none
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - dataSourceJNDI..................none
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - dataSourceProperties............{password=<masked>}
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - driverClassName................."net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - healthCheckProperties...........{}
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - healthCheckRegistry.............none
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - idleTimeout.....................600000
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - initializationFailTimeout.......1
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - isolateInternalQueries..........false
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - jdbcUrl.........................jdbc:log4jdbc:sqlserver://database-1.cy5qk7fgotat.ap-northeast-2.rds.amazonaws.com:1433;databaseName=InnoMES
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - leakDetectionThreshold..........0
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - maxLifetime.....................1800000
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - maximumPoolSize.................20
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - metricRegistry..................none
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - metricsTrackerFactory...........none
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - minimumIdle.....................20
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - password........................<masked>
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - poolName........................"HikariPool-1"
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - readOnly........................false
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - registerMbeans..................false
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - scheduledExecutor...............none
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - schema..........................none
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - threadFactory...................internal
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - transactionIsolation............default
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - username........................"admin"
+DEBUG 20-12-18 00:01:25[main] [HikariConfig:1052] - validationTimeout...............5000
+INFO  20-12-18 00:01:25[main] [HikariDataSource:110] - HikariPool-1 - Starting...
+DEBUG 20-12-18 00:01:25[main] [HikariPool:558] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@48c5698
+INFO  20-12-18 00:01:25[main] [HikariDataSource:123] - HikariPool-1 - Start completed.
+INFO  20-12-18 00:01:25[main] [LogHelper:31] - HHH000204: Processing PersistenceUnitInfo [name: default]
+DEBUG 20-12-18 00:01:25[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+INFO  20-12-18 00:01:25[main] [Version:46] - HHH000412: Hibernate Core {5.4.10.Final}
+INFO  20-12-18 00:01:26[main] [Version:49] - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+DEBUG 20-12-18 00:01:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@521b8233
+INFO  20-12-18 00:01:26[main] [Dialect:172] - HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+DEBUG 20-12-18 00:01:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@13268808
+DEBUG 20-12-18 00:01:26[main] [sqltiming:368] -  com.zaxxer.hikari.pool.ProxyStatement.executeQuery(ProxyStatement.java:111)
+1. select * from INFORMATION_SCHEMA.SEQUENCES
+ {executed in 25 msec}
+DEBUG 20-12-18 00:01:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@54c8c31e
+DEBUG 20-12-18 00:01:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5d8e659a
+DEBUG 20-12-18 00:01:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@774768f7
+DEBUG 20-12-18 00:01:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@39bc5999
+DEBUG 20-12-18 00:01:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@10936858
+DEBUG 20-12-18 00:01:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3a667c63
+DEBUG 20-12-18 00:01:26[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@22737905
+DEBUG 20-12-18 00:01:27[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@19487679
+DEBUG 20-12-18 00:01:27[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4a85f1db
+DEBUG 20-12-18 00:01:27[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@47eecf45
+DEBUG 20-12-18 00:01:27[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@69632149
+INFO  20-12-18 00:01:27[main] [JtaPlatformInitiator:52] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO  20-12-18 00:01:27[main] [LocalContainerEntityManagerFactoryBean:416] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+INFO  20-12-18 00:01:27[main] [InnoMesApplication:36] - ==============================    active_name : local  ==============================
+INFO  20-12-18 00:01:27[main] [InnoMesApplication:37] - ==============================    zone_id : Asia/Seoul==============================
+INFO  20-12-18 00:01:27[main] [InnoMesApplication:38] - ==============================    현재시각 : Fri Dec 18 00:01:27 KST 2020==============================
+DEBUG 20-12-18 00:01:27[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5dd940e1
+DEBUG 20-12-18 00:01:27[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3134713c
+DEBUG 20-12-18 00:01:27[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6a2486b5
+DEBUG 20-12-18 00:01:27[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4be8cc31
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+DEBUG 20-12-18 00:01:27[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@9fbf102
+DEBUG 20-12-18 00:01:27[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6283e1d7
+DEBUG 20-12-18 00:01:27[HikariPool-1 connection adder] [HikariPool:417] - HikariPool-1 - After adding stats (total=20, active=0, idle=20, waiting=0)
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:27[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:01:28[main] [EndpointLinksResolver:58] - Exposing 2 endpoint(s) beneath base path '/actuator'
+INFO  20-12-18 00:01:28[main] [ScheduledConfig:20] - scheduler
+INFO  20-12-18 00:01:28[main] [ThreadPoolTaskScheduler:171] - Initializing ExecutorService 'scheduler'
+WARN  20-12-18 00:01:28[main] [JpaBaseConfiguration$JpaWebConfiguration:220] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+WARN  20-12-18 00:01:28[main] [JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration:123] - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+INFO  20-12-18 00:01:28[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/**'], []
+INFO  20-12-18 00:01:28[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/webjars/**'], []
+INFO  20-12-18 00:01:28[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/static/**'], []
+INFO  20-12-18 00:01:28[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/static/static/**'], []
+INFO  20-12-18 00:01:28[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/js/**'], []
+INFO  20-12-18 00:01:28[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/css/**'], []
+INFO  20-12-18 00:01:28[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/img/**'], []
+INFO  20-12-18 00:01:28[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+INFO  20-12-18 00:01:28[main] [DefaultSecurityFilterChain:43] - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c89c98a, org.springframework.security.web.context.SecurityContextPersistenceFilter@7945986a, org.springframework.security.web.header.HeaderWriterFilter@3006aef5, org.springframework.security.web.authentication.logout.LogoutFilter@13edc1bc, com.innomes.main.jwt.JwtAuthenticationFilter@28200d43, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@aca2a0b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@61d9dd15, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7e24a2e2, org.springframework.security.web.session.SessionManagementFilter@62158618, org.springframework.security.web.access.ExceptionTranslationFilter@a7fd77f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6af0407c]
+INFO  20-12-18 00:01:29[main] [Http11NioProtocol:173] - Starting ProtocolHandler ["http-nio-8080"]
+INFO  20-12-18 00:01:29[main] [TomcatWebServer:204] - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  20-12-18 00:01:29[main] [InnoMesApplication:61] - Started InnoMesApplication in 7.356 seconds (JVM running for 7.82)
+INFO  20-12-18 00:01:32[http-nio-8080-exec-1] [[/]:173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  20-12-18 00:01:32[http-nio-8080-exec-1] [DispatcherServlet:525] - Initializing Servlet 'dispatcherServlet'
+INFO  20-12-18 00:01:32[http-nio-8080-exec-1] [DispatcherServlet:547] - Completed initialization in 6 ms
+INFO  20-12-18 00:01:44[cluster-ClusterId{value='5fdb72c46bef6720a7d9641d', description='null'}-192.168.10.41:27017] [cluster:76] - Exception in monitor thread while connecting to server 192.168.10.41:27017
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70)
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:128)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:64)
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79)
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65)
+	... 3 common frames omitted
+DEBUG 20-12-18 00:01:55[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=20, active=0, idle=20, waiting=0)
+DEBUG 20-12-18 00:02:25[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=20, active=0, idle=20, waiting=0)
+INFO  20-12-18 00:02:46[RMI TCP Connection(11)-127.0.0.1] [SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin:159] - Application shutdown requested.
+INFO  20-12-18 00:02:46[RMI TCP Connection(11)-127.0.0.1] [ThreadPoolTaskScheduler:208] - Shutting down ExecutorService 'scheduler'
+INFO  20-12-18 00:02:46[RMI TCP Connection(11)-127.0.0.1] [LocalContainerEntityManagerFactoryBean:598] - Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO  20-12-18 00:02:46[RMI TCP Connection(11)-127.0.0.1] [HikariDataSource:350] - HikariPool-1 - Shutdown initiated...
+DEBUG 20-12-18 00:02:46[RMI TCP Connection(11)-127.0.0.1] [HikariPool:417] - HikariPool-1 - Before shutdown stats (total=20, active=0, idle=20, waiting=0)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@48c5698: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@521b8233: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@13268808: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@54c8c31e: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5d8e659a: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@774768f7: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@39bc5999: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@10936858: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3a667c63: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@22737905: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@19487679: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4a85f1db: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@47eecf45: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@69632149: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5dd940e1: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3134713c: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6a2486b5: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4be8cc31: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@9fbf102: (connection evicted)
+DEBUG 20-12-18 00:02:46[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6283e1d7: (connection evicted)
+DEBUG 20-12-18 00:02:46[RMI TCP Connection(11)-127.0.0.1] [HikariPool:417] - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+INFO  20-12-18 00:02:46[RMI TCP Connection(11)-127.0.0.1] [HikariDataSource:352] - HikariPool-1 - Shutdown completed.
+INFO  20-12-18 00:02:51[main] [InnoMesApplication:55] - Starting InnoMesApplication on gimdoan-ui-MacBook-Pro.local with PID 11711 (/Users/kimdoan/Desktop/git/InnoMES/target/classes started by kimdoan in /Users/kimdoan/Desktop/git/InnoMES)
+INFO  20-12-18 00:02:51[main] [InnoMesApplication:655] - The following profiles are active: local
+WARN  20-12-18 00:02:51[main] [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[com.innomes.main.mapper]' package. Please check your configuration.
+INFO  20-12-18 00:02:51[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:02:51[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+INFO  20-12-18 00:02:51[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 4ms. Found 0 MongoDB repository interfaces.
+INFO  20-12-18 00:02:51[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:02:51[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+INFO  20-12-18 00:02:51[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 0ms. Found 0 Redis repository interfaces.
+INFO  20-12-18 00:02:51[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:02:51[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO  20-12-18 00:02:51[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 42ms. Found 1 JPA repository interfaces.
+WARN  20-12-18 00:02:52[main] [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[com.innomes.main]' package. Please check your configuration.
+INFO  20-12-18 00:02:52[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:02:52[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+INFO  20-12-18 00:02:52[main] [RepositoryConfigurationExtensionSupport:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.innomes.main.repository.MST140Repository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+INFO  20-12-18 00:02:52[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+INFO  20-12-18 00:02:52[main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+INFO  20-12-18 00:02:52[main] [TomcatWebServer:92] - Tomcat initialized with port(s): 8080 (http)
+INFO  20-12-18 00:02:52[main] [Http11NioProtocol:173] - Initializing ProtocolHandler ["http-nio-8080"]
+INFO  20-12-18 00:02:52[main] [StandardService:173] - Starting service [Tomcat]
+INFO  20-12-18 00:02:52[main] [StandardEngine:173] - Starting Servlet engine: [Apache Tomcat/9.0.30]
+INFO  20-12-18 00:02:53[main] [TldScanner:173] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+INFO  20-12-18 00:02:53[main] [[/]:173] - Initializing Spring embedded WebApplicationContext
+INFO  20-12-18 00:02:53[main] [ContextLoader:284] - Root WebApplicationContext: initialization completed in 1890 ms
+DEBUG 20-12-18 00:02:53[main] [HikariConfig:900] - Driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+sun.misc.Launcher$AppClassLoader@764c12b6
+
+INFO  20-12-18 00:02:53[main] [cluster:71] - Cluster created with settings {hosts=[192.168.10.41:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO  20-12-18 00:02:53[main] [cluster:71] - Adding discovered server 192.168.10.41:27017 to client view of cluster
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1020] - HikariPool-1 - configuration:
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - allowPoolSuspension.............false
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - autoCommit......................true
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - catalog.........................none
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - connectionInitSql...............none
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - connectionTestQuery.............none
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - connectionTimeout...............30000
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - dataSource......................none
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - dataSourceClassName.............none
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - dataSourceJNDI..................none
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - dataSourceProperties............{password=<masked>}
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - driverClassName................."net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - healthCheckProperties...........{}
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - healthCheckRegistry.............none
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - idleTimeout.....................600000
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - initializationFailTimeout.......1
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - isolateInternalQueries..........false
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - jdbcUrl.........................jdbc:log4jdbc:sqlserver://database-1.cy5qk7fgotat.ap-northeast-2.rds.amazonaws.com:1433;databaseName=InnoMES
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - leakDetectionThreshold..........0
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - maxLifetime.....................1800000
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - maximumPoolSize.................20
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - metricRegistry..................none
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - metricsTrackerFactory...........none
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - minimumIdle.....................20
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - password........................<masked>
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - poolName........................"HikariPool-1"
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - readOnly........................false
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - registerMbeans..................false
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - scheduledExecutor...............none
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - schema..........................none
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - threadFactory...................internal
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - transactionIsolation............default
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - username........................"admin"
+DEBUG 20-12-18 00:02:54[main] [HikariConfig:1052] - validationTimeout...............5000
+INFO  20-12-18 00:02:54[main] [HikariDataSource:110] - HikariPool-1 - Starting...
+DEBUG 20-12-18 00:02:54[main] [HikariPool:558] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5fb07347
+INFO  20-12-18 00:02:54[main] [HikariDataSource:123] - HikariPool-1 - Start completed.
+INFO  20-12-18 00:02:54[main] [LogHelper:31] - HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO  20-12-18 00:02:54[main] [Version:46] - HHH000412: Hibernate Core {5.4.10.Final}
+DEBUG 20-12-18 00:02:54[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+INFO  20-12-18 00:02:54[main] [Version:49] - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+INFO  20-12-18 00:02:54[main] [Dialect:172] - HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+DEBUG 20-12-18 00:02:54[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@26959878
+DEBUG 20-12-18 00:02:54[main] [sqltiming:368] -  com.zaxxer.hikari.pool.ProxyStatement.executeQuery(ProxyStatement.java:111)
+1. select * from INFORMATION_SCHEMA.SEQUENCES
+ {executed in 22 msec}
+DEBUG 20-12-18 00:02:54[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@67a89243
+DEBUG 20-12-18 00:02:54[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@241ec946
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6d1c53d4
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3c9162a
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@12861dc4
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@55a45adc
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@74c5ca4
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@38297600
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@27fa7f8
+INFO  20-12-18 00:02:55[main] [JtaPlatformInitiator:52] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@77905674
+INFO  20-12-18 00:02:55[main] [LocalContainerEntityManagerFactoryBean:416] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+INFO  20-12-18 00:02:55[main] [InnoMesApplication:36] - ==============================    active_name : local  ==============================
+INFO  20-12-18 00:02:55[main] [InnoMesApplication:37] - ==============================    zone_id : Asia/Seoul==============================
+INFO  20-12-18 00:02:55[main] [InnoMesApplication:38] - ==============================    현재시각 : Fri Dec 18 00:02:55 KST 2020==============================
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@781cf06c
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5cad589e
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2fe0015c
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@70e92f0e
+DEBUG 20-12-18 00:02:55[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7770d075
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:02:55[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+DEBUG 20-12-18 00:02:56[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5a9a0d48
+DEBUG 20-12-18 00:02:56[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6ca3b66f
+DEBUG 20-12-18 00:02:56[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@13e5eb05
+DEBUG 20-12-18 00:02:56[HikariPool-1 connection adder] [HikariPool:417] - HikariPool-1 - After adding stats (total=20, active=0, idle=20, waiting=0)
+INFO  20-12-18 00:02:56[main] [EndpointLinksResolver:58] - Exposing 2 endpoint(s) beneath base path '/actuator'
+INFO  20-12-18 00:02:56[main] [ScheduledConfig:20] - scheduler
+INFO  20-12-18 00:02:56[main] [ThreadPoolTaskScheduler:171] - Initializing ExecutorService 'scheduler'
+WARN  20-12-18 00:02:56[main] [JpaBaseConfiguration$JpaWebConfiguration:220] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+WARN  20-12-18 00:02:56[main] [JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration:123] - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+INFO  20-12-18 00:02:56[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/**'], []
+INFO  20-12-18 00:02:56[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/webjars/**'], []
+INFO  20-12-18 00:02:56[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/static/**'], []
+INFO  20-12-18 00:02:56[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/static/static/**'], []
+INFO  20-12-18 00:02:56[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/js/**'], []
+INFO  20-12-18 00:02:56[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/css/**'], []
+INFO  20-12-18 00:02:56[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/img/**'], []
+INFO  20-12-18 00:02:56[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='**/swagger-resources/**'], []
+INFO  20-12-18 00:02:56[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+INFO  20-12-18 00:02:56[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/v2/api-docs'], []
+INFO  20-12-18 00:02:56[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/webjars/**'], []
+INFO  20-12-18 00:02:57[main] [DefaultSecurityFilterChain:43] - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63541cd4, org.springframework.security.web.context.SecurityContextPersistenceFilter@601e7c97, org.springframework.security.web.header.HeaderWriterFilter@32d8e58d, org.springframework.security.web.authentication.logout.LogoutFilter@7d0e43d6, com.innomes.main.jwt.JwtAuthenticationFilter@2111d7b9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18d09283, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1e4b9592, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7a023e34, org.springframework.security.web.session.SessionManagementFilter@5248c05a, org.springframework.security.web.access.ExceptionTranslationFilter@3fb42ec7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@9771c71]
+INFO  20-12-18 00:02:57[main] [Http11NioProtocol:173] - Starting ProtocolHandler ["http-nio-8080"]
+INFO  20-12-18 00:02:57[main] [TomcatWebServer:204] - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  20-12-18 00:02:57[main] [InnoMesApplication:61] - Started InnoMesApplication in 6.355 seconds (JVM running for 7.055)
+INFO  20-12-18 00:03:00[http-nio-8080-exec-1] [[/]:173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  20-12-18 00:03:00[http-nio-8080-exec-1] [DispatcherServlet:525] - Initializing Servlet 'dispatcherServlet'
+INFO  20-12-18 00:03:00[http-nio-8080-exec-1] [DispatcherServlet:547] - Completed initialization in 7 ms
+INFO  20-12-18 00:03:13[cluster-ClusterId{value='5fdb731d47182d00508c9aa8', description='null'}-192.168.10.41:27017] [cluster:76] - Exception in monitor thread while connecting to server 192.168.10.41:27017
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70)
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:128)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:64)
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79)
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65)
+	... 3 common frames omitted
+DEBUG 20-12-18 00:03:24[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=20, active=0, idle=20, waiting=0)
+DEBUG 20-12-18 00:03:54[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=20, active=0, idle=20, waiting=0)
+DEBUG 20-12-18 00:04:24[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=20, active=0, idle=20, waiting=0)
+INFO  20-12-18 00:04:31[RMI TCP Connection(10)-127.0.0.1] [SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin:159] - Application shutdown requested.
+INFO  20-12-18 00:04:31[RMI TCP Connection(10)-127.0.0.1] [ThreadPoolTaskScheduler:208] - Shutting down ExecutorService 'scheduler'
+INFO  20-12-18 00:04:31[RMI TCP Connection(10)-127.0.0.1] [LocalContainerEntityManagerFactoryBean:598] - Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO  20-12-18 00:04:31[RMI TCP Connection(10)-127.0.0.1] [HikariDataSource:350] - HikariPool-1 - Shutdown initiated...
+DEBUG 20-12-18 00:04:31[RMI TCP Connection(10)-127.0.0.1] [HikariPool:417] - HikariPool-1 - Before shutdown stats (total=20, active=0, idle=20, waiting=0)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5fb07347: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@26959878: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@67a89243: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@241ec946: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6d1c53d4: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3c9162a: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@12861dc4: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@55a45adc: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@74c5ca4: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@38297600: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@27fa7f8: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@77905674: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@781cf06c: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5cad589e: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2fe0015c: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@70e92f0e: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7770d075: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5a9a0d48: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6ca3b66f: (connection evicted)
+DEBUG 20-12-18 00:04:31[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@13e5eb05: (connection evicted)
+DEBUG 20-12-18 00:04:31[RMI TCP Connection(10)-127.0.0.1] [HikariPool:417] - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+INFO  20-12-18 00:04:31[RMI TCP Connection(10)-127.0.0.1] [HikariDataSource:352] - HikariPool-1 - Shutdown completed.
+INFO  20-12-18 00:04:33[main] [InnoMesApplication:55] - Starting InnoMesApplication on gimdoan-ui-MacBook-Pro.local with PID 11836 (/Users/kimdoan/Desktop/git/InnoMES/target/classes started by kimdoan in /Users/kimdoan/Desktop/git/InnoMES)
+INFO  20-12-18 00:04:33[main] [InnoMesApplication:655] - The following profiles are active: local
+WARN  20-12-18 00:04:34[main] [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[com.innomes.main.mapper]' package. Please check your configuration.
+INFO  20-12-18 00:04:34[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:04:34[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+INFO  20-12-18 00:04:34[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 5ms. Found 0 MongoDB repository interfaces.
+INFO  20-12-18 00:04:34[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:04:34[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+INFO  20-12-18 00:04:34[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 0ms. Found 0 Redis repository interfaces.
+INFO  20-12-18 00:04:34[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:04:34[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO  20-12-18 00:04:34[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 41ms. Found 1 JPA repository interfaces.
+WARN  20-12-18 00:04:34[main] [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[com.innomes.main]' package. Please check your configuration.
+INFO  20-12-18 00:04:35[main] [RepositoryConfigurationDelegate:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+INFO  20-12-18 00:04:35[main] [RepositoryConfigurationDelegate:127] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+INFO  20-12-18 00:04:35[main] [RepositoryConfigurationExtensionSupport:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.innomes.main.repository.MST140Repository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+INFO  20-12-18 00:04:35[main] [RepositoryConfigurationDelegate:187] - Finished Spring Data repository scanning in 15ms. Found 0 Redis repository interfaces.
+INFO  20-12-18 00:04:35[main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+INFO  20-12-18 00:04:35[main] [TomcatWebServer:92] - Tomcat initialized with port(s): 8080 (http)
+INFO  20-12-18 00:04:35[main] [Http11NioProtocol:173] - Initializing ProtocolHandler ["http-nio-8080"]
+INFO  20-12-18 00:04:35[main] [StandardService:173] - Starting service [Tomcat]
+INFO  20-12-18 00:04:35[main] [StandardEngine:173] - Starting Servlet engine: [Apache Tomcat/9.0.30]
+INFO  20-12-18 00:04:36[main] [TldScanner:173] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+INFO  20-12-18 00:04:36[main] [[/]:173] - Initializing Spring embedded WebApplicationContext
+INFO  20-12-18 00:04:36[main] [ContextLoader:284] - Root WebApplicationContext: initialization completed in 2452 ms
+DEBUG 20-12-18 00:04:36[main] [HikariConfig:900] - Driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+sun.misc.Launcher$AppClassLoader@764c12b6
+
+INFO  20-12-18 00:04:36[main] [cluster:71] - Cluster created with settings {hosts=[192.168.10.41:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO  20-12-18 00:04:36[main] [cluster:71] - Adding discovered server 192.168.10.41:27017 to client view of cluster
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1020] - HikariPool-1 - configuration:
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - allowPoolSuspension.............false
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - autoCommit......................true
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - catalog.........................none
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - connectionInitSql...............none
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - connectionTestQuery.............none
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - connectionTimeout...............30000
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - dataSource......................none
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - dataSourceClassName.............none
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - dataSourceJNDI..................none
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - dataSourceProperties............{password=<masked>}
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - driverClassName................."net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - healthCheckProperties...........{}
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - healthCheckRegistry.............none
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - idleTimeout.....................600000
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - initializationFailTimeout.......1
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - isolateInternalQueries..........false
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - jdbcUrl.........................jdbc:log4jdbc:sqlserver://database-1.cy5qk7fgotat.ap-northeast-2.rds.amazonaws.com:1433;databaseName=InnoMES
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - leakDetectionThreshold..........0
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - maxLifetime.....................1800000
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - maximumPoolSize.................20
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - metricRegistry..................none
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - metricsTrackerFactory...........none
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - minimumIdle.....................20
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - password........................<masked>
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - poolName........................"HikariPool-1"
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - readOnly........................false
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - registerMbeans..................false
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - scheduledExecutor...............none
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - schema..........................none
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - threadFactory...................internal
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - transactionIsolation............default
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - username........................"admin"
+DEBUG 20-12-18 00:04:37[main] [HikariConfig:1052] - validationTimeout...............5000
+INFO  20-12-18 00:04:37[main] [HikariDataSource:110] - HikariPool-1 - Starting...
+DEBUG 20-12-18 00:04:37[main] [HikariPool:558] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4efb13f1
+INFO  20-12-18 00:04:37[main] [HikariDataSource:123] - HikariPool-1 - Start completed.
+INFO  20-12-18 00:04:37[main] [LogHelper:31] - HHH000204: Processing PersistenceUnitInfo [name: default]
+DEBUG 20-12-18 00:04:37[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+INFO  20-12-18 00:04:37[main] [Version:46] - HHH000412: Hibernate Core {5.4.10.Final}
+DEBUG 20-12-18 00:04:37[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@44419a3
+INFO  20-12-18 00:04:37[main] [Version:49] - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+DEBUG 20-12-18 00:04:37[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@45791398
+DEBUG 20-12-18 00:04:38[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@28bedf8b
+INFO  20-12-18 00:04:38[main] [Dialect:172] - HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+DEBUG 20-12-18 00:04:38[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6d260f6c
+DEBUG 20-12-18 00:04:38[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2118b530
+DEBUG 20-12-18 00:04:38[main] [sqltiming:368] -  com.zaxxer.hikari.pool.ProxyStatement.executeQuery(ProxyStatement.java:111)
+1. select * from INFORMATION_SCHEMA.SEQUENCES
+ {executed in 21 msec}
+DEBUG 20-12-18 00:04:38[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7a1280dc
+DEBUG 20-12-18 00:04:38[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@27cd744b
+DEBUG 20-12-18 00:04:38[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6fefd16d
+DEBUG 20-12-18 00:04:38[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@ed78b82
+DEBUG 20-12-18 00:04:38[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3cc4a58c
+DEBUG 20-12-18 00:04:39[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7beb64e0
+DEBUG 20-12-18 00:04:39[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6f0961b0
+DEBUG 20-12-18 00:04:39[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@15030bde
+INFO  20-12-18 00:04:39[main] [JtaPlatformInitiator:52] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO  20-12-18 00:04:39[main] [LocalContainerEntityManagerFactoryBean:416] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+INFO  20-12-18 00:04:39[main] [InnoMesApplication:36] - ==============================    active_name : local  ==============================
+INFO  20-12-18 00:04:39[main] [InnoMesApplication:37] - ==============================    zone_id : Asia/Seoul==============================
+INFO  20-12-18 00:04:39[main] [InnoMesApplication:38] - ==============================    현재시각 : Fri Dec 18 00:04:39 KST 2020==============================
+DEBUG 20-12-18 00:04:39[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4df62e85
+DEBUG 20-12-18 00:04:39[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1a605782
+DEBUG 20-12-18 00:04:39[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@12d1d4aa
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+DEBUG 20-12-18 00:04:39[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@378e9334
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+DEBUG 20-12-18 00:04:39[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@300b0a62
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  20-12-18 00:04:39[main] [StatisticalLoggingSessionEventListener:258] - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+DEBUG 20-12-18 00:04:39[HikariPool-1 connection adder] [HikariPool:722] - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@c824e4b
+DEBUG 20-12-18 00:04:39[HikariPool-1 connection adder] [HikariPool:417] - HikariPool-1 - After adding stats (total=20, active=0, idle=20, waiting=0)
+INFO  20-12-18 00:04:39[main] [EndpointLinksResolver:58] - Exposing 2 endpoint(s) beneath base path '/actuator'
+INFO  20-12-18 00:04:40[main] [ScheduledConfig:20] - scheduler
+INFO  20-12-18 00:04:40[main] [ThreadPoolTaskScheduler:171] - Initializing ExecutorService 'scheduler'
+INFO  20-12-18 00:04:40[main] [PropertySourcedRequestMappingHandlerMapping:69] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+WARN  20-12-18 00:04:40[main] [JpaBaseConfiguration$JpaWebConfiguration:220] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+WARN  20-12-18 00:04:40[main] [JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration:123] - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/**'], []
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/webjars/**'], []
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/static/**'], []
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/resources/static/static/**'], []
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/js/**'], []
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/css/**'], []
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/static/img/**'], []
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='**/swagger-resources/**'], []
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/v2/api-docs'], []
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/webjars/**'], []
+INFO  20-12-18 00:04:40[main] [DefaultSecurityFilterChain:43] - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@62158618, org.springframework.security.web.context.SecurityContextPersistenceFilter@4ac0fdc7, org.springframework.security.web.header.HeaderWriterFilter@5b49b1df, org.springframework.security.web.authentication.logout.LogoutFilter@356ab368, com.innomes.main.jwt.JwtAuthenticationFilter@7c31e01f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@689ea211, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2604940, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7945986a, org.springframework.security.web.session.SessionManagementFilter@1c24639e, org.springframework.security.web.access.ExceptionTranslationFilter@755033c5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7611e295]
+INFO  20-12-18 00:04:40[main] [DocumentationPluginsBootstrapper:160] - Context refreshed
+INFO  20-12-18 00:04:40[main] [DocumentationPluginsBootstrapper:163] - Found 1 custom documentation plugin(s)
+INFO  20-12-18 00:04:40[main] [ApiListingReferenceScanner:41] - Scanning for api listing references
+INFO  20-12-18 00:04:40[main] [Http11NioProtocol:173] - Starting ProtocolHandler ["http-nio-8080"]
+INFO  20-12-18 00:04:40[main] [TomcatWebServer:204] - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  20-12-18 00:04:40[main] [InnoMesApplication:61] - Started InnoMesApplication in 7.522 seconds (JVM running for 7.971)
+INFO  20-12-18 00:04:44[http-nio-8080-exec-1] [[/]:173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  20-12-18 00:04:44[http-nio-8080-exec-1] [DispatcherServlet:525] - Initializing Servlet 'dispatcherServlet'
+INFO  20-12-18 00:04:44[http-nio-8080-exec-1] [DispatcherServlet:547] - Completed initialization in 6 ms
+WARN  20-12-18 00:04:44[http-nio-8080-exec-2] [PageNotFound:1251] - No mapping for GET /
+WARN  20-12-18 00:04:44[http-nio-8080-exec-4] [PageNotFound:1251] - No mapping for GET /csrf
+INFO  20-12-18 00:04:56[cluster-ClusterId{value='5fdb7384c2cb182b4ea03961', description='null'}-192.168.10.41:27017] [cluster:76] - Exception in monitor thread while connecting to server 192.168.10.41:27017
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70)
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:128)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:64)
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79)
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65)
+	... 3 common frames omitted
+DEBUG 20-12-18 00:05:07[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=20, active=0, idle=20, waiting=0)
+DEBUG 20-12-18 00:05:37[HikariPool-1 housekeeper] [HikariPool:417] - HikariPool-1 - Pool stats (total=20, active=0, idle=20, waiting=0)
+INFO  20-12-18 00:05:41[RMI TCP Connection(10)-127.0.0.1] [SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin:159] - Application shutdown requested.
+INFO  20-12-18 00:05:41[RMI TCP Connection(10)-127.0.0.1] [ThreadPoolTaskScheduler:208] - Shutting down ExecutorService 'scheduler'
+INFO  20-12-18 00:05:41[RMI TCP Connection(10)-127.0.0.1] [LocalContainerEntityManagerFactoryBean:598] - Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO  20-12-18 00:05:42[RMI TCP Connection(10)-127.0.0.1] [HikariDataSource:350] - HikariPool-1 - Shutdown initiated...
+DEBUG 20-12-18 00:05:42[RMI TCP Connection(10)-127.0.0.1] [HikariPool:417] - HikariPool-1 - Before shutdown stats (total=20, active=0, idle=20, waiting=0)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4efb13f1: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@44419a3: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@45791398: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@28bedf8b: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6d260f6c: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2118b530: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7a1280dc: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@27cd744b: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6fefd16d: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@ed78b82: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3cc4a58c: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7beb64e0: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6f0961b0: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@15030bde: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4df62e85: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1a605782: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@12d1d4aa: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@378e9334: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@300b0a62: (connection evicted)
+DEBUG 20-12-18 00:05:42[HikariPool-1 connection closer] [PoolBase:130] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@c824e4b: (connection evicted)
+DEBUG 20-12-18 00:05:42[RMI TCP Connection(10)-127.0.0.1] [HikariPool:417] - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+INFO  20-12-18 00:05:42[RMI TCP Connection(10)-127.0.0.1] [HikariDataSource:352] - HikariPool-1 - Shutdown completed.
