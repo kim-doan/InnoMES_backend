@@ -32,7 +32,7 @@ import lombok.Setter;
 public class MST111 {
 	@Id
 	@Column(name="PRDT_ID")
-	private Integer prdtId;
+	private String prdtId;
 	
 	@Column(name="PRDT_TYPE")
 	private String prdtType;

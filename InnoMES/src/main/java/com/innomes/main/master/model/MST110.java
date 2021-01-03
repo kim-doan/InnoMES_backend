@@ -16,6 +16,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -32,9 +34,13 @@ import lombok.ToString;
 @Builder
 public class MST110 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GenericGenerator(
+			name="seq_id",
+			strategy="com.innomes.main.generator.ProductCodeGenerator"
+			)
+	@GeneratedValue(generator="seq_id")
 	@Column(name = "ITEM_ID")
-	private Integer itemId;
+	private String itemId;
 	
 	@Column(name = "ITEM_CODE")
 	private String itemCode;
