@@ -1,9 +1,18 @@
+node_modules
+dist/*
+*.log
+logs/
+*.properties
+*.yml
+.svn
+.mvn
+
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-.log
+!**/src/main/**
+!**/src/test/**
+
 ### STS ###
 .apt_generated
 .classpath
@@ -26,8 +35,8 @@ target/
 /nbdist/
 /.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
+/.metadata/
+FactoryViewAPI/FactoryViewAPI_src_20201026.zip
