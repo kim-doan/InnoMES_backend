@@ -14,7 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class MasterItemParam {
 	/*MST110 */
-	private Integer itemId;
+	private String itemId;
 	
 	private String itemCode;
 	
@@ -22,11 +22,11 @@ public class MasterItemParam {
 	
 	private String itemType;
 	
-	private double lotSize;
+	private Double lotSize;
 	
 	private String lotUnit;
 	
-	private double safetyQnt;
+	private Double safetyQnt;
 	
 	private String safetyUnit;
 	
@@ -35,7 +35,7 @@ public class MasterItemParam {
 	private Integer invType;
 	
 	// MST111
-	private Integer prdtId;
+	private String prdtId;
 	
 	private String prdtType;
 	
@@ -49,7 +49,7 @@ public class MasterItemParam {
 	
 	private String coatingSpec;
 	
-	private double batchSize;
+	private Double batchSize;
 	
 	private String batchUnit;
 	
@@ -64,7 +64,7 @@ public class MasterItemParam {
 	
 	private int incInspYN;
 	
-	private double incVolStd;
+	private Double incVolStd;
 	
 	private String incVolUnit;
 	
@@ -84,13 +84,13 @@ public class MasterItemParam {
 	
 	private String toolProc;
 	
-	private double toolLifeCnt;
+	private Double toolLifeCnt;
 	
-	private double toolWarningRate;
+	private Double toolWarningRate;
 	
-	private double toolChkCycle;
+	private Double toolChkCycle;
 	
-	private double toolRecycleCnt;
+	private Double toolRecycleCnt;
 	
 	private String repItemId;
 	
@@ -105,7 +105,7 @@ public class MasterItemParam {
 	
 	private String partGroup;
 	
-	private double partShiftCycle;
+	private Double partShiftCycle;
 	
 	private String cycleUnit;
 	
