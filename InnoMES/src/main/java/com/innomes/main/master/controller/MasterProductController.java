@@ -1,7 +1,5 @@
 package com.innomes.main.master.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.innomes.main.code.param.CodeInfoParam;
 import com.innomes.main.common.model.PageRequest;
 import com.innomes.main.master.dto.MasterItemDTO;
 import com.innomes.main.master.dto.MasterProductDTO;
@@ -42,6 +41,8 @@ public class MasterProductController {
 	@CrossOrigin
 	@PostMapping("/master/item/products")
 	public ListResult<MasterProductDTO> findAll(@RequestBody(required = false) MasterItemParam masterProductParam, final Pageable pageable) {
+		if(masterProductParam == null) //파라메터가 없을경우
+			masterProductParam = new MasterItemParam(); // 전체 조회
 		
 		return responseService.getListResult(MasterProductDTO.class, masterProductService.findAll(masterProductParam, pageable));
 	}

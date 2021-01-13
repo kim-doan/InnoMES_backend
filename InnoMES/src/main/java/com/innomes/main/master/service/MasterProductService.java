@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,10 +20,13 @@ import com.innomes.main.repository.MST111Repository;
 @Service
 @Transactional
 public class MasterProductService {
+	@Value("${spring.jpa.properties.hibernate.jdbc.batch_size}")
+	private int batchSize;
 	
 	@Autowired
 	private MST111Repository mst111Repository;
 	
+	//전체 조회
 	public List<MasterProductDTO> findAll(MasterItemParam masterItemParam, Pageable pageable) {
 		List<MST111> output = mst111Repository.findAllLike(masterItemParam, pageable);
 		
