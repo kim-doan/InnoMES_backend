@@ -1,5 +1,7 @@
 package com.innomes.main.master.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -12,12 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.innomes.main.code.param.CodeInfoParam;
 import com.innomes.main.common.model.PageRequest;
+import com.innomes.main.exception.CProductSaveException;
 import com.innomes.main.master.dto.MasterItemDTO;
 import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.model.MST110;
 import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.param.MasterItemParam;
+import com.innomes.main.master.param.MasterProductParam;
 import com.innomes.main.master.service.MasterProductService;
+import com.innomes.main.response.model.CommonResult;
 import com.innomes.main.response.model.ListResult;
 import com.innomes.main.response.service.ResponseService;
 
@@ -40,10 +45,23 @@ public class MasterProductController {
 	@ApiOperation(value = "제품 전체 조회", notes = "제품정보 전체를 반환합니다. (검색조건 필터링 가능)")
 	@CrossOrigin
 	@PostMapping("/master/item/products")
-	public ListResult<MasterProductDTO> findAll(@RequestBody(required = false) MasterItemParam masterProductParam, final Pageable pageable) {
+	public ListResult<MasterProductDTO> findAll(@RequestBody(required = false) MasterProductParam masterProductParam, final Pageable pageable) {
 		if(masterProductParam == null) //파라메터가 없을경우
-			masterProductParam = new MasterItemParam(); // 전체 조회
+			masterProductParam = new MasterProductParam(); // 전체 조회
 		
 		return responseService.getListResult(MasterProductDTO.class, masterProductService.findAll(masterProductParam, pageable));
+	}
+	
+	@ApiOperation(value = "제품 정보 저장", notes = "제품정보를 저장합니다.")
+	@CrossOrigin
+	@PostMapping("/master/item/products/save")
+	public CommonResult saveProduct(@RequestBody(required = true) MasterProductParam[] masterProductParam) {
+		boolean result = masterProductService.saveProduct(masterProductParam);
+		
+		if(result == true) {
+			return responseService.getSuccessResult();
+		} else {
+			throw new CProductSaveException();
+		}
 	}
 }
