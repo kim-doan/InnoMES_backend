@@ -87,7 +87,6 @@ public class MST110 {
 	@Column(name="USED", insertable = true, updatable = true)
 	private int used;
 	
-//    @OneToOne(mappedBy = "mst110", cascade = CascadeType.ALL)
-//    @PrimaryKeyJoinColumn
-//    private MST111 mst111;
+    @OneToOne(mappedBy = "mst110", cascade = CascadeType.ALL)
+    private MST111 mst111;
 }

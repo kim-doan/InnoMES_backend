@@ -70,7 +70,7 @@ public class MST111 {
 	@Column(name="MAT_PROC")
 	private String matProc;
 	
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "PRDT_ID")
     private MST110 mst110;

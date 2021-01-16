@@ -10,6 +10,7 @@ import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.QMST110;
 import com.innomes.main.master.model.QMST111;
 import com.innomes.main.master.param.MasterItemParam;
+import com.innomes.main.master.param.MasterProductParam;
 import com.innomes.main.repository.custom.MST111RepositoryCustom;
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.querydsl.core.BooleanBuilder;
@@ -23,7 +24,7 @@ public class MST111RepositoryImpl extends QuerydslRepositorySupport implements M
 	}
 
 	@Override
-	public List<MST111> findAllLike(MasterItemParam masterItemParam, Pageable pageable) {
+	public List<MST111> findAllLike(MasterProductParam masterProductParam, Pageable pageable) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		
 		QMST111 mst111 = QMST111.mST111;
@@ -31,33 +32,33 @@ public class MST111RepositoryImpl extends QuerydslRepositorySupport implements M
 		
 		BooleanBuilder builder = new BooleanBuilder();
 		
-		if(!StringUtils.isEmpty(masterItemParam.getItemId())) {
-			builder.and(mst110.itemId.like("%" + masterItemParam.getItemId() + "%"));
+		if(!StringUtils.isEmpty(masterProductParam.getItemId())) {
+			builder.and(mst110.itemId.like("%" + masterProductParam.getItemId() + "%"));
 		}
 		
 		//mst110
-		if(!StringUtils.isEmpty(masterItemParam.getItemCode())) {
-			builder.and(mst110.itemCode.like("%" + masterItemParam.getItemCode() + "%"));
+		if(!StringUtils.isEmpty(masterProductParam.getItemCode())) {
+			builder.and(mst110.itemCode.like("%" + masterProductParam.getItemCode() + "%"));
 		}
-		if(!StringUtils.isEmpty(masterItemParam.getItemName())) {
-			builder.and(mst110.itemName.like("%" + masterItemParam.getItemName() + "%"));
+		if(!StringUtils.isEmpty(masterProductParam.getItemName())) {
+			builder.and(mst110.itemName.like("%" + masterProductParam.getItemName() + "%"));
 		}
-		if(!StringUtils.isEmpty(masterItemParam.getItemType())) {
-			builder.and(mst110.itemType.like("%" + masterItemParam.getItemType() + "%"));
+		if(!StringUtils.isEmpty(masterProductParam.getItemType())) {
+			builder.and(mst110.itemType.like("%" + masterProductParam.getItemType() + "%"));
 		}
-		if(masterItemParam.getInvType() != null) {
-			builder.and(mst110.invType.eq(masterItemParam.getInvType()));
+		if(masterProductParam.getInvType() != null) {
+			builder.and(mst110.invType.eq(masterProductParam.getInvType()));
 		}
 		
 		//mst111
-		if(!StringUtils.isEmpty(masterItemParam.getPrdtType())) {
-			builder.and(mst111.prdtType.like("%" + masterItemParam.getPrdtType() + "%"));
+		if(!StringUtils.isEmpty(masterProductParam.getPrdtType())) {
+			builder.and(mst111.prdtType.like("%" + masterProductParam.getPrdtType() + "%"));
 		}
-		if(!StringUtils.isEmpty(masterItemParam.getPrdtCtg())) {
-			builder.and(mst111.prdtCtg.like("%" + masterItemParam.getPrdtCtg() + "%"));
+		if(!StringUtils.isEmpty(masterProductParam.getPrdtCtg())) {
+			builder.and(mst111.prdtCtg.like("%" + masterProductParam.getPrdtCtg() + "%"));
 		}
-		if(!StringUtils.isEmpty(masterItemParam.getPrdtGroup())) {
-			builder.and(mst111.prdtGroup.like("%" + masterItemParam.getPrdtGroup() + "%"));
+		if(!StringUtils.isEmpty(masterProductParam.getPrdtGroup())) {
+			builder.and(mst111.prdtGroup.like("%" + masterProductParam.getPrdtGroup() + "%"));
 		}
 		
 		
