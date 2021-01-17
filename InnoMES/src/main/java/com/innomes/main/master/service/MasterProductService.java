@@ -119,7 +119,6 @@ public class MasterProductService {
 						.build();
 				
 				mst111.setMst110(mst110);
-				mst110.setMst111(mst111);
 				
 				mst111List.add(mst111);
 				

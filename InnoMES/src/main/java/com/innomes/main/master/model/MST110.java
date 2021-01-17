@@ -1,19 +1,13 @@
 package com.innomes.main.master.model;
 
-import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -87,6 +81,9 @@ public class MST110 {
 	@Column(name="USED", insertable = true, updatable = true)
 	private int used;
 	
-    @OneToOne(mappedBy = "mst110", cascade = CascadeType.ALL)
-    private MST111 mst111;
+//    @OneToOne(mappedBy = "mst110", cascade = CascadeType.ALL)
+//    private MST111 mst111;
+//    
+//    @OneToOne(mappedBy = "mst112", cascade = CascadeType.ALL)
+//    private MST112 mst112;
 }
