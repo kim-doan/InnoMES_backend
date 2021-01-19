@@ -11,7 +11,11 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.data.domain.Persistable;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +30,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SAL101 {
+public class SAL101 implements Persistable<SAL101PK>{
 	@Id
 	@Column(name = "SAL_PLAN_NO", insertable = false, updatable = false)
 	private Integer salPlanNo;
@@ -50,9 +54,27 @@ public class SAL101 {
 	@Column(name = "PLAN_QNT")
 	private Double planQnt; 
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+//	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumns(value = {
-			@JoinColumn(name = "SAL_PLAN_NO", referencedColumnName = "SAL_PLAN_NO", insertable = false, updatable = false)
+			@JoinColumn(name = "SAL_PLAN_NO", referencedColumnName = "SAL_PLAN_NO", insertable = false, updatable = false),
 	})
 	private SAL100 sal100;
+
+	@Transient
+	private boolean isNew = false;
+	
+	@Override
+	public SAL101PK getId() {
+		return SAL101PK.builder()
+				.salPlanNo(salPlanNo)
+				.salPlanSeq(salPlanSeq)
+				.build();
+	}
+
+	@Override
+	public boolean isNew() {
+		// TODO Auto-generated method stub
+		return isNew;
+	}
 }

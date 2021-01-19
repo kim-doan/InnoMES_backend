@@ -20,7 +20,7 @@ public class ProductCodeGenerator implements IdentifierGenerator {
         try {
  
             PreparedStatement ps = connection
-                    .prepareStatement("SELECT NEXT VALUE FOR SEQ_PRODUCT_ID AS nextval");
+                    .prepareStatement("SELECT NEXT VALUE FOR SEQ_ITEM_ID AS nextval");
  
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {

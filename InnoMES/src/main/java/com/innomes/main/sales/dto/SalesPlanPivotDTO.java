@@ -1,10 +1,9 @@
 package com.innomes.main.sales.dto;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import com.innomes.main.sales.model.SAL101;
+import javax.persistence.Column;
+import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SalesPlanDTO {
+public class SalesPlanPivotDTO {
 	//SAL100
 	private Integer salPlanNo;
 	
@@ -40,5 +39,16 @@ public class SalesPlanDTO {
 	
 	private int used;
 	
-	List<SalesPlanLogDTO> salesPlanLog = new ArrayList<SalesPlanLogDTO>();
+	//SAL101
+	private Integer salPlanSeq;
+	
+	private String regType;
+	
+	private String regUser;
+	
+	private Date regTime;
+	
+	private String regCause;
+
+	private Double planQnt; 
 }

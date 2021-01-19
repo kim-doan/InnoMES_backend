@@ -41,6 +41,16 @@ public class SalesPlanParam {
 	private int used;
 	
 	//SAL101
-	private SAL101 sal101;
+	private Integer salPlanSeq;
+	
+	private String regType;
+	
+	private String regUser;
+	
+	private Date regTime;
+	
+	private String regCause;
+
+	private Double planQnt; 
 	
 }

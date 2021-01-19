@@ -9,8 +9,6 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.innomes.main.master.model.MST111.MST111Builder;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

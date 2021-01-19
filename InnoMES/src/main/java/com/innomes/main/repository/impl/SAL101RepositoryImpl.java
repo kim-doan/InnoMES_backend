@@ -17,6 +17,7 @@ import com.innomes.main.sales.param.SalesPlanParam;
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryResults;
+import com.querydsl.core.types.dsl.NumberExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 public class SAL101RepositoryImpl extends QuerydslRepositorySupport implements SAL101RepositoryCustom {
@@ -85,7 +86,25 @@ public class SAL101RepositoryImpl extends QuerydslRepositorySupport implements S
 		builder.and(sal101.salPlanNo.eq(salPlanNo));
 		
 		Double result = query.from(sal101)
-				.select(sal101.planQnt.max())
+				.select(sal101.planQnt.sum())
+				.where(builder)
+				.fetchOne();
+		
+		return result;
+	}
+
+	@Override
+	public Integer maxPlanQnt(Integer salPlanNo) {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QSAL101 sal101 = QSAL101.sAL101;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(sal101.salPlanNo.eq(salPlanNo));
+		
+		Integer result = query.from(sal101)
+				.select(sal101.salPlanSeq.max())
 				.where(builder)
 				.fetchOne();
 		

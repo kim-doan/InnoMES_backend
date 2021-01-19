@@ -8,11 +8,16 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -22,9 +27,12 @@ import lombok.Setter;
 @Getter @Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
+@Builder
 public class SAL100 {
 	@Id
 	@Column(name = "SAL_PLAN_NO")
+	@SequenceGenerator(name = "SAL_PLAN_NO", sequenceName = "SEQ_SAL_PLAN_NO", initialValue = 1, allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SAL_PLAN_NO")
 	private Integer salPlanNo;
 	
 	@Column(name = "PLAN_YEAR")
@@ -57,6 +65,6 @@ public class SAL100 {
 	@Column(name = "USED", insertable = false, updatable = true)
 	private int used;
 	
-	@OneToMany(mappedBy = "sal100", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "sal100", cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	private List<SAL101> sal101 = new ArrayList<SAL101>();
 }

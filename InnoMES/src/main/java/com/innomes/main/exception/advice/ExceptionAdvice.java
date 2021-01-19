@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.innomes.main.exception.CAuthenticationEntryPointException;
+import com.innomes.main.exception.CSalesPlanNoNotFoundException;
+import com.innomes.main.exception.CSalesPlanSaveException;
 import com.innomes.main.exception.CSessionNotFoundException;
 import com.innomes.main.exception.CUserNotFoundException;
 import com.innomes.main.response.model.CommonResult;
@@ -78,5 +80,17 @@ public class ExceptionAdvice {
 	@ExceptionHandler(AccessDeniedException.class)
 	public CommonResult AccessDeniedException(HttpServletRequest request, AccessDeniedException e) {
 		return responseService.getFailResult("E0006", "해당 리소스에 접근권한이 없습니다.");
+	}
+	
+	//판매계획번호 조회오류
+	@ExceptionHandler(CSalesPlanNoNotFoundException.class)
+	public CommonResult salesPlanNoNotFoundException(HttpServletRequest request, CSalesPlanNoNotFoundException e) {
+		return responseService.getFailResult("E0007", "판매 계획 번호를 찾을 수 없습니다.");
+	}
+	
+	//판매계획내역 저장실패
+	@ExceptionHandler(CSalesPlanSaveException.class)
+	public CommonResult salesPlanSaveException(HttpServletRequest request, CSalesPlanSaveException e) {
+		return responseService.getFailResult("E0008", "판매 계획내역 저장에 실패했습니다.");
 	}
 }
