@@ -11,23 +11,23 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Configuration
-//@MapperScan(basePackages = "com.innomes.main.mapper")
+@MapperScan(basePackages = "com.innomes.main.mapper")
 public class DataAccessConfig {
-//    @Bean
-//    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
-//    	
-//        SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-//
-//        sessionFactory.setDataSource(dataSource);
-//        sessionFactory.setMapperLocations(
-//        		new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/*.xml"));
-//        sessionFactory.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
-//        sessionFactory.getObject().getConfiguration().setCallSettersOnNulls(true);
-//        return sessionFactory.getObject();
-//    }
-//
-//    @Bean
-//    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
-//        return new SqlSessionTemplate(sqlSessionFactory);
-//    }
+    @Bean
+    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+    	
+        SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+
+        sessionFactory.setDataSource(dataSource);
+        sessionFactory.setMapperLocations(
+        		new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/*.xml"));
+        sessionFactory.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
+        sessionFactory.getObject().getConfiguration().setCallSettersOnNulls(true);
+        return sessionFactory.getObject();
+    }
+
+    @Bean
+    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
+        return new SqlSessionTemplate(sqlSessionFactory);
+    }
 }

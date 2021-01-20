@@ -8,25 +8,21 @@ import java.sql.SQLException;
 
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
-import org.hibernate.id.IdentifierGenerator;
 
-public class ProductCodeGenerator implements IdentifierGenerator {
+public class SalesPlanCodeGenerator {
 
-	@Override
 	public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
 		 
-        String prefix = "I";
         Connection connection = session.connection();
         try {
  
             PreparedStatement ps = connection
-                    .prepareStatement("SELECT NEXT VALUE FOR SEQ_ITEM_ID AS nextval");
+                    .prepareStatement("SELECT NEXT VALUE FOR SEQ_SAL_PLAN_NO AS nextval");
  
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 int id = rs.getInt("nextval");
-                String code = prefix + String.format("%05d", id);
-                return code;
+                return id;
             }
  
         } catch (SQLException e) {
