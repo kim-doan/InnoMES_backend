@@ -13,9 +13,12 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.innomes.main.generator.ProductCodeGenerator;
+import com.innomes.main.generator.SalesPlanCodeGenerator;
+import com.innomes.main.mapper.AutoKeyMapper;
 import com.innomes.main.repository.SAL100Repository;
 import com.innomes.main.repository.SAL101Repository;
-import com.innomes.main.sales.dto.SalesPlanPivotDTO;
+import com.innomes.main.sales.dto.SalesPlanMainDTO;
 import com.innomes.main.sales.dto.SalesPlanDTO;
 import com.innomes.main.sales.dto.SalesPlanLogDTO;
 import com.innomes.main.sales.model.SAL100;
@@ -35,16 +38,19 @@ public class SalesPlanService {
 	@Autowired
 	private SAL101Repository sal101Repository;
 	
+	@Autowired
+	private AutoKeyMapper autoKeyMapper;
+	
 	//판매계획관리 조회
-	public Page<SalesPlanPivotDTO> getSalesPlanList(SalesPlanParam salesPlanParam, Pageable pageable) {
+	public Page<SalesPlanMainDTO> getSalesPlanList(SalesPlanParam salesPlanParam, Pageable pageable) {
 		Page<SAL101> output = sal101Repository.getSalesPlan(salesPlanParam, pageable);
 		
 		List<SAL101> content = output.getContent();
 		
-		List<SalesPlanPivotDTO> dtoList = new ArrayList<SalesPlanPivotDTO>();
+		List<SalesPlanMainDTO> dtoList = new ArrayList<SalesPlanMainDTO>();
 		
 		for(int i=0;i<content.size();i++) {
-			SalesPlanPivotDTO salesPlanDTO = SalesPlanPivotDTO.builder()
+			SalesPlanMainDTO salesPlanDTO = SalesPlanMainDTO.builder()
 					.salPlanNo(content.get(i).getSalPlanNo())
 					.planYear(content.get(i).getSal100().getPlanYear())
 					.planMonth(content.get(i).getSal100().getPlanMonth())
@@ -127,12 +133,22 @@ public class SalesPlanService {
 		try {
 			for(int i=0;i<salesPlanParam.length;i++) {
 				Double sumPlanQnt = null;
+				Integer salPlanNo = null;
+				boolean isNew = true;
 				
-				if(salesPlanParam[i].getSalPlanNo() != null)
+				if(salesPlanParam[i].getSalPlanNo() != null) {
+					//UPDATE
+					salPlanNo = salesPlanParam[i].getSalPlanNo();
 					sumPlanQnt = sal101Repository.sumPlanQnt(salesPlanParam[i].getSalPlanNo());
+					isNew = false;
+				} else {
+					//INSERT
+					salPlanNo = autoKeyMapper.seqSalPlanNo();
+					isNew = true;
+				}
 				
 				SAL100 sal100 = SAL100.builder()
-						.salPlanNo(salesPlanParam[i].getSalPlanNo())
+						.salPlanNo(salPlanNo)
 						.planYear(salesPlanParam[i].getPlanYear())
 						.planMonth(salesPlanParam[i].getPlanMonth())
 						.compId(salesPlanParam[i].getCompId())
@@ -143,11 +159,11 @@ public class SalesPlanService {
 						.updateUser(salesPlanParam[i].getUpdateUser())
 						.updateTime(new Date())
 						.used(salesPlanParam[i].getUsed())
+						.isNew(isNew)
 						.build();
 				
-				
 				SAL101 sal101 = SAL101.builder()
-						.salPlanNo(salesPlanParam[i].getSalPlanNo())
+						.salPlanNo(salPlanNo)
 						.regType(salesPlanParam[i].getRegType())
 						.regUser(salesPlanParam[i].getRegUser())
 						.regTime(new Date())
@@ -158,38 +174,36 @@ public class SalesPlanService {
 				
 				if(sumPlanQnt != null) {
 					sumPlanQnt = salesPlanParam[i].getPlanQnt() - sumPlanQnt; // 계획량 - (내역 계획량 SUM)
-					
 					sal101.setSalPlanSeq(sal101Repository.maxPlanQnt(sal101.getSalPlanNo()) + 1); // 해당 계획의 maxSeq + 1
 					sal101.setPlanQnt(sumPlanQnt);
 				} else {
 					sumPlanQnt = salesPlanParam[i].getPlanQnt(); // 계획량
-					
 					sal101.setSalPlanSeq(1);
 					sal101.setPlanQnt(sumPlanQnt);
 				}
 				
-				sal101.setSal100(sal100);
-//				sal101List.add(sal101);
-//				sal100.setSal101(sal101List);
-				
-//				sal100List.add(sal100);
+//				sal101.setSal100(sal100);
 				sal101List.add(sal101);
+				sal100.setSal101(sal101List);
+				
+				sal100List.add(sal100);
+//				sal101List.add(sal101);
 				
 				if ((i + 1) % batchSize == 0 && i > 0) {
-//					sal100Repository.saveAll(sal100List);
-//					sal100Repository.flush();
-//					sal100List.clear();
-					sal101Repository.saveAll(sal101List);
-					sal101Repository.flush();
-					sal101List.clear();
+					sal100Repository.saveAll(sal100List);
+					sal100Repository.flush();
+					sal100List.clear();
+//					sal101Repository.saveAll(sal101List);
+//					sal101Repository.flush();
+//					sal101List.clear();
 				}
 			}
-//			sal100Repository.saveAll(sal100List);
-//			sal100Repository.flush();
-//			sal100List.clear();
-			sal101Repository.saveAll(sal101List);
-			sal101Repository.flush();
-			sal101List.clear();
+			sal100Repository.saveAll(sal100List);
+			sal100Repository.flush();
+			sal100List.clear();
+//			sal101Repository.saveAll(sal101List);
+//			sal101Repository.flush();
+//			sal101List.clear();
 		} catch (Exception e) {
 			success = false;
 		}

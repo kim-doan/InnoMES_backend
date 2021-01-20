@@ -13,7 +13,7 @@ import com.innomes.main.response.model.CommonResult;
 import com.innomes.main.response.model.ListResult;
 import com.innomes.main.response.model.PageListResult;
 import com.innomes.main.response.service.ResponseService;
-import com.innomes.main.sales.dto.SalesPlanPivotDTO;
+import com.innomes.main.sales.dto.SalesPlanMainDTO;
 import com.innomes.main.sales.dto.SalesPlanDTO;
 import com.innomes.main.sales.param.SalesPlanParam;
 import com.innomes.main.sales.service.SalesPlanService;
@@ -37,11 +37,11 @@ public class SalesPlanController {
 	@CrossOrigin
 	@ApiOperation(value = "판매계획 조회", notes = "판매계획정보 전체를 반환합니다. (검색조건 필터링 가능)")
 	@PostMapping("/sales/planList")
-	public PageListResult<SalesPlanPivotDTO> getSalesPlanList(@RequestBody(required = false) SalesPlanParam salesPlanParam, final Pageable pageable) {
+	public PageListResult<SalesPlanMainDTO> getSalesPlanList(@RequestBody(required = false) SalesPlanParam salesPlanParam, final Pageable pageable) {
 		if(salesPlanParam == null) //파라메터가 없을경우
 			salesPlanParam = new SalesPlanParam(); // 전체 조회
 		
-		return responseService.getPageListResult(SalesPlanPivotDTO.class, salesPlanService.getSalesPlanList(salesPlanParam, pageable));
+		return responseService.getPageListResult(SalesPlanMainDTO.class, salesPlanService.getSalesPlanList(salesPlanParam, pageable));
 	}
 	
 	@CrossOrigin

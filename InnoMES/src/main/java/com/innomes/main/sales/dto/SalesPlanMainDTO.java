@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SalesPlanPivotDTO {
+public class SalesPlanMainDTO {
 	//SAL100
 	private Integer salPlanNo;
 	
