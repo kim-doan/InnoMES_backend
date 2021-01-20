@@ -65,7 +65,7 @@ public class SAL100 implements Persistable<Integer>{
 	@Column(name = "UPDATE_TIME", insertable = false, updatable = true)
 	private Date updateTime;
 	
-	@Column(name = "USED", insertable = false, updatable = true)
+	@Column(name = "USED")
 	private int used;
 	
 	@OneToMany(mappedBy = "sal100", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

@@ -53,7 +53,7 @@ public class SAL111 implements Persistable<SAL111PK> {
 	@Column(name = "DESCRIPTION")
 	private String description;
 	
-	@Column(name = "USED", insertable = false, updatable = true)
+	@Column(name = "USED")
 	private int used;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
