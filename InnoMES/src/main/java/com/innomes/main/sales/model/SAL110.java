@@ -27,7 +27,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SAL110 implements Persistable<Integer>{
+public class SAL110 implements Persistable<Integer> {
 	@Id
 	@Column(name = "ORD_ID")
 	private Integer ordId;
@@ -69,7 +69,7 @@ public class SAL110 implements Persistable<Integer>{
 	private int used;
 	
 	@OneToMany(mappedBy = "sal110", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<SAL110> SAL110 = new ArrayList<SAL110>(); 
+	private List<SAL111> sal111 = new ArrayList<SAL111>(); 
 	
 	@Transient
 	private boolean isNew = false;

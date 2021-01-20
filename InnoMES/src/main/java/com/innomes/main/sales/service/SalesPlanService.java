@@ -12,7 +12,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
+import com.innomes.main.exception.CSalesPlanSaveException;
 import com.innomes.main.generator.ProductCodeGenerator;
 import com.innomes.main.generator.SalesPlanCodeGenerator;
 import com.innomes.main.mapper.AutoKeyMapper;
@@ -182,29 +184,27 @@ public class SalesPlanService {
 					sal101.setPlanQnt(sumPlanQnt);
 				}
 				
-//				sal101.setSal100(sal100);
 				sal101List.add(sal101);
 				sal100.setSal101(sal101List);
 				
 				sal100List.add(sal100);
-//				sal101List.add(sal101);
 				
 				if ((i + 1) % batchSize == 0 && i > 0) {
 					sal100Repository.saveAll(sal100List);
 					sal100Repository.flush();
 					sal100List.clear();
-//					sal101Repository.saveAll(sal101List);
-//					sal101Repository.flush();
-//					sal101List.clear();
 				}
 			}
 			sal100Repository.saveAll(sal100List);
 			sal100Repository.flush();
 			sal100List.clear();
-//			sal101Repository.saveAll(sal101List);
-//			sal101Repository.flush();
-//			sal101List.clear();
+		} catch (CSalesPlanSaveException e) {
+			e.printStackTrace();
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
+			throw new CSalesPlanSaveException();
 		} catch (Exception e) {
+			e.printStackTrace();
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
 			success = false;
 		}
 		

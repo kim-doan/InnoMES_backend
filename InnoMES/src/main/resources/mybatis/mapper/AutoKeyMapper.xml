@@ -5,4 +5,9 @@
 	<select id="seqSalPlanNo" resultType="Integer" flushCache="true">
 		SELECT NEXT VALUE FOR SEQ_SAL_PLAN_NO;
 	</select>
+	
+	<!-- 수주관리 번호 시퀀스 -->
+	<select id="seqOrdId" resultType="Integer" flushCache="true">
+		SELECT NEXT VALUE FOR SEQ_ORD_ID;
+	</select>
 </mapper>

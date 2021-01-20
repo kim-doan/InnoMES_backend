@@ -2,10 +2,15 @@ package com.innomes.main.sales.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -51,6 +56,12 @@ public class SAL111 implements Persistable<SAL111PK> {
 	@Column(name = "USED", insertable = false, updatable = true)
 	private int used;
 
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+	@JoinColumns(value = {
+			@JoinColumn(name = "ORD_ID", referencedColumnName = "ORD_ID", insertable = false, updatable = false),
+	})
+	private SAL110 sal110;
+	
 	@Transient
 	private boolean isNew = false;
 	
