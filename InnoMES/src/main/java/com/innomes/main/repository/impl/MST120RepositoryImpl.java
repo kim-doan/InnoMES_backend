@@ -41,7 +41,7 @@ public class MST120RepositoryImpl extends QuerydslRepositorySupport implements M
 		if(!StringUtils.isEmpty(masterProcessParam.getProcType())) {
 			builder.and(mst120.procType.like("%" + masterProcessParam.getProcType() + "%"));
 		}
-		builder.and(mst120.used.eq(0));
+		builder.and(mst120.used.eq(1));
 		
 		QueryResults<MST120> result = query.from(mst120)
 				.select(mst120)
