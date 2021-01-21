@@ -51,8 +51,6 @@ public class SAL111RepositoryImpl extends QuerydslRepositorySupport implements S
 		
 		builder.and(sal111B.ordId.isNull());
 		builder.and(sal110.used.eq(1));
-		builder.and(sal111.used.eq(1));
-		builder.and(sal111B.used.eq(1));
 		
 		QueryResults<SAL111> result = query.from(sal111)
 				.select(sal111)
