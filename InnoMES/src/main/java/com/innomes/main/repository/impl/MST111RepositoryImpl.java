@@ -11,6 +11,9 @@ import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.QMST110;
 import com.innomes.main.master.model.QMST111;
+import com.innomes.main.master.model.QMST120;
+import com.innomes.main.master.model.QMST200;
+import com.innomes.main.master.model.QMST210;
 import com.innomes.main.master.param.MasterItemParam;
 import com.innomes.main.master.param.MasterProductParam;
 import com.innomes.main.repository.custom.MST111RepositoryCustom;
@@ -73,6 +76,86 @@ public class MST111RepositoryImpl extends QuerydslRepositorySupport implements M
 		.offset(pageable.getOffset())
 		.limit(pageable.getPageSize())
 		.fetchResults();
+		
+		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
+	}
+
+	@Override
+	public Page<MST111> getManufactureItem(MasterProductParam masterProductParam, Pageable pageable) {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		QMST200 mst200 = QMST200.mST200;
+		QMST210 mst210 = QMST210.mST210;
+		QMST110 mst110 = QMST110.mST110;
+		QMST111 mst111 = QMST111.mST111;
+		QMST120 mst120 = QMST120.mST120;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		if(!StringUtils.isEmpty(masterProductParam.getPrdtId())) {
+			builder.and(mst111.prdtId.eq(masterProductParam.getPrdtId()));
+		}
+		
+		if(!StringUtils.isEmpty(masterProductParam.getItemCode())) {
+			builder.and(mst111.mst110.itemCode.like("%" + masterProductParam.getItemCode() + "%"));
+		}
+		
+		if(!StringUtils.isEmpty(masterProductParam.getItemName())) {
+			builder.and(mst111.mst110.itemName.like("%" + masterProductParam.getItemName() + "%"));
+		}
+		
+		if(!StringUtils.isEmpty(masterProductParam.getPrdtType())) {
+			builder.and(mst111.prdtType.eq(masterProductParam.getPrdtType()));
+		}
+		
+		if(!StringUtils.isEmpty(masterProductParam.getPrdtCtg())) {
+			builder.and(mst111.prdtCtg.eq(masterProductParam.getPrdtCtg()));
+		}
+		
+		if(!StringUtils.isEmpty(masterProductParam.getPrdtGroup())) {
+			builder.and(mst111.prdtGroup.eq(masterProductParam.getPrdtGroup()));
+		}
+		
+//		if(!StringUtils.isEmpty(masterProductParam.getPrdtStatus())) {
+//			builder.and(mst200.prdtStatus.eq(masterProductParam.getPrdtStatus()));
+//		}
+		
+		if(!StringUtils.isEmpty(masterProductParam.getAttMatType())) {
+			builder.and(mst111.attMatType.eq(masterProductParam.getAttMatType()));
+		}
+		
+		if(!StringUtils.isEmpty(masterProductParam.getAttStdType())) {
+			builder.and(mst111.attStdType.eq(masterProductParam.getAttStdType()));
+		}
+		
+		if(!StringUtils.isEmpty(masterProductParam.getAttDiaType())) {
+			builder.and(mst111.attDiaType.eq(masterProductParam.getAttDiaType()));
+		}
+		
+		if(!StringUtils.isEmpty(masterProductParam.getHeatSpec())) {
+			builder.and(mst111.heatSpec.eq(masterProductParam.getHeatSpec()));
+		}
+		
+		if(!StringUtils.isEmpty(masterProductParam.getSurfaceSpec())) {
+			builder.and(mst111.surfaceSpec.eq(masterProductParam.getSurfaceSpec()));
+		}
+		
+		if(!StringUtils.isEmpty(masterProductParam.getCoatingSpec())) {
+			builder.and(mst111.coatingSpec.eq(masterProductParam.getCoatingSpec()));
+		}
+		
+//		builder.and(mst200.used.eq(1));
+		builder.and(mst111.mst110.used.eq(1));
+		
+		QueryResults<MST111> result = query.from(mst111)
+				.select(mst111)
+				.innerJoin(mst111.mst110, mst110)
+				.fetchJoin()
+				.innerJoin(mst111.mst210, mst210)
+				.fetchJoin()
+				.leftJoin(mst210.mst120, mst120)
+				.fetchJoin()
+				.where(builder)
+				.fetchResults();
 		
 		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
 	}
