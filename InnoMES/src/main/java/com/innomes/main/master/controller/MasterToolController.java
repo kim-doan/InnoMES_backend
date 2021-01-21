@@ -15,7 +15,7 @@ import com.innomes.main.master.dto.MasterToolDTO;
 import com.innomes.main.master.param.MasterToolParam;
 import com.innomes.main.master.service.MasterToolService;
 import com.innomes.main.response.model.CommonResult;
-import com.innomes.main.response.model.ListResult;
+import com.innomes.main.response.model.PageListResult;
 import com.innomes.main.response.service.ResponseService;
 
 import io.swagger.annotations.Api;
@@ -37,11 +37,11 @@ public class MasterToolController {
 	@ApiOperation(value = "공구 조회", notes = "공구정보를 반환합니다. (검색조건 필터링 가능)")
 	@CrossOrigin
 	@PostMapping("/master/item/tool")
-	public ListResult<MasterToolDTO> selectToolList(@RequestBody(required = false) MasterToolParam masterToolParam, final Pageable pageable) {
+	public PageListResult<MasterToolDTO> getToolList(@RequestBody(required = false) MasterToolParam masterToolParam, final Pageable pageable) {
 		
 		if (masterToolParam == null) masterToolParam = new MasterToolParam(); // 전체 조회
 
-		return responseService.getListResult(MasterToolDTO.class, masterToolService.getToolList(masterToolParam, pageable));
+		return responseService.getPageListResult(MasterToolDTO.class, masterToolService.getToolList(masterToolParam, pageable));
 	}
 	
 	@ApiOperation(value = "공구 정보 저장", notes = "공구정보를 저장합니다.")

@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,9 +29,9 @@ public class MasterToolService {
 	@Autowired
 	private MST113Repository mst113Repository;
 	
-	public List<MasterToolDTO> getToolList(MasterToolParam masterToolParam, Pageable pageable){
+	public Page<MasterToolDTO> getToolList(MasterToolParam masterToolParam, Pageable pageable){
 		
-		List<MST113> output = mst113Repository.findAllLike(masterToolParam, pageable);
+		Page<MST113> output = mst113Repository.findAllLike(masterToolParam, pageable);
 		
 		List<MasterToolDTO> dtoList = new ArrayList<MasterToolDTO>();
 		
@@ -61,7 +63,7 @@ public class MasterToolService {
 					.build();
 			dtoList.add(dto);
 		}
-		return dtoList;
+		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
 	}
 	public boolean saveTool(List<MasterToolParam> paramList) {
 		
