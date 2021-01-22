@@ -15,6 +15,13 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.data.domain.Persistable;
+import org.springframework.util.ObjectUtils;
+
+import com.innomes.main.master.param.MasterManufactureProcessParam;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,7 +36,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MST200 {
+public class MST200 implements Persistable<MST200PK>{
 	@Id
 	@Column(name = "PRDT_ID", insertable = false, updatable = false)
 	private String prdtId;
@@ -68,6 +75,28 @@ public class MST200 {
 	@Column(name = "USED")
 	private int used;
 	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+	@JoinColumns(value = {
+			@JoinColumn(name = "PRDT_ID", referencedColumnName = "PRDT_ID", insertable = false, updatable = false)
+	})
+	private MST111 mst111;
+	
 	@OneToMany(mappedBy = "mst200", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<MST210> mst210 = new ArrayList<MST210>();
+	
+	@Transient
+	private boolean isNew = false;
+
+	@Override
+	public MST200PK getId() {
+		return MST200PK.builder()
+				.prdtId(prdtId)
+				.routingRev(routingRev)
+				.build();
+	}
+
+	@Override
+	public boolean isNew() {
+		return isNew;
+	}
 }

@@ -1,26 +1,25 @@
 package com.innomes.main.repository.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.hibernate.Hibernate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 
-import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.QMST110;
 import com.innomes.main.master.model.QMST111;
 import com.innomes.main.master.model.QMST120;
 import com.innomes.main.master.model.QMST200;
 import com.innomes.main.master.model.QMST210;
-import com.innomes.main.master.param.MasterItemParam;
 import com.innomes.main.master.param.MasterProductParam;
 import com.innomes.main.repository.custom.MST111RepositoryCustom;
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryResults;
-import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 
@@ -115,9 +114,9 @@ public class MST111RepositoryImpl extends QuerydslRepositorySupport implements M
 			builder.and(mst111.prdtGroup.eq(masterProductParam.getPrdtGroup()));
 		}
 		
-//		if(!StringUtils.isEmpty(masterProductParam.getPrdtStatus())) {
-//			builder.and(mst200.prdtStatus.eq(masterProductParam.getPrdtStatus()));
-//		}
+		if(!StringUtils.isEmpty(masterProductParam.getPrdtStatus())) {
+			builder.and(mst200.prdtStatus.eq(masterProductParam.getPrdtStatus()));
+		}
 		
 		if(!StringUtils.isEmpty(masterProductParam.getAttMatType())) {
 			builder.and(mst111.attMatType.eq(masterProductParam.getAttMatType()));
@@ -143,20 +142,23 @@ public class MST111RepositoryImpl extends QuerydslRepositorySupport implements M
 			builder.and(mst111.coatingSpec.eq(masterProductParam.getCoatingSpec()));
 		}
 		
-//		builder.and(mst200.used.eq(1));
+		builder.and(mst200.used.eq(1).or(mst200.prdtId.isNull()));
 		builder.and(mst111.mst110.used.eq(1));
 		
-		QueryResults<MST111> result = query.from(mst111)
-				.select(mst111)
+		QueryResults<MST111> result = query.selectDistinct(mst111)
+				.from(mst111)
 				.innerJoin(mst111.mst110, mst110)
 				.fetchJoin()
-				.innerJoin(mst111.mst210, mst210)
-				.fetchJoin()
+				.leftJoin(mst111.mst210, mst210)
+				.leftJoin(mst210.mst200, mst200)
 				.leftJoin(mst210.mst120, mst120)
-				.fetchJoin()
 				.where(builder)
+				.offset(pageable.getOffset())
+				.limit(pageable.getPageSize())
 				.fetchResults();
 		
+//		result.getResults().stream().map(MST111::getMst110).forEach(Hibernate::initialize);
+//		result.getResults().stream().map(MST111::getMst210).forEach(Hibernate::initialize);
 		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
 	}
 }

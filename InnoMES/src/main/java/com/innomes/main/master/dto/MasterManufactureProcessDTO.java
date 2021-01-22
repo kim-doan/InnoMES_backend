@@ -19,8 +19,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class MasterManufactureProcessDTO {
+	//MST200
 	private String prdtId;
-
+	
 	private Integer routingRev;
 	
 	private String prdtStatus;
@@ -43,5 +44,29 @@ public class MasterManufactureProcessDTO {
 	
 	private int used;
 	
-	List<MasterManufactureRoutingParam> routingParam = new ArrayList<MasterManufactureRoutingParam>();
+	// MST110, 111
+	private String itemCode;
+	
+	private String itemName;
+	
+	private String prdtType;
+	
+	private String prdtCtg;
+	
+	private String prdtGroup;	
+	
+	private String attMatType;
+	
+	private String attStdType;
+	
+	private String attDiaType;
+	
+	private String heatSpec;
+	
+	private String surfaceSpec;
+	
+	private String coatingSpec;
+	
+	//MST210
+	List<MasterManufactureRoutingDTO> routeList = new ArrayList<MasterManufactureRoutingDTO>();
 }

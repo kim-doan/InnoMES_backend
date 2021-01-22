@@ -1,11 +1,6 @@
 package com.innomes.main.master.param;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,30 +12,30 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MasterManufactureProcessParam {
+public class MasterBomParam {
 	private String prdtId;
 
-	private Integer routingRev;
+	private String procCode;
+
+	private Integer bomSeq;
+
+	private Integer swapSeq;
 	
-	private String prdtStatus;
+	private String itemId;
 	
-	private String revUser;
+	private Double inQnt;
 	
-	private Date revDate;
-	
-	private String revCause;
+	private String inUnit;
 	
 	private String description;
-	
+
 	private String createUser;
-	
+
 	private Date createTime;
-	
+
 	private String updateUser;
-	
+
 	private Date updateTime;
-	
+
 	private int used;
-	
-	List<MasterManufactureRoutingParam> routeList = new ArrayList<MasterManufactureRoutingParam>();
 }

@@ -1,5 +1,8 @@
 package com.innomes.main.master.param;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 
@@ -38,4 +41,6 @@ public class MasterManufactureRoutingParam {
 	private Double unitWeight;
 	
 	private String locCode;
+	
+	List<MasterBomParam> bomList = new ArrayList<MasterBomParam>();
 }
