@@ -15,6 +15,7 @@ import com.innomes.main.master.param.MasterProductParam;
 import com.innomes.main.master.service.MasterMaterialService;
 import com.innomes.main.response.model.CommonResult;
 import com.innomes.main.response.model.ListResult;
+import com.innomes.main.response.model.PageListResult;
 import com.innomes.main.response.service.ResponseService;
 
 import io.swagger.annotations.Api;
@@ -35,11 +36,11 @@ public class MasterMaterialController {
 	@ApiOperation(value = "자재 전체 조회", notes = "자재정보 전체를 반환합니다. (검색조건 필터링 가능)")
 	@CrossOrigin
 	@PostMapping("/master/item/materials")
-	public ListResult<MasterMaterialDTO> getMaterial(@RequestBody(required = false) MasterMaterialParam masterMaterialParam, final Pageable pageable){
+	public PageListResult<MasterMaterialDTO> getMaterial(@RequestBody(required = false) MasterMaterialParam masterMaterialParam, final Pageable pageable){
 		if(masterMaterialParam == null)
 			masterMaterialParam = new MasterMaterialParam();
 		
-		return responseService.getListResult(MasterMaterialDTO.class, masterMaterialService.getMaterial(masterMaterialParam, pageable));
+		return responseService.getPageListResult(MasterMaterialDTO.class, masterMaterialService.getMaterial(masterMaterialParam, pageable));
 	}
 	
 	@ApiOperation(value = "자재 정보 저장", notes = "자재정보를 저장합니다.")

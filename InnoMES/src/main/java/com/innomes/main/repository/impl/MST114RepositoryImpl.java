@@ -2,6 +2,8 @@ package com.innomes.main.repository.impl;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 
@@ -12,6 +14,7 @@ import com.innomes.main.master.param.MasterSpareParam;
 import com.innomes.main.repository.custom.MST114RepositoryCustom;
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.QueryResults;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 public class MST114RepositoryImpl extends QuerydslRepositorySupport implements MST114RepositoryCustom{
@@ -20,7 +23,7 @@ public class MST114RepositoryImpl extends QuerydslRepositorySupport implements M
 	}
 	
 	@Override
-	public List<MST114> findAllLike(MasterSpareParam masterSpareParam, Pageable pageable) {
+	public Page<MST114> findAllLike(MasterSpareParam masterSpareParam, Pageable pageable) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		
 		QMST114 mst114 = QMST114.mST114;
@@ -57,15 +60,15 @@ public class MST114RepositoryImpl extends QuerydslRepositorySupport implements M
 			builder.and(mst114.partGroup.like("%" + masterSpareParam.getPartGroup() + "%"));
 		}
 		
-		List<MST114> result = query.from(mst114)
+		QueryResults<MST114> result = query.from(mst114)
 				.select(mst114)
 				.innerJoin(mst114.mst110,mst110)
 				.fetchJoin()
 				.where(builder)
 				.offset(pageable.getOffset())
 				.limit(pageable.getPageSize())
-				.fetch();
+				.fetchResults();
 		
-		return result;
+		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
 	}
 }

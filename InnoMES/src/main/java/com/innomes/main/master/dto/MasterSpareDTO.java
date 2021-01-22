@@ -2,6 +2,18 @@ package com.innomes.main.master.dto;
 
 import java.util.Date;
 
+import com.innomes.main.master.dto.MasterProductDTO.MasterProductDTOBuilder;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@Getter @Setter
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Builder
 public class MasterSpareDTO {
 	/*	MST110	*/
 	private String itemId;

@@ -5,7 +5,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,11 +31,10 @@ public class MasterMaterialService {
 	private ModelMapper modelMapper;
 	
 	//자재 정보 조회
-	public List<MasterMaterialDTO> getMaterial(MasterMaterialParam masterMaterialParam, Pageable pageable){
-		
-		List<MST112> modelList = mst112Repository.findAllLike(masterMaterialParam, pageable);
-		
-		return modelMapper.map(modelList, new TypeToken<List<MasterMaterialDTO>>(){}.getType());
+	public Page<MasterMaterialDTO> getMaterial(MasterMaterialParam masterMaterialParam, Pageable pageable){
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+		Page<MST112> output = mst112Repository.findAllLike(masterMaterialParam, pageable);
+		return new PageImpl<>(modelMapper.map(output.getContent(), new TypeToken<List<MasterMaterialDTO>>(){}.getType()),pageable, output.getTotalElements());
 	}
 	
 	//자재 정보 저장

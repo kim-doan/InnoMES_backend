@@ -46,6 +46,6 @@ public class MST114 {
 	
 	@OneToOne(cascade = CascadeType.ALL)
     @MapsId
-    @JoinColumn(name = "PRDT_ID")
+    @JoinColumn(name = "PART_ID")
     private MST110 mst110;
 }

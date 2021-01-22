@@ -3,6 +3,7 @@ package com.innomes.main.master.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
@@ -59,7 +60,7 @@ public class MST112 {
 	@Column(name="MAT_PROC")
 	private String matProc;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @MapsId
     @JoinColumn(name = "MAT_ID")
     private MST110 mst110;
