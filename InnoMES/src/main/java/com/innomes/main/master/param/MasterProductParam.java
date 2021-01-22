@@ -75,19 +75,7 @@ public class MasterProductParam {
 	private String batchUnit;
 	
 	private String matProc;
-
-	@Override
-	public String toString() {
-		return "MasterProductParam [itemId=" + itemId + ", itemCode=" + itemCode + ", itemName=" + itemName
-				+ ", itemType=" + itemType + ", lotSize=" + lotSize + ", lotUnit=" + lotUnit + ", safetyQnt="
-				+ safetyQnt + ", safetyUnit=" + safetyUnit + ", locCode=" + locCode + ", invType=" + invType
-				+ ", description=" + description + ", createUser=" + createUser + ", createTime=" + createTime
-				+ ", updateUser=" + updateUser + ", updateTime=" + updateTime + ", used=" + used + ", prdtId=" + prdtId
-				+ ", prdtType=" + prdtType + ", prdtCtg=" + prdtCtg + ", prdtGroup=" + prdtGroup + ", attMatType="
-				+ attMatType + ", attStdType=" + attStdType + ", attDiaType=" + attDiaType + ", heatSpec=" + heatSpec
-				+ ", surfaceSpec=" + surfaceSpec + ", coatingSpec=" + coatingSpec + ", batchSize=" + batchSize
-				+ ", batchUnit=" + batchUnit + ", matProc=" + matProc + "]";
-	}
 	
-	
+	//MST200
+	private String prdtStatus;
 }

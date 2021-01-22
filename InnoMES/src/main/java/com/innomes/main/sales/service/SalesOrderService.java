@@ -56,6 +56,7 @@ public class SalesOrderService {
 					.itemId(content.get(i).getSal110().getItemId())
 					.dueDate(content.get(i).getSal110().getDueDate())
 					.ordType(content.get(i).getSal110().getOrdType())
+					.ordRegType(content.get(i).getOrdRegType())
 					.ordRegUser(content.get(i).getSal110().getOrdRegUser())
 					.ordRegTime(content.get(i).getSal110().getOrdRegTime())
 					.description(content.get(i).getSal110().getDescription())
@@ -70,6 +71,7 @@ public class SalesOrderService {
 					
 			dtoList.add(salesOrderDTO);
 		}
+		
 		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
 	}
 	
