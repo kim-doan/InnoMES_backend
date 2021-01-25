@@ -2,8 +2,6 @@ package com.innomes.main.sales.model;
 
 import java.io.Serializable;
 
-import com.innomes.main.sales.model.SAL101PK.SAL101PKBuilder;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

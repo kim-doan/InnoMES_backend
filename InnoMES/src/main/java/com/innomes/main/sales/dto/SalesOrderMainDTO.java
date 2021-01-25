@@ -2,11 +2,6 @@ package com.innomes.main.sales.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
-import com.innomes.main.sales.dto.SalesPlanMainDTO.SalesPlanMainDTOBuilder;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

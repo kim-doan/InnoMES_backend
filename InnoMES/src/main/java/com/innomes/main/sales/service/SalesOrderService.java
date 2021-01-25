@@ -21,7 +21,6 @@ import com.innomes.main.repository.SAL111Repository;
 import com.innomes.main.sales.dto.SalesOrderDTO;
 import com.innomes.main.sales.dto.SalesOrderLogDTO;
 import com.innomes.main.sales.dto.SalesOrderMainDTO;
-import com.innomes.main.sales.dto.SalesPlanDTO;
 import com.innomes.main.sales.model.SAL110;
 import com.innomes.main.sales.model.SAL111;
 import com.innomes.main.sales.param.SalesOrderParam;

@@ -1,9 +1,5 @@
 package com.innomes.main.master.dto;
 
-import java.util.Date;
-
-import com.innomes.main.master.dto.MasterProductDTO.MasterProductDTOBuilder;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
