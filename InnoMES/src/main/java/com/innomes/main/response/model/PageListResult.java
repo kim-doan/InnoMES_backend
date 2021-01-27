@@ -13,5 +13,5 @@ public class PageListResult<T> extends CommonResult {
     private int totalPages;
     private List<String> fieldType;
     private List<String> fieldName;
-    private List<T> data;
+    private List<T> list;
 }

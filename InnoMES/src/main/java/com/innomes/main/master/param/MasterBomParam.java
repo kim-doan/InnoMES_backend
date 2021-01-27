@@ -1,4 +1,4 @@
-package com.innomes.main.sales.dto;
+package com.innomes.main.master.param;
 
 import java.util.Date;
 
@@ -12,22 +12,21 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SalesOrderMainDTO {
-	//SAL110
-	private Integer ordId;
+public class MasterBomParam {
+	private String prdtId;
 
-	private String compId;
+	private String procCode;
 
+	private Integer bomSeq;
+
+	private Integer swapSeq;
+	
 	private String itemId;
-
-	private Date dueDate;
-
-	private  String ordType;
-
-	private String ordRegUser;
-
-	private Date ordRegTime;
-
+	
+	private Double inQnt;
+	
+	private String inUnit;
+	
 	private String description;
 
 	private String createUser;
@@ -35,15 +34,8 @@ public class SalesOrderMainDTO {
 	private Date createTime;
 
 	private String updateUser;
-	
+
 	private Date updateTime;
-	
+
 	private int used;
-	
-	//SAL111
-	private Integer ordSeq;
-	
-	private Double ordQnt;
-	
-	private String ordRegType;
 }

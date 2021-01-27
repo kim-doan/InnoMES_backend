@@ -1,8 +1,11 @@
-package com.innomes.main.sales.dto;
+package com.innomes.main.master.param;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,33 +17,30 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SalesOrderDTO {
-	//SAL110
-	private Integer ordId;
+public class MasterManufactureProcessParam {
+	private String prdtId;
 
-	private String compId;
-
-	private String itemId;
-
-	private Date dueDate;
-
-	private  String ordType;
-
-	private String ordRegUser;
-
-	private Date ordRegTime;
-
+	private Integer routingRev;
+	
+	private String prdtStatus;
+	
+	private String revUser;
+	
+	private Date revDate;
+	
+	private String revCause;
+	
 	private String description;
-
+	
 	private String createUser;
-
+	
 	private Date createTime;
-
+	
 	private String updateUser;
 	
 	private Date updateTime;
 	
 	private int used;
 	
-	private List<SalesOrderLogDTO> salesOrderLog = new ArrayList<SalesOrderLogDTO>();
+	List<MasterManufactureRoutingParam> routeList = new ArrayList<MasterManufactureRoutingParam>();
 }

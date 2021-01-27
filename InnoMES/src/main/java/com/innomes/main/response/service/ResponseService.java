@@ -138,7 +138,7 @@ public class ResponseService {
         }
         
         result.setRowSize(list.size());
-        result.setData(list);
+        result.setList(list);
         result.setFieldType(fieldType);
         result.setFieldName(fieldName);
         result.setTotalCount(page.getTotalElements());
@@ -180,7 +180,7 @@ public class ResponseService {
         }
         
         result.setRowSize(0);
-        result.setData(new ArrayList<T>());
+        result.setList(new ArrayList<T>());
         result.setFieldType(fieldType);
         result.setFieldName(fieldName);
         result.setTotalCount(0);
