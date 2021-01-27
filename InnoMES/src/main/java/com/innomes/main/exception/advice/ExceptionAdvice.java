@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.innomes.main.exception.CAuthenticationEntryPointException;
+import com.innomes.main.exception.CCompanySaveException;
 import com.innomes.main.exception.COrderIdNotFoundException;
 import com.innomes.main.exception.CSalesOrderSaveException;
 import com.innomes.main.exception.CSalesPlanNoNotFoundException;
@@ -106,6 +107,10 @@ public class ExceptionAdvice {
 	@ExceptionHandler(CSalesOrderSaveException.class)
 	public CommonResult salesOrderSaveException(HttpServletRequest request, CSalesOrderSaveException e) {
 		return responseService.getFailResult("E0010", "수주내역 저장에 실패했습니다.");
+	}
+	@ExceptionHandler(CCompanySaveException.class)
+	public CommonResult companySaveException(HttpServletRequest request, CCompanySaveException e) {
+		return responseService.getFailResult("E0020", "거래처정보 저장에 실패 했습니다");
 	}
 	
 }

@@ -2,8 +2,6 @@ package com.innomes.main.sales.param;
 
 import java.util.Date;
 
-import com.innomes.main.sales.param.SalesPlanParam.SalesPlanParamBuilder;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

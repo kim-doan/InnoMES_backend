@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.innomes.main.sales.dto.SalesOrderLogDTO.SalesOrderLogDTOBuilder;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

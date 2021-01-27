@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.innomes.main.master.model.MST110.MST110Builder;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
