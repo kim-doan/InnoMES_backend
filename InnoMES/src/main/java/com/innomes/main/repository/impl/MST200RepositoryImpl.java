@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 import org.springframework.util.StringUtils;
 
 import com.innomes.main.master.model.MST200;
+import com.innomes.main.master.model.MST200PK;
 import com.innomes.main.master.model.QMST110;
 import com.innomes.main.master.model.QMST111;
 import com.innomes.main.master.model.QMST200;
@@ -72,5 +73,19 @@ public class MST200RepositoryImpl extends QuerydslRepositorySupport implements M
 				.fetchOne();
 		
 		return result;
+	}
+
+	@Override
+	public Long delManufactureProcess(MST200PK pk, int used) {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QMST200 mst200 = QMST200.mST200;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(mst200.prdtId.eq(pk.getPrdtId()));
+		builder.and(mst200.routingRev.eq(pk.getRoutingRev()));
+		
+		return query.update(mst200).set(mst200.used, used).where(builder).execute();
 	}
 }

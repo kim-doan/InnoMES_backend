@@ -1,4 +1,4 @@
-package com.innomes.main.master.service;
+	package com.innomes.main.master.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,12 +17,14 @@ import com.innomes.main.master.dto.MasterManufactureProcessDTO;
 import com.innomes.main.master.dto.MasterManufactureRoutingDTO;
 import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.MST200;
+import com.innomes.main.master.model.MST200PK;
 import com.innomes.main.master.model.MST210;
 import com.innomes.main.master.model.MST220;
 import com.innomes.main.master.param.MasterManufactureProcessParam;
 import com.innomes.main.master.param.MasterProductParam;
 import com.innomes.main.repository.MST111Repository;
 import com.innomes.main.repository.MST200Repository;
+import com.innomes.main.repository.MST220Repository;
 
 @Service
 @Transactional
@@ -34,6 +36,8 @@ public class MasterManufactureProcessService {
 	@Autowired
 	private MST200Repository mst200Repository;
 	
+	@Autowired
+	private MST220Repository mst220Repository;
 	
 	//제품 - 제조공정정보 - 라우팅리스트 -> 메인그리드
 	public Page<MasterManufactureItemDTO> getManufactureItem(MasterProductParam masterProductParam, Pageable pageable) {
@@ -160,15 +164,12 @@ public class MasterManufactureProcessService {
 			if(maxRev == null) { 
 				maxRev = 0;
 			} else {
-				MST200 delMst200 = new MST200();
+				MST200PK delMst200 = MST200PK.builder()
+						.prdtId(manufactureProcessParam.getPrdtId())
+						.routingRev(maxRev)
+						.build();
 				
-//				delMst200.updateInfo(MasterManufactureProcessParam.builder()
-//						.prdtId(manufactureProcessParam.getPrdtId())
-//						.routingRev(maxRev)
-//						.used(0)
-//						.build());
-				
-				mst200Repository.save(delMst200);
+				mst200Repository.delManufactureProcess(delMst200, 0);
 				mst200Repository.flush();
 			}
 			
@@ -189,7 +190,7 @@ public class MasterManufactureProcessService {
 					.used(manufactureProcessParam.getUsed())
 					.build();
 			
-			/* 신규 라우팅 */
+			/* 신규 라우팅 (무조건 INSERT) */
 			List<MST210> mst210List = new ArrayList<MST210>();
 			
 			for(int i=0;i<manufactureProcessParam.getRouteList().size();i++) {
@@ -206,9 +207,37 @@ public class MasterManufactureProcessService {
 						.settingTime(manufactureProcessParam.getRouteList().get(i).getSettingTime())
 						.unitWeight(manufactureProcessParam.getRouteList().get(i).getUnitWeight())
 						.locCode(manufactureProcessParam.getRouteList().get(i).getLocCode())
+						.isNew(true)
 						.build();
 				
 				mst210List.add(mst210);
+				
+				List<MST220> mst220List = new ArrayList<MST220>();
+				
+				/* 투입소재 등록 */
+				for(int j=0;j<manufactureProcessParam.getRouteList().get(i).getBomList().size();j++) {
+					MST220 mst220 = MST220.builder()
+							.prdtId(manufactureProcessParam.getRouteList().get(i).getPrdtId())
+							.procCode(manufactureProcessParam.getRouteList().get(i).getProcCode())
+							.bomSeq(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getBomSeq())
+							.swapSeq(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getSwapSeq())
+							.itemId(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getItemId())
+							.inQnt(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getInQnt())
+							.inUnit(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getInUnit())
+							.description(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getDescription())
+							.createUser(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getCreateUser())
+							.createTime(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getCreateTime())
+							.updateUser(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getUpdateUser())
+							.updateTime(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getUpdateTime())
+							.used(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getUsed())
+							.build();
+					
+					mst220List.add(mst220);
+				}
+				
+				mst220Repository.saveAll(mst220List);
+				mst220Repository.flush();
+				mst220List.clear();
 			}
 			
 			mst200.setMst210(mst210List);
