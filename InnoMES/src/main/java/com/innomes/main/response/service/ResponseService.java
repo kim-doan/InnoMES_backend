@@ -143,6 +143,7 @@ public class ResponseService {
         result.setFieldName(fieldName);
         result.setTotalCount(page.getTotalElements());
         result.setTotalPages(page.getTotalPages());
+        result.setPage(page.getNumber());
         
         setSuccessResult(result);
         return result;
