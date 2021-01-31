@@ -29,7 +29,7 @@ import lombok.Setter;
  * 
  */
 @Entity
-@Table(name = "COD100$") // 임시
+@Table(name = "COD100") // 임시
 @Getter @Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
