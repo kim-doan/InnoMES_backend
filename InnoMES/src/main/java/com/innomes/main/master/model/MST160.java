@@ -4,14 +4,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -116,6 +111,9 @@ public class MST160 {
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name="UPDATE_TIME", insertable = false, updatable = true)
 	private Date updateTime;
+
+	@ManyToOne
+	private MST120 mst120;
 //	@OneToOne(fetch = FetchType.LAZY, optional = false)
 //	@JoinColumn(name ="PROC_CODE", insertable = false, updatable = false, nullable = false)
 //	@NotFound(action = NotFoundAction.IGNORE)
