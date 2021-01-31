@@ -15,12 +15,12 @@ public class ProductCodeGenerator implements IdentifierGenerator {
 	@Override
 	public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
 		 
-        String prefix = "P";
+        String prefix = "I";
         Connection connection = session.connection();
         try {
  
             PreparedStatement ps = connection
-                    .prepareStatement("SELECT NEXT VALUE FOR SEQ_PRODUCT_ID AS nextval");
+                    .prepareStatement("SELECT NEXT VALUE FOR SEQ_ITEM_ID AS nextval");
  
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {

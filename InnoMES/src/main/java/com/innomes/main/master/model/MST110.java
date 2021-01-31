@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -69,12 +71,14 @@ public class MST110 {
 	@Column(name="CREATE_USER", insertable = true, updatable = false)
 	private String createUser;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name="CREATE_TIME", insertable = true, updatable = false)
 	private Date createTime;
 	
 	@Column(name="UPDATE_USER", insertable = false, updatable = true)
 	private String updateUser;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name="UPDATE_TIME", insertable = false, updatable = true)
 	private Date updateTime;
 	

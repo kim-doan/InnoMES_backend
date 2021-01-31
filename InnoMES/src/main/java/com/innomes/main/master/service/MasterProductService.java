@@ -6,19 +6,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.innomes.main.exception.CProductSaveException;
-import com.innomes.main.master.dto.MasterItemDTO;
 import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.model.MST110;
 import com.innomes.main.master.model.MST111;
-import com.innomes.main.master.param.MasterItemParam;
 import com.innomes.main.master.param.MasterProductParam;
-import com.innomes.main.repository.MST110Repository;
 import com.innomes.main.repository.MST111Repository;
 
 @Service
@@ -31,57 +30,58 @@ public class MasterProductService {
 	private MST111Repository mst111Repository;
 	
 	//전체 조회
-	public List<MasterProductDTO> findAll(MasterProductParam masterItemParam, Pageable pageable) {
-		List<MST111> output = mst111Repository.findAllLike(masterItemParam, pageable);
+	public Page<MasterProductDTO> findAll(MasterProductParam masterItemParam, Pageable pageable) {
+		Page<MST111> output = mst111Repository.findAllLike(masterItemParam, pageable);
+		
+		List<MST111> content = output.getContent();
 		
 		List<MasterProductDTO> dtoList = new ArrayList<MasterProductDTO>();
 		
-		for(int i=0;i<output.size();i++) {
+		for(int i=0;i<content.size();i++) {
 			MasterProductDTO dto = MasterProductDTO.builder()
-					.itemId(output.get(i).getMst110().getItemId())
-					.itemCode(output.get(i).getMst110().getItemCode())
-					.itemName(output.get(i).getMst110().getItemName())
-					.itemType(output.get(i).getMst110().getItemType())
-					.lotSize(output.get(i).getMst110().getLotSize())
-					.lotUnit(output.get(i).getMst110().getLotUnit())
-					.safetyQnt(output.get(i).getMst110().getSafetyQnt())
-					.safetyUnit(output.get(i).getMst110().getSafetyUnit())
-					.locCode(output.get(i).getMst110().getLocCode())
-					.invType(output.get(i).getMst110().getInvType())
-					.description(output.get(i).getMst110().getDescription())
-					.createUser(output.get(i).getMst110().getCreateUser())
-					.createTime(output.get(i).getMst110().getCreateTime())
-					.updateUser(output.get(i).getMst110().getUpdateUser())
-					.updateTime(output.get(i).getMst110().getUpdateTime())
-					.used(output.get(i).getMst110().getUsed())
-					.prdtId(output.get(i).getPrdtId())
-					.prdtType(output.get(i).getPrdtType())
-					.prdtCtg(output.get(i).getPrdtCtg())
-					.prdtGroup(output.get(i).getPrdtGroup())
-					.attMatType(output.get(i).getAttMatType())
-					.attStdType(output.get(i).getAttStdType())
-					.attDiaType(output.get(i).getAttDiaType())
-					.heatSpec(output.get(i).getHeatSpec())
-					.surfaceSpec(output.get(i).getSurfaceSpec())
-					.coatingSpec(output.get(i).getCoatingSpec())
-					.batchSize(output.get(i).getBatchSize())
-					.batchUnit(output.get(i).getBatchUnit())
-					.matProc(output.get(i).getMatProc())
+					.itemId(content.get(i).getMst110().getItemId())
+					.itemCode(content.get(i).getMst110().getItemCode())
+					.itemName(content.get(i).getMst110().getItemName())
+					.itemType(content.get(i).getMst110().getItemType())
+					.lotSize(content.get(i).getMst110().getLotSize())
+					.lotUnit(content.get(i).getMst110().getLotUnit())
+					.safetyQnt(content.get(i).getMst110().getSafetyQnt())
+					.safetyUnit(content.get(i).getMst110().getSafetyUnit())
+					.locCode(content.get(i).getMst110().getLocCode())
+					.invType(content.get(i).getMst110().getInvType())
+					.description(content.get(i).getMst110().getDescription())
+					.createUser(content.get(i).getMst110().getCreateUser())
+					.createTime(content.get(i).getMst110().getCreateTime())
+					.updateUser(content.get(i).getMst110().getUpdateUser())
+					.updateTime(content.get(i).getMst110().getUpdateTime())
+					.used(content.get(i).getMst110().getUsed())
+					.prdtId(content.get(i).getPrdtId())
+					.prdtType(content.get(i).getPrdtType())
+					.prdtCtg(content.get(i).getPrdtCtg())
+					.prdtGroup(content.get(i).getPrdtGroup())
+					.attMatType(content.get(i).getAttMatType())
+					.attStdType(content.get(i).getAttStdType())
+					.attDiaType(content.get(i).getAttDiaType())
+					.heatSpec(content.get(i).getHeatSpec())
+					.surfaceSpec(content.get(i).getSurfaceSpec())
+					.coatingSpec(content.get(i).getCoatingSpec())
+					.batchSize(content.get(i).getBatchSize())
+					.batchUnit(content.get(i).getBatchUnit())
+					.matProc(content.get(i).getMatProc())
 					.build();
 			
 			dtoList.add(dto);
 		}
 		
-		return dtoList;
+		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
 	}
 	
 	public boolean saveProduct(MasterProductParam[] masterProductParam) {
 		boolean success = true;
-		List<MST110> mst110List = new ArrayList<MST110>();
 		List<MST111> mst111List = new ArrayList<MST111>();
+		
 		try {
 			for(int i=0;i<masterProductParam.length;i++) {
-				System.out.println(masterProductParam[i].toString());
 				
 				MST110 mst110 = MST110.builder()
 						.itemId(masterProductParam[i].getItemId())

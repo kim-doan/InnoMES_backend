@@ -24,6 +24,7 @@ import com.innomes.main.master.param.MasterProductParam;
 import com.innomes.main.master.service.MasterProductService;
 import com.innomes.main.response.model.CommonResult;
 import com.innomes.main.response.model.ListResult;
+import com.innomes.main.response.model.PageListResult;
 import com.innomes.main.response.service.ResponseService;
 
 import io.swagger.annotations.Api;
@@ -42,18 +43,18 @@ public class MasterProductController {
 	@Autowired
 	private MasterProductService masterProductService;
 	
-	@ApiOperation(value = "제품 전체 조회", notes = "제품정보 전체를 반환합니다. (검색조건 필터링 가능)")
 	@CrossOrigin
+	@ApiOperation(value = "제품 전체 조회", notes = "제품정보 전체를 반환합니다. (검색조건 필터링 가능)")
 	@PostMapping("/master/item/products")
-	public ListResult<MasterProductDTO> findAll(@RequestBody(required = false) MasterProductParam masterProductParam, final Pageable pageable) {
+	public PageListResult<MasterProductDTO> findAll(@RequestBody(required = false) MasterProductParam masterProductParam, final Pageable pageable) {
 		if(masterProductParam == null) //파라메터가 없을경우
 			masterProductParam = new MasterProductParam(); // 전체 조회
 		
-		return responseService.getListResult(MasterProductDTO.class, masterProductService.findAll(masterProductParam, pageable));
+		return responseService.getPageListResult(MasterProductDTO.class, masterProductService.findAll(masterProductParam, pageable));
 	}
 	
-	@ApiOperation(value = "제품 정보 저장", notes = "제품정보를 저장합니다.")
 	@CrossOrigin
+	@ApiOperation(value = "제품 정보 저장", notes = "제품정보를 저장합니다.")
 	@PostMapping("/master/item/products/save")
 	public CommonResult saveProduct(@RequestBody(required = true) MasterProductParam[] masterProductParam) {
 		boolean result = masterProductService.saveProduct(masterProductParam);
