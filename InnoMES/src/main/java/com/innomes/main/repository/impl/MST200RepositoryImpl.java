@@ -2,9 +2,6 @@ package com.innomes.main.repository.impl;
 
 import java.util.List;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.util.StringUtils;
 
@@ -17,7 +14,6 @@ import com.innomes.main.master.model.QMST210;
 import com.innomes.main.master.param.MasterManufactureProcessParam;
 import com.innomes.main.repository.custom.MST200RepositoryCustom;
 import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.QueryResults;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 public class MST200RepositoryImpl extends QuerydslRepositorySupport implements MST200RepositoryCustom {
