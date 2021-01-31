@@ -29,7 +29,7 @@ import lombok.Setter;
  * 
  */
 @Entity
-@Table(name = "COD100$") // 임시
+@Table(name = "COD100") // 임시
 @Getter @Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -42,11 +42,7 @@ public class COD100 {
 	@Column(name="CODE_TYPE")
 	private Integer codeType;
 	
-<<<<<<< HEAD
 	@JsonProperty(value="pCode")
-=======
-	@JsonProperty(value = "pCode")
->>>>>>> ccf05cd149f4906ed6bc76306391f31c4fda3a22
 	@Column(name="P_CODE")
 	private String pCode;
 	
