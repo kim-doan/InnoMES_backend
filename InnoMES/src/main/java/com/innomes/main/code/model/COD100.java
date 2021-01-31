@@ -42,7 +42,7 @@ public class COD100 {
 	@Column(name="CODE_TYPE")
 	private Integer codeType;
 	
-	@JsonProperty(value = "pCode")
+	@JsonProperty(value="pCode")
 	@Column(name="P_CODE")
 	private String pCode;
 	
