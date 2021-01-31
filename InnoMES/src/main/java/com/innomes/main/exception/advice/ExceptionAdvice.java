@@ -9,7 +9,6 @@ package com.innomes.main.exception.advice;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
@@ -21,10 +20,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.innomes.main.exception.CAuthenticationEntryPointException;
 import com.innomes.main.exception.CCompanySaveException;
 import com.innomes.main.exception.COrderIdNotFoundException;
+import com.innomes.main.exception.CProcessNotFoundException;
+import com.innomes.main.exception.CProcessSaveException;
 import com.innomes.main.exception.CSalesOrderSaveException;
 import com.innomes.main.exception.CSalesPlanNoNotFoundException;
 import com.innomes.main.exception.CSalesPlanSaveException;
 import com.innomes.main.exception.CSessionNotFoundException;
+import com.innomes.main.exception.CToolNotFoundException;
+import com.innomes.main.exception.CToolSaveException;
 import com.innomes.main.exception.CUserNotFoundException;
 import com.innomes.main.response.model.CommonResult;
 import com.innomes.main.response.service.ResponseService;
@@ -108,6 +111,27 @@ public class ExceptionAdvice {
 	public CommonResult salesOrderSaveException(HttpServletRequest request, CSalesOrderSaveException e) {
 		return responseService.getFailResult("E0010", "수주내역 저장에 실패했습니다.");
 	}
+	// 공구정보 조회 오류
+	@ExceptionHandler(CToolNotFoundException.class)
+	public CommonResult toolNotFoundException(HttpServletRequest request, CToolNotFoundException e) {
+		return responseService.getFailResult("E0011", "공구정보 조회에 실패했습니다.");
+	}
+	// 공구정보 저장 오류
+	@ExceptionHandler(CToolSaveException.class)
+	public CommonResult toolSaveException(HttpServletRequest request, CToolSaveException e) {
+		return responseService.getFailResult("E0012", "공구정보 저장에 실패했습니다.");
+	}
+	// 공정정보 조회 오류
+	@ExceptionHandler(CProcessNotFoundException.class)
+	public CommonResult processNotFoundException(HttpServletRequest request, CProcessNotFoundException e) {
+		return responseService.getFailResult("E0013", "공정정보 조회에 실패했습니다.");
+	}
+	// 공정정보 저장 오류
+	@ExceptionHandler(CProcessSaveException.class)
+	public CommonResult processSaveException(HttpServletRequest request, CProcessSaveException e) {
+		return responseService.getFailResult("E0014", "공정정보 저장에 실패했습니다.");
+	}
+	
 	@ExceptionHandler(CCompanySaveException.class)
 	public CommonResult companySaveException(HttpServletRequest request, CCompanySaveException e) {
 		return responseService.getFailResult("E0020", "거래처정보 저장에 실패 했습니다");

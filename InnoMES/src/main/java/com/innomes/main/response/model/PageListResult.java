@@ -9,9 +9,10 @@ import java.util.List;
 @Setter
 public class PageListResult<T> extends CommonResult {
     private int rowSize;
+    private int page;
     private long totalCount;
     private int totalPages;
     private List<String> fieldType;
     private List<String> fieldName;
-    private List<T> data;
+    private List<T> list;
 }

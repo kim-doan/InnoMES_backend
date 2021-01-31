@@ -16,6 +16,9 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.data.domain.Persistable;
 
 import com.fasterxml.jackson.core.sym.Name;
 
@@ -31,7 +34,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MST210 {
+public class MST210 implements Persistable<MST210PK> {
 	@Id
 	@Column(name = "PRDT_ID", insertable = false, updatable = false)
 	private String prdtId;
@@ -87,4 +90,22 @@ public class MST210 {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "PROC_CODE", insertable = false, updatable = false)
 	private MST120 mst120;
+	
+	@Transient
+	private boolean isNew = false;
+
+	@Override
+	public MST210PK getId() {
+		// TODO Auto-generated method stub
+		return MST210PK.builder()
+				.prdtId(prdtId)
+				.routingRev(routingRev)
+				.procCode(procCode)
+				.build();
+	}
+	
+	@Override
+	public boolean isNew() {
+		return isNew;
+	}
 }
