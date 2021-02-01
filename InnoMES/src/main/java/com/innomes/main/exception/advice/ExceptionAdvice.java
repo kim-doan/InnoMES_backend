@@ -22,6 +22,7 @@ import com.innomes.main.exception.CCompanySaveException;
 import com.innomes.main.exception.COrderIdNotFoundException;
 import com.innomes.main.exception.CProcessNotFoundException;
 import com.innomes.main.exception.CProcessSaveException;
+import com.innomes.main.exception.CProductSaveException;
 import com.innomes.main.exception.CSalesOrderSaveException;
 import com.innomes.main.exception.CSalesPlanNoNotFoundException;
 import com.innomes.main.exception.CSalesPlanSaveException;
@@ -135,6 +136,11 @@ public class ExceptionAdvice {
 	@ExceptionHandler(CCompanySaveException.class)
 	public CommonResult companySaveException(HttpServletRequest request, CCompanySaveException e) {
 		return responseService.getFailResult("E0020", "거래처정보 저장에 실패 했습니다");
+	}
+	
+	@ExceptionHandler(CProductSaveException.class)
+	public CommonResult productSaveException(HttpServletRequest request, CProductSaveException e) {
+		return responseService.getFailResult("E0021", "제품정보 저장에 실패 했습니다");
 	}
 	
 }

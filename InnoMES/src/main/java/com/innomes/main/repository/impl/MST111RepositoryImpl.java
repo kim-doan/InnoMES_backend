@@ -66,6 +66,7 @@ public class MST111RepositoryImpl extends QuerydslRepositorySupport implements M
 			builder.and(mst111.prdtGroup.like("%" + masterProductParam.getPrdtGroup() + "%"));
 		}
 		
+		builder.and(mst111.mst110.used.eq(1));
 		
 		 QueryResults<MST111> result = query.from(mst111)
 		.select(mst111)
@@ -74,6 +75,7 @@ public class MST111RepositoryImpl extends QuerydslRepositorySupport implements M
 		.where(builder)
 		.offset(pageable.getOffset())
 		.limit(pageable.getPageSize())
+		.orderBy(mst111.mst110.createTime.desc())
 		.fetchResults();
 		
 		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
