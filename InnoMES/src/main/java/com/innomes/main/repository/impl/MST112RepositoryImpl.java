@@ -1,5 +1,7 @@
 package com.innomes.main.repository.impl;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -71,6 +73,8 @@ public class MST112RepositoryImpl extends QuerydslRepositorySupport implements M
 			builder.and(mst112.matProc.like("%" + masterMaterialParam.getMatProc() + "%"));
 		}
 		
+		builder.and(mst112.mst110.used.eq(1));
+		
 		QueryResults<MST112> result = query.from(mst112)
 				.select(mst112)
 				.innerJoin(mst112.mst110, mst110)
@@ -81,5 +85,26 @@ public class MST112RepositoryImpl extends QuerydslRepositorySupport implements M
 				.fetchResults();
 		
 		return new PageImpl<MST112>(result.getResults(), pageable, result.getTotal());
+	}
+
+	@Override
+	public List<MST112> findAll() {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QMST112 mst112 = QMST112.mST112;
+		QMST110 mst110 = QMST110.mST110;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(mst112.mst110.used.eq(1));
+		
+		List<MST112> result = query.from(mst112)
+				.select(mst112)
+				.innerJoin(mst112.mst110, mst110)
+				.fetchJoin()
+				.where(builder)
+				.fetch();
+		
+		return result;
 	}
 }

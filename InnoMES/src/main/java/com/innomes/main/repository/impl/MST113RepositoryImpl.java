@@ -1,4 +1,6 @@
 package com.innomes.main.repository.impl;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -23,7 +25,6 @@ public class MST113RepositoryImpl extends QuerydslRepositorySupport implements M
 
 	@Override
 	public Page<MST113> findAllLike(MasterToolParam masterToolParam, Pageable pageable) {
-		
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		
 		QMST113 mst113 = QMST113.mST113;
@@ -55,6 +56,8 @@ public class MST113RepositoryImpl extends QuerydslRepositorySupport implements M
 			builder.and(mst113.toolGroup.like("%" + masterToolParam.getToolGroup() + "%"));
 		}
 		
+		builder.and(mst113.mst110.used.eq(1));
+		
 		QueryResults<MST113> result = query.from(mst113)
 				.select(mst113)
 				.innerJoin(mst113.mst110, mst110)
@@ -65,6 +68,27 @@ public class MST113RepositoryImpl extends QuerydslRepositorySupport implements M
 				.fetchResults();
 		
 		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
+	}
+
+	@Override
+	public List<MST113> findAll() {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QMST113 mst113 = QMST113.mST113;
+		QMST110 mst110 = QMST110.mST110;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(mst113.mst110.used.eq(1));
+		
+		List<MST113> result = query.from(mst113)
+				.select(mst113)
+				.innerJoin(mst113.mst110, mst110)
+				.fetchJoin()
+				.where(builder)
+				.fetch();
+		
+		return result;
 	}
 
 }

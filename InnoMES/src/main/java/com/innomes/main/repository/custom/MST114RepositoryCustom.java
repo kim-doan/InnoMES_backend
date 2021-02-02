@@ -10,4 +10,6 @@ import com.innomes.main.master.param.MasterSpareParam;
 
 public interface MST114RepositoryCustom {
 	Page<MST114> findAllLike(MasterSpareParam masterSpareParam, Pageable pageable);
+	
+	List<MST114> findAll();
 }

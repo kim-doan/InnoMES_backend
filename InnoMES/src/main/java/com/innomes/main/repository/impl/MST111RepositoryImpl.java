@@ -82,6 +82,27 @@ public class MST111RepositoryImpl extends QuerydslRepositorySupport implements M
 	}
 
 	@Override
+	public List<MST111> findAll() {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QMST111 mst111 = QMST111.mST111;
+		QMST110 mst110 = QMST110.mST110;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(mst111.mst110.used.eq(1));
+		
+		 List<MST111> result = query.from(mst111)
+		.select(mst111)
+		.innerJoin(mst111.mst110, mst110)
+		.fetchJoin()
+		.where(builder)
+		.fetch();
+		 
+		return result;
+	}
+	
+	@Override
 	public Page<MST111> getManufactureItem(MasterProductParam masterProductParam, Pageable pageable) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		QMST200 mst200 = QMST200.mST200;

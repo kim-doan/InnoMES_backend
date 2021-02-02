@@ -1,5 +1,7 @@
 package com.innomes.main.master.controller;
 
+import java.util.Map;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.param.MasterItemParam;
 import com.innomes.main.master.param.MasterProductParam;
 import com.innomes.main.master.service.MasterProductService;
+import com.innomes.main.pool.service.MasterPoolService;
 import com.innomes.main.response.model.CommonResult;
 import com.innomes.main.response.model.ListResult;
 import com.innomes.main.response.model.PageListResult;
@@ -43,14 +46,17 @@ public class MasterProductController {
 	@Autowired
 	private MasterProductService masterProductService;
 	
+	@Autowired
+	private MasterPoolService masterPoolService;
+	
 	@CrossOrigin
 	@ApiOperation(value = "제품 전체 조회", notes = "제품정보 전체를 반환합니다. (검색조건 필터링 가능)")
 	@PostMapping("/master/item/products")
-	public PageListResult<MasterProductDTO> findAll(@RequestBody(required = false) MasterProductParam masterProductParam, final Pageable pageable) {
+	public PageListResult<MasterProductDTO> getProduct(@RequestBody(required = false) MasterProductParam masterProductParam, final Pageable pageable) {
 		if(masterProductParam == null) //파라메터가 없을경우
 			masterProductParam = new MasterProductParam(); // 전체 조회
 		
-		return responseService.getPageListResult(MasterProductDTO.class, masterProductService.findAll(masterProductParam, pageable));
+		return responseService.getPageListResult(MasterProductDTO.class, masterProductService.findAllLike(masterProductParam, pageable));
 	}
 	
 	@CrossOrigin

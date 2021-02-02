@@ -60,6 +60,8 @@ public class MST114RepositoryImpl extends QuerydslRepositorySupport implements M
 			builder.and(mst114.partGroup.like("%" + masterSpareParam.getPartGroup() + "%"));
 		}
 		
+		builder.and(mst114.mst110.used.eq(1));
+		
 		QueryResults<MST114> result = query.from(mst114)
 				.select(mst114)
 				.innerJoin(mst114.mst110,mst110)
@@ -70,5 +72,26 @@ public class MST114RepositoryImpl extends QuerydslRepositorySupport implements M
 				.fetchResults();
 		
 		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
+	}
+
+	@Override
+	public List<MST114> findAll() {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QMST114 mst114 = QMST114.mST114;
+		QMST110 mst110 = QMST110.mST110;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(mst114.mst110.used.eq(1));
+		
+		List<MST114> result = query.from(mst114)
+				.select(mst114)
+				.innerJoin(mst114.mst110,mst110)
+				.fetchJoin()
+				.where(builder)
+				.fetch();
+		
+		return result;
 	}
 }

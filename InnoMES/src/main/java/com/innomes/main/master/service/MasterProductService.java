@@ -30,7 +30,7 @@ public class MasterProductService {
 	private MST111Repository mst111Repository;
 	
 	//전체 조회
-	public Page<MasterProductDTO> findAll(MasterProductParam masterItemParam, Pageable pageable) {
+	public Page<MasterProductDTO> findAllLike(MasterProductParam masterItemParam, Pageable pageable) {
 		Page<MST111> output = mst111Repository.findAllLike(masterItemParam, pageable);
 		
 		List<MST111> content = output.getContent();
@@ -74,6 +74,50 @@ public class MasterProductService {
 		}
 		
 		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
+	}
+	
+	public List<MasterProductDTO> findAll() {
+		List<MST111> content = mst111Repository.findAll();
+		
+		List<MasterProductDTO> dtoList = new ArrayList<MasterProductDTO>();
+		
+		for(int i=0;i<content.size();i++) {
+			MasterProductDTO dto = MasterProductDTO.builder()
+					.itemId(content.get(i).getMst110().getItemId())
+					.itemCode(content.get(i).getMst110().getItemCode())
+					.itemName(content.get(i).getMst110().getItemName())
+					.itemType(content.get(i).getMst110().getItemType())
+					.lotSize(content.get(i).getMst110().getLotSize())
+					.lotUnit(content.get(i).getMst110().getLotUnit())
+					.safetyQnt(content.get(i).getMst110().getSafetyQnt())
+					.safetyUnit(content.get(i).getMst110().getSafetyUnit())
+					.locCode(content.get(i).getMst110().getLocCode())
+					.invType(content.get(i).getMst110().getInvType())
+					.description(content.get(i).getMst110().getDescription())
+					.createUser(content.get(i).getMst110().getCreateUser())
+					.createTime(content.get(i).getMst110().getCreateTime())
+					.updateUser(content.get(i).getMst110().getUpdateUser())
+					.updateTime(content.get(i).getMst110().getUpdateTime())
+					.used(content.get(i).getMst110().getUsed())
+					.prdtId(content.get(i).getPrdtId())
+					.prdtType(content.get(i).getPrdtType())
+					.prdtCtg(content.get(i).getPrdtCtg())
+					.prdtGroup(content.get(i).getPrdtGroup())
+					.attMatType(content.get(i).getAttMatType())
+					.attStdType(content.get(i).getAttStdType())
+					.attDiaType(content.get(i).getAttDiaType())
+					.heatSpec(content.get(i).getHeatSpec())
+					.surfaceSpec(content.get(i).getSurfaceSpec())
+					.coatingSpec(content.get(i).getCoatingSpec())
+					.batchSize(content.get(i).getBatchSize())
+					.batchUnit(content.get(i).getBatchUnit())
+					.matProc(content.get(i).getMatProc())
+					.build();
+			
+			dtoList.add(dto);
+		}
+		
+		return dtoList;
 	}
 	
 	public boolean saveProduct(MasterProductParam[] masterProductParam) {
