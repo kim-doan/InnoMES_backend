@@ -1,36 +1,60 @@
 unKnown:
   code: "-9999"
   msg: "알수 없는 오류가 발생하였습니다."
-userNotFound:
-  code: "-1000"
+sessionNotFoundException:
+  code: "E0002"
+  msg: "세션이 비어있습니다."
+userNotFoundException:
+  code: "E0003"
   msg: "존재하지 않는 회원입니다."
-emailSigninFailed:
-  code: "-1001"
-  msg: "계정이 존재하지 않거나 이메일 또는 비밀번호가 정확하지 않습니다."
-entryPointException:
-  code: "-1002"
-  msg: "해당 리소스에 접근하기 위한 권한이 없습니다."
-accessDenied:
-  code: "-1003"
-  msg: "보유한 권한으로 접근할수 없는 리소스 입니다."
-communicationError:
-  code: "-1004"
-  msg: "통신 중 오류가 발생하였습니다."
-existingUser:
-  code: "-1005"
-  msg: "이미 가입한 회원입니다. 로그인을 해주십시오."
-notOwner:
-  code: "-1006"
-  msg: "해당 자원의 소유자가 아닙니다."
-resourceNotExist:
-  code: "-1007"
-  msg: "요청한 자원이 존재하지 않습니다."
-userDuplicate:
-  code: "-1008"
-  msg: "중복된 아이디가 있습니다."
-itemNotFound:
-  code: "-1009"
-  msg: "존재하지 않는 아이템입니다."
-itemCodeDuplicate:
-  code: "-2000"
-  msg: "중복된 아이템 코드입니다."
+authenticationEntryPointException:
+  code: "E0004"
+  msg: "토큰이 만료되었습니다."
+accessDeniedException:
+  code: "E0005"
+  msg: "해당 리소스에 접근권한이 없습니다."
+userDuplicationException:
+  code: "E0006"
+  msg: "아이디가 중복입니다."
+userRegisterFailException:
+  code: "E0007"
+  msg: "회원가입에 실패하였습니다."
+userSaveException:
+  code: "E0008"
+  msg: "유저정보 저장에 실패했습니다."
+productSaveException:
+  code: "E0009"
+  msg: "제품정보 저장에 실패했습니다."
+materialSaveException:
+  code: "E0010"
+  msg: "자재정보 저장에 실패했습니다."
+toolSaveException:
+  code: "E0011"
+  msg: "공구정보 저장에 실패했습니다."
+toolNotFoundException:
+  code: "E0012"
+  msg: "존재하지 않는 공구입니다."
+spareSaveException:
+  code: "E0013"
+  msg: "예비품 정보 저장에 실패했습니다."
+processNotFoundException:
+  code: "E0014"
+  msg: "존재하지 않는 공정정보입니다."
+processSaveException:
+  code: "E0015"
+  msg: "공정정보 저장에 실패했습니다."
+companySaveException:
+  code: "E0016"
+  msg: "거래처 정보 저장에 실패했습니다."
+salesPlanNoNotFoundException:
+  code: "E0017"
+  msg: "판매계획 번호를 찾을 수 없습니다."
+salesPlanSaveException:
+  code: "E0018"
+  msg: "판매계획내역 저장에 실패했습니다."
+orderIdNotFoundException:
+  code: "E0019"
+  msg: "수주 번호를 찾을 수 없습니다."
+salesOrderSaveException:
+  code: "E0020"
+  msg: "수주내역 저장에 실패했습니다."

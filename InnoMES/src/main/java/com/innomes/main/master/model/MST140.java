@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
@@ -19,8 +20,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Proxy;
+import org.springframework.data.domain.Persistable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,6 +32,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.innomes.main.system.model.SYS800;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -46,24 +50,17 @@ import lombok.ToString;
 @Entity
 @Table(name = "MST140")
 @Getter @Setter
-@JsonIgnoreProperties({"enabled", "credentialsNonExpired", "accountNonLocked", "accountNonExpired", "password", "mst141"})
 @RequiredArgsConstructor
 @AllArgsConstructor
 @ToString
 @Builder
-public class MST140 implements UserDetails {
+public class MST140 implements Persistable<String>, Serializable{
 	@Id
 	@Column(name="USER_NO")
 	private String userNo;
 	
-	@Column(name="NAME")
-	private String name;
-	
-	@Column(name="USER_NAME") // user 아이디 api roles때문에 username으로 변환
-	private String username;
-	
-	@Column(name="USER_PASSWORD")
-	private String userPassword;
+	@Column(name="USER_NAME")
+	private String userName;
 	
 	@Column(name="DEPARTMENT_CODE")
 	private String departmentCode;
@@ -104,53 +101,28 @@ public class MST140 implements UserDetails {
 	@Column(name="UPDATE_TIME", insertable = false, updatable = true)
 	private Date updateTime;
 	
-	@Column(name="USED", insertable = false, updatable = true)
 	private int used;
-
-//	@ElementCollection(fetch = FetchType.LAZY)
-//	@CollectionTable(name = "SYS800", joinColumns = @JoinColumn(name = "userNo"))
-//	@Builder.Default
-//	private List<String> roles = new ArrayList<>();
 	
-//	@Override
-//	public Collection<? extends GrantedAuthority> getAuthorities() {
-//		// TODO Auto-generated method stub
-//		return this.roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
-//	}
-
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = true)
+	@JoinColumn(name = "TEAM_CODE", insertable = false, updatable = false)
+	private MST141 mst141;
+	
+	@OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, optional = false)
+	@JoinColumn(name = "USER_NO", referencedColumnName = "USER_NO")
+	private SYS800 sys800;
+	
+	@Transient
+	private boolean isNew = false;
+	
 	@Override
-	public boolean isAccountNonExpired() {
+	public String getId() {
 		// TODO Auto-generated method stub
-		return false;
+		return userNo;
 	}
 
 	@Override
-	public boolean isAccountNonLocked() {
+	public boolean isNew() {
 		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
+		return isNew;
 	}
 }
