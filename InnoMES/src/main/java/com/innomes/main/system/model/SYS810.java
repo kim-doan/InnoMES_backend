@@ -1,5 +1,6 @@
 package com.innomes.main.system.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -18,8 +19,10 @@ import lombok.Setter;
 @Builder
 public class SYS810 {
 	@Id
+	@Column(name = "USER_NO")
 	private String userNo;
 	
 	@Id
+	@Column(name = "ROLES")
 	private String roles;
 }

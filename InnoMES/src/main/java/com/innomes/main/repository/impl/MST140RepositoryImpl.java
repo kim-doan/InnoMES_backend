@@ -62,7 +62,7 @@ public class MST140RepositoryImpl extends QuerydslRepositorySupport implements M
 				.fetchJoin()
 				.innerJoin(mst140.sys800.roles)
 				.fetchJoin()
-				.innerJoin(mst140.mst141, mst141)
+				.leftJoin(mst140.mst141, mst141)
 				.fetchJoin()
 				.fetch().stream().distinct().collect(Collectors.toList());
 		

@@ -63,7 +63,7 @@ public class SYS800 implements UserDetails, Serializable {
 	private int used;
 	
 	@ElementCollection(fetch = FetchType.LAZY)
-	@CollectionTable(name = "SYS810", joinColumns = @JoinColumn(name = "userNo"))
+	@CollectionTable(name = "SYS810", joinColumns = @JoinColumn(name = "USER_NO"))
 	@Builder.Default
 	private List<String> roles = new ArrayList<String>();
 
