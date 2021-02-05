@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.innomes.main.exception.CAuthenticationEntryPointException;
 import com.innomes.main.exception.CUserDuplicationException;
 import com.innomes.main.exception.CUserNotFoundException;
 import com.innomes.main.exception.CUserRegisterFailException;
@@ -32,6 +33,7 @@ import com.innomes.main.pool.service.MasterPoolService;
 import com.innomes.main.response.model.CommonResult;
 import com.innomes.main.response.model.ListResult;
 import com.innomes.main.response.model.LoginResult;
+import com.innomes.main.response.model.SingleResult;
 import com.innomes.main.response.service.ResponseService;
 
 import lombok.RequiredArgsConstructor;
@@ -56,22 +58,21 @@ public class MasterUserController {
 	//로그인 토큰 확인
 	@CrossOrigin
 	@GetMapping("/master/userInfo/validToken")
-	public ListResult<MasterProfileDTO> getLoginSession(@RequestHeader(value="X-AUTH-TOKEN") String token) {
-		if(token != null && jwtTokenProvider.validateToken(token)) { // 토큰 만료 확인
-			List<MasterProfileDTO> resultList = new ArrayList<MasterProfileDTO>();			
+	public SingleResult<MasterProfileDTO> getLoginSession(@RequestHeader(value="X-AUTH-TOKEN") String token) {
+		if(token != null && jwtTokenProvider.validateToken(token)) { // 토큰 만료 확인	
 			MST140 user = masterUserService.findByUserNo(jwtTokenProvider.getUserPk(token)).orElseThrow(CUserNotFoundException::new);
 			
-			resultList.add(MasterProfileDTO.builder()
+			MasterProfileDTO profile = MasterProfileDTO.builder()
 					.userNo(user.getUserNo())
 					.userName(user.getUserName())
 					.userId(user.getSys800().getUserId())
 					.tempPw(Boolean.parseBoolean(jwtTokenProvider.getTempPw(token)))
 					.roles(user.getSys800().getRoles())
-					.build());
+					.build();
 			
-			return responseService.getListResult(MasterProfileDTO.class, resultList);
+			return responseService.getSingleResult(profile);
 		} else {
-			return null;
+			throw new CAuthenticationEntryPointException();
 		}
 	}
 	
