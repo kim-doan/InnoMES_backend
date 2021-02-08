@@ -34,11 +34,11 @@ public class MasterToolParam implements Pageable{
 	private int invType;
 	
 	// MST113 PARAM
-	private String toolType;
+	private String toolType; // 공구유형
 	
-	private String toolCtg;
+	private String toolCtg; // 공구카테고리
 	
-	private String toolGroup;
+	private String toolGroup; // 공구 그룹
 
 	@Override
 	public String toString() {
