@@ -75,4 +75,22 @@ public class COD100RepositoryImpl extends QuerydslRepositorySupport implements C
 		
 		return result;
 	}
+
+	@Override
+	public List<COD100> findAll() {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QCOD100 cod100 = QCOD100.cOD100;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(cod100.used.eq(1));
+		
+		List<COD100> result = query.from(cod100)
+				.select(cod100)
+				.where(builder)
+				.fetch();
+		
+		return result;
+	}
 }

@@ -8,5 +8,7 @@ import com.innomes.main.code.model.COD100;
 import com.innomes.main.code.param.CodeInfoParam;
 
 public interface COD100RepositoryCustom {
+	List<COD100> findAll();
+	
 	List<COD100> findAllLike(CodeInfoParam codeInfoParam, Pageable pageable);
 }

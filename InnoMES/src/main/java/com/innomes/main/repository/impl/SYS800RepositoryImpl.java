@@ -1,5 +1,6 @@
 package com.innomes.main.repository.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
@@ -16,6 +17,26 @@ public class SYS800RepositoryImpl extends QuerydslRepositorySupport implements S
 		super(SYS800.class);
 	}
 
+	@Override
+	public List<SYS800> findAll() {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QSYS800 sys800 = QSYS800.sYS800;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(sys800.used.eq(1));
+		
+		List<SYS800> result = query.from(sys800)
+				.select(sys800)
+				.innerJoin(sys800.roles)
+				.fetchJoin()
+				.where(builder)
+				.fetch();
+		
+		return result;
+	}
+	
 	@Override
 	public Optional<SYS800> findByLoginUserId(String userId) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
