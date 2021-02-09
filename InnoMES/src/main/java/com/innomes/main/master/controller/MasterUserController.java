@@ -7,6 +7,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +35,7 @@ import com.innomes.main.pool.service.MasterPoolService;
 import com.innomes.main.response.model.CommonResult;
 import com.innomes.main.response.model.ListResult;
 import com.innomes.main.response.model.LoginResult;
+import com.innomes.main.response.model.PageListResult;
 import com.innomes.main.response.model.SingleResult;
 import com.innomes.main.response.service.ResponseService;
 
@@ -79,13 +82,13 @@ public class MasterUserController {
 	//사용자 정보 전체 조회
 	@CrossOrigin
 	@PostMapping("/master/userInfo/users")
-	public ListResult<MasterUserDTO> getUserAll(@Valid @RequestBody(required = false) MasterUserParam masterUserParam) {
+	public PageListResult<MasterUserDTO> getUserAll(@Valid @RequestBody(required = false) MasterUserParam masterUserParam, final Pageable pageable) {
 		if(masterUserParam == null) //파라메터가 없을경우
 			masterUserParam = new MasterUserParam(); // 전체 조회
 		
-		List<MasterUserDTO> userDTO = masterUserService.findAllLike(masterUserParam);
+		Page<MasterUserDTO> userDTO = masterUserService.findAllLike(masterUserParam, pageable);
 		
-		return responseService.getListResult(MasterUserDTO.class, userDTO);
+		return responseService.getPageListResult(MasterUserDTO.class, userDTO);
 	}
 	
 	// 로그인
@@ -179,17 +182,4 @@ public class MasterUserController {
 			throw new CUserNotFoundException();
 		}
 	}
-
-//	//lookup
-//	@CrossOrigin
-//	@PostMapping("/master/userInfo/lookup")
-//	public ListResult<UserInfoLookUpDTO> procLookUp() {
-//		List<UserInfoLookUpDTO> userInfoList = userService.userLookUp();
-//		
-//		if(userInfoList.size() <= 0) {
-//			return responseService.getListResult(new UserInfoLookUpDTO());
-//		} else {
-//			return responseService.getListResult(userInfoList);
-//		}
-//	}
 }

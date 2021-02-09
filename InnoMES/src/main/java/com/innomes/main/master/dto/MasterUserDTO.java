@@ -14,10 +14,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class MasterUserDTO {
 	private String userNo;
-		
-	private String userId;
-	
-	private boolean userPassword;	
 	
 	private String userName;
 	
@@ -36,8 +32,6 @@ public class MasterUserDTO {
 	private String shift;
 	
 	private int leaderYN;
-	
-	private String role;
 	
 	private String description;
 	

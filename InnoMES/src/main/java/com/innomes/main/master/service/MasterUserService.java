@@ -9,6 +9,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,32 +62,31 @@ public class MasterUserService {
 	private int batchSize;
 	
 	//전체 사용자 정보 조회
-	public List<MasterUserDTO> findAllLike(MasterUserParam masterUserParam) {
-		List<MST140> output = mst140Repository.findAllLike(masterUserParam);
+	public Page<MasterUserDTO> findAllLike(MasterUserParam masterUserParam, Pageable pageable) {
+		Page<MST140> output = mst140Repository.findAllLike(masterUserParam, pageable);
+		
+		List<MST140> content = output.getContent();
 		
 		List<MasterUserDTO> userDtoList = new ArrayList<MasterUserDTO>();
 		
-		for(int i=0;i<output.size();i++) {
+		for(int i=0;i<content.size();i++) {
 			userDtoList.add(MasterUserDTO.builder()
-							.userNo(output.get(i).getUserNo())
-							.userId(output.get(i).getSys800().getUserId())
-							.userPassword(passwordEncoder.matches(output.get(i).getUserNo(), output.get(i).getSys800().getUserPassword()) ? false : true)
-							.userName(output.get(i).getUserName())
-							.departmentCode(output.get(i).getDepartmentCode())
-							.gradeCode(output.get(i).getGradeCode())
-							.userType(output.get(i).getUserType())
-							.recruteDate(output.get(i).getRecruteDate())
-							.resignDate(output.get(i).getResignDate())
-							.teamCode(output.get(i).getTeamCode())
-							.shift(output.get(i).getShift())
-							.leaderYN(output.get(i).getLeaderYN())
-							.role(this.findMyRoleLevel(output.get(i).getSys800().getRoles())) // 가진 권한중 최고권한
-							.description(output.get(i).getDescription())
-							.used(output.get(i).getUsed())
+							.userNo(content.get(i).getUserNo())
+							.userName(content.get(i).getUserName())
+							.departmentCode(content.get(i).getDepartmentCode())
+							.gradeCode(content.get(i).getGradeCode())
+							.userType(content.get(i).getUserType())
+							.recruteDate(content.get(i).getRecruteDate())
+							.resignDate(content.get(i).getResignDate())
+							.teamCode(content.get(i).getTeamCode())
+							.shift(content.get(i).getShift())
+							.leaderYN(content.get(i).getLeaderYN())
+							.description(content.get(i).getDescription())
+							.used(content.get(i).getUsed())
 							.build());
 		}
 		
-		return userDtoList;
+		return new PageImpl<>(userDtoList, pageable, output.getTotalElements());
 	}
 	
 	//로그인
