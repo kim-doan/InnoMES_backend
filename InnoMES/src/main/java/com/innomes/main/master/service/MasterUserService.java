@@ -72,6 +72,8 @@ public class MasterUserService {
 		for(int i=0;i<content.size();i++) {
 			userDtoList.add(MasterUserDTO.builder()
 							.userNo(content.get(i).getUserNo())
+							.userId(content.get(i).getSys800().getUserId())
+							.tempPw(passwordEncoder.matches(content.get(i).getUserNo(), content.get(i).getSys800().getUserPassword()) ? true : false)
 							.userName(content.get(i).getUserName())
 							.departmentCode(content.get(i).getDepartmentCode())
 							.gradeCode(content.get(i).getGradeCode())

@@ -61,6 +61,8 @@ public class MST140RepositoryImpl extends QuerydslRepositorySupport implements M
 		 QueryResults<MST140> result = query.from(mst140)
 				.select(mst140)
 				.where(builder)
+				.innerJoin(mst140.sys800, sys800)
+				.fetchJoin()
 				.offset(pageable.getOffset())
 				.limit(pageable.getPageSize())
 				.fetchResults();

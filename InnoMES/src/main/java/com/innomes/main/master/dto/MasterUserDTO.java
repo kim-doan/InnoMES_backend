@@ -15,6 +15,10 @@ import lombok.Setter;
 public class MasterUserDTO {
 	private String userNo;
 	
+	private String userId;
+	
+	private Boolean tempPw;
+	
 	private String userName;
 	
 	private String departmentCode;
