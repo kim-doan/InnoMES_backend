@@ -58,3 +58,6 @@ orderIdNotFoundException:
 salesOrderSaveException:
   code: "E0020"
   msg: "수주내역 저장에 실패했습니다."
+accountNotFoundException:
+  code: "E0021"
+  msg: "존재하지 않는 계정입니다."

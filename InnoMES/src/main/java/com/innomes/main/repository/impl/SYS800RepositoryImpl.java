@@ -38,6 +38,26 @@ public class SYS800RepositoryImpl extends QuerydslRepositorySupport implements S
 	}
 	
 	@Override
+	public Optional<SYS800> findById(String userNo) {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QSYS800 sys800 = QSYS800.sYS800;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(sys800.userNo.eq(userNo));
+		
+		Optional<SYS800> result = Optional.ofNullable(query.from(sys800)
+				.select(sys800)
+				.innerJoin(sys800.roles)
+				.fetchJoin()
+				.where(builder)
+				.fetchOne());
+				
+		return result;
+	}
+	
+	@Override
 	public Optional<SYS800> findByLoginUserId(String userId) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		

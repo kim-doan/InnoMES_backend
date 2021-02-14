@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.innomes.main.exception.CAccountNotFoundException;
 import com.innomes.main.exception.CAuthenticationEntryPointException;
 import com.innomes.main.exception.CCompanySaveException;
 import com.innomes.main.exception.CMaterialSaveException;
@@ -182,5 +183,11 @@ public class ExceptionAdvice {
 	@ExceptionHandler(CSalesOrderSaveException.class)
 	public CommonResult salesOrderSaveException(HttpServletRequest request, CSalesOrderSaveException e) {
 		return responseService.getFailResult("E0020", getMessage("salesOrderSaveException.msg"));
+	}
+	
+	//계정 조회오류
+	@ExceptionHandler(CAccountNotFoundException.class)
+	public CommonResult accountNotFoundException(HttpServletRequest request, CAccountNotFoundException e) {
+		return responseService.getFailResult("E0021", getMessage("accountNotFoundException.msg"));
 	}
 }

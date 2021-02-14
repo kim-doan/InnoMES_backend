@@ -9,6 +9,9 @@ public interface SYS800RepositoryCustom {
 	//전체조회
 	List<SYS800> findAll();
 	
+	//단건조회
+	Optional<SYS800> findById(String userNo);
+	
 	//로그인 가능한 사용자 조회
 	Optional<SYS800> findByLoginUserId(String userId);
 	
