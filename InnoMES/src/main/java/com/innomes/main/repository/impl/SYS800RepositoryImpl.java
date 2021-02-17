@@ -38,7 +38,7 @@ public class SYS800RepositoryImpl extends QuerydslRepositorySupport implements S
 	}
 	
 	@Override
-	public Optional<SYS800> findById(String userNo) {
+	public Optional<SYS800> findByIdCustom(String userNo) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		
 		QSYS800 sys800 = QSYS800.sYS800;

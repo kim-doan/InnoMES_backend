@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.innomes.main.exception.CAuthenticationEntryPointException;
+import com.innomes.main.exception.CLoginFailException;
 import com.innomes.main.exception.CUserDuplicationException;
 import com.innomes.main.exception.CUserNotFoundException;
 import com.innomes.main.exception.CUserRegisterFailException;
@@ -100,7 +101,7 @@ public class MasterUserController {
 		if(token != null) {
 			return responseService.getLoginResult(token);
 		} else {
-			throw new CUserNotFoundException();
+			throw new CLoginFailException();
 		}
 	}
 	

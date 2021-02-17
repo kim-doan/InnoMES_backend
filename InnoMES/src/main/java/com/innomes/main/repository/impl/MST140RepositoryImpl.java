@@ -91,7 +91,7 @@ public class MST140RepositoryImpl extends QuerydslRepositorySupport implements M
 	}
 
 	@Override
-	public Optional<MST140> findById(String userNo) {
+	public Optional<MST140> findByIdCustom(String userNo) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		QMST140 mst140 = QMST140.mST140;
 		QMST141	mst141	= QMST141.mST141;
