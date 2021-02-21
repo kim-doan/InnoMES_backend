@@ -10,7 +10,7 @@ public interface SYS800RepositoryCustom {
 	List<SYS800> findAll();
 	
 	//단건조회
-	Optional<SYS800> findById(String userNo);
+	Optional<SYS800> findByIdCustom(String userNo);
 	
 	//로그인 가능한 사용자 조회
 	Optional<SYS800> findByLoginUserId(String userId);

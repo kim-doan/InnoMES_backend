@@ -11,7 +11,7 @@ import com.innomes.main.master.param.MasterUserParam;
 
 
 public interface MST140RepositoryCustom {
-	Optional<MST140> findById(String userNo);
+	Optional<MST140> findByIdCustom(String userNo);
 	
 	Page<MST140> findAllLike(MasterUserParam masterUserParam, Pageable pageable);
 	

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.innomes.main.exception.CAccountNotFoundException;
 import com.innomes.main.exception.CAuthenticationEntryPointException;
 import com.innomes.main.exception.CCompanySaveException;
+import com.innomes.main.exception.CLoginFailException;
 import com.innomes.main.exception.CMaterialSaveException;
 import com.innomes.main.exception.COrderIdNotFoundException;
 import com.innomes.main.exception.CProcessNotFoundException;
@@ -189,5 +190,11 @@ public class ExceptionAdvice {
 	@ExceptionHandler(CAccountNotFoundException.class)
 	public CommonResult accountNotFoundException(HttpServletRequest request, CAccountNotFoundException e) {
 		return responseService.getFailResult("E0021", getMessage("accountNotFoundException.msg"));
+	}
+	
+	//로그인 실패
+	@ExceptionHandler(CLoginFailException.class)
+	public CommonResult loginFailException(HttpServletRequest request, CLoginFailException e) {
+		return responseService.getFailResult("E0022", getMessage("loginFailException.msg"));
 	}
 }

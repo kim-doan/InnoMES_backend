@@ -61,3 +61,6 @@ salesOrderSaveException:
 accountNotFoundException:
   code: "E0021"
   msg: "존재하지 않는 계정입니다."
+loginFailException:
+  code: "E0022"
+  msg: "아이디/비밀번호를 확인해주세요."

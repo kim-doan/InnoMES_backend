@@ -120,7 +120,7 @@ public class MasterUserService {
 				Optional<SYS800> dbSys800;
 				
 				if(masterUserParam[i].getUserId() == null) {
-					dbSys800 = sys800Repository.findById(masterUserParam[i].getUserNo());
+					dbSys800 = sys800Repository.findByIdCustom(masterUserParam[i].getUserNo());
 				} else {
 					dbSys800 = sys800Repository.findByUserId(masterUserParam[i].getUserId());
 				}
@@ -204,7 +204,7 @@ public class MasterUserService {
 		
 		try {
 			for(int i=0;i<masterUserParam.length;i++) {
-				MST140 dbMst140 = mst140Repository.findById(masterUserParam[i].getUserNo()).orElseThrow(CUserNotFoundException::new);
+				MST140 dbMst140 = mst140Repository.findByIdCustom(masterUserParam[i].getUserNo()).orElseThrow(CUserNotFoundException::new);
 				
 				mst140Repository.save(MST140.builder()
 						.userNo(dbMst140.getUserNo())
@@ -249,7 +249,7 @@ public class MasterUserService {
 		
 		try {
 			for(int i=0;i<masterUserParam.length;i++) {
-				SYS800 dbSys800 = sys800Repository.findById(masterUserParam[i].getUserNo()).orElseThrow(CUserNotFoundException::new);
+				SYS800 dbSys800 = sys800Repository.findByIdCustom(masterUserParam[i].getUserNo()).orElseThrow(CUserNotFoundException::new);
 				
 				sys800Repository.save(SYS800.builder()
 						.userNo(masterUserParam[i].getUserNo())
@@ -258,7 +258,7 @@ public class MasterUserService {
 						.createUser(masterUserParam[i].getCreateUser())
 						.createTime(new Date())
 						.updateUser(masterUserParam[i].getUpdateUser())
-						.updateTime(masterUserParam[i].getUpdateTime())
+						.updateTime(new Date())
 						.roles(dbSys800.getRoles())
 						.used(masterUserParam[i].getUsed())
 						.build());
@@ -278,7 +278,7 @@ public class MasterUserService {
 	
 	//사번으로 단건 조회
 	public Optional<MST140> findByUserNo(String userNo) {
-		return mst140Repository.findById(userNo);
+		return mst140Repository.findByIdCustom(userNo);
 	}
 	
 	//앞에 둘수록 높은 권한
@@ -310,7 +310,7 @@ public class MasterUserService {
 		String role = param.get("role").toString();
 		
 		try {
-			Optional<SYS800> dbSys800 = sys800Repository.findById(userNo);
+			Optional<SYS800> dbSys800 = sys800Repository.findByIdCustom(userNo);
 			
 			if(dbSys800.isPresent() == true) {
 				sys810Repository.deleteByUserNo(userNo);
@@ -366,7 +366,7 @@ public class MasterUserService {
 		
 		try {
 			for(int i=0;i<masterUserParam.length;i++) {
-				MST140 dbMST140 = mst140Repository.findById(masterUserParam[i].getUserNo()).orElseThrow(CUserNotFoundException::new);
+				MST140 dbMST140 = mst140Repository.findByIdCustom(masterUserParam[i].getUserNo()).orElseThrow(CUserNotFoundException::new);
 				
 				MST140 mst140 = dbMST140;
 				mst140.setResignDate(new Date()); // 퇴사일자 지정
