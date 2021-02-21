@@ -4,8 +4,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -48,7 +51,7 @@ public class MST151 {
 	private String compItemId;
 	
 	@Column(name = "PRICE_STD")
-	private double pricdStd;
+	private double priceStd;
 	
 	@Column(name = "PRICE_UNIT")
 	private String priceUnit;
@@ -77,4 +80,7 @@ public class MST151 {
 	@Column(name = "USED")
 	private int used;
 	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "ITEM_ID", insertable = false, updatable = false)
+	private MST110 mst110;
 }
