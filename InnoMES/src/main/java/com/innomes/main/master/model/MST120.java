@@ -42,11 +42,11 @@ public class MST120{
 	@Column(name = "PROC_TYPE")
 	private String procType;
 	
-	@ApiModelProperty(value = "내외작구분 (0: 사내 / 1: 외작 / 2: 내외작)"
+	@ApiModelProperty(value = "내외작구분 (TPS019001: 사내 / TPS019002: 외주/ TPS019003: 내외작)"
 			+ "\n Insourcing/Outsourcing(0 : Insourcing, shipping(IN, SP) / 1 : Outsourcing / 2 : Both)"
 			+ "\n MST120.IN_OUT_TYPE")
 	@Column(name = "IN_OUT_TYPE")
-	private int inOutType;
+	private String inOutType;
 	
 	@ApiModelProperty(value = "생산공정유무 (0: 생산공정 / 1: 비생산공정)"
 			+ "\n Production Process?(0 : Prod.Process / 1 : Non-prod. process(IN, SP))"

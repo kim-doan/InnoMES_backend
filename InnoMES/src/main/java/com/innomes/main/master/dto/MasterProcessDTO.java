@@ -18,7 +18,7 @@ public class MasterProcessDTO {
 
 	private String procType;
 
-	private int inOutType;
+	private String inOutType;
 
 	private int prdtionYN;
 
