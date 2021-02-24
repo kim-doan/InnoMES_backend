@@ -21,6 +21,8 @@ public class MasterUserParam {
 	
 	private String userPassword;
 	
+	private int initialPwYN;
+	
 	private String departmentCode;
 	
 	private String gradeCode;

@@ -17,7 +17,7 @@ public class MasterUserDTO {
 	
 	private String userId;
 	
-	private Boolean tempPw;
+	private Boolean initialPwYN;
 	
 	private String userName;
 	

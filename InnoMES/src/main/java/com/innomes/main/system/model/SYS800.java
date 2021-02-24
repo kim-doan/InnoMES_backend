@@ -47,6 +47,9 @@ public class SYS800 implements UserDetails, Serializable {
 	@Column(name = "USER_PASSWORD")
 	private String userPassword;
 	
+	@Column(name = "INITIAL_PW_YN")
+	private int initialPwYN;
+	
 	@Column(name = "CREATE_USER", insertable = true, updatable = false)
 	private String createUser;
 	
