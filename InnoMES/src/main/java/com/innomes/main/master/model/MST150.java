@@ -73,6 +73,5 @@ public class MST150 {
 	@Column(name="UPDATE_TIME")
 	private Date updateTime;
 	@Column(name="USED")
-	private int used;
-	
+	private int used;	
 }
