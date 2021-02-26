@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.innomes.main.master.dto.MasterPriceItemDTO;
+import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.param.MasterPriceItemParam;
 import com.innomes.main.master.service.MasterPriceItemService;
 import com.innomes.main.response.model.PageListResult;
@@ -27,13 +28,24 @@ public class MasterPriceItemController {
 	@Autowired
 	private MasterPriceItemService masterPriceItemService;
 	
-	@ApiOperation(value = "판매단가정보 조회", notes = "판매단가 정보를 반환 합니다")
+	
+	@ApiOperation(value = "품목리스트 (단가)", notes = "품목리스트를 반환합니다.")
 	@CrossOrigin
-	@PostMapping("/master/priceItem/sell")
+	@PostMapping("/master/priceItem/items")
+	public PageListResult<MasterProductDTO> getPriceItem(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
+		if(masterPriceItemParam == null)
+			masterPriceItemParam = new MasterPriceItemParam();
+
+		return responseService.getPageListResult(MasterProductDTO.class, masterPriceItemService.getPriceItem(masterPriceItemParam, pageable));
+	}
+	
+	@ApiOperation(value = "품목별 단가정보", notes = "품목별 단가정보 리스트를 반환합니다.")
+	@CrossOrigin
+	@PostMapping("/master/priceItem/sellPrice")
 	public PageListResult<MasterPriceItemDTO> getSellPrice(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
-		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceItemService.getPriceItem(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceItemService.getPriceInfo(masterPriceItemParam, pageable));
 	}
 	
 }

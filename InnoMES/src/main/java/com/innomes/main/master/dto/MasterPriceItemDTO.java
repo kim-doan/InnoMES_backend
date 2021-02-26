@@ -13,7 +13,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class MasterPriceItemDTO {
-private String itemId;
+	
+	private String itemId;
 	
 	private String itemCode;
 	

@@ -26,7 +26,6 @@ public class MST110RepositoryImpl extends QuerydslRepositorySupport implements M
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		
 		QMST110 mst110 = QMST110.mST110;
-		QMST151 mst151 = QMST151.mST151;
 		
 		BooleanBuilder builder = new BooleanBuilder();
 		
@@ -37,13 +36,6 @@ public class MST110RepositoryImpl extends QuerydslRepositorySupport implements M
 			builder.and(mst110.itemName.like("%" + masterPriceItemParam.getItemName() + "%"));
 		}
 		
-		if(!StringUtils.isEmpty(masterPriceItemParam.getCompId())) {
-				builder.and(mst110.itemId.in(JPAExpressions
-														.select(mst151.itemId)
-														.from(mst151)
-														.where(mst151.compId.like("%" + masterPriceItemParam.getCompId() + "%"))));
-		}
-		
 		builder.and(mst110.used.eq(1));
 		if(!masterPriceItemParam.getPriceType().equals("TPS002002")) { // 구매 단가 조회가 아닌경우
 			//판매와 외주 단가는 제품만 보인다.
@@ -52,8 +44,6 @@ public class MST110RepositoryImpl extends QuerydslRepositorySupport implements M
 		
 		QueryResults<MST110> result = query.from(mst110)
 				.select(mst110)
-				.leftJoin(mst110.mst151, mst151)
-				//.fetchJoin()
 				.where(builder)
 				.offset(pageable.getOffset())
 				.limit(pageable.getPageSize())

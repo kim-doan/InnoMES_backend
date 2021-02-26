@@ -21,6 +21,8 @@ import org.hibernate.annotations.Proxy;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +38,7 @@ import lombok.Setter;
 @Table(name = "MST141")
 @Getter @Setter
 @RequiredArgsConstructor
+@AllArgsConstructor
 @Builder
 public class MST141 implements Serializable {
 	@Id
@@ -70,30 +73,5 @@ public class MST141 implements Serializable {
 	private Date updateTime;
 	
 	@Column(name="USED", insertable = false, updatable = true)
-	private int used;
-	
-	@OneToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name ="TEAM_CODE", insertable = false, updatable = false, nullable = true)
-	@NotFound(action = NotFoundAction.IGNORE)
-	private MST140 mst140;
-
-	public MST141(String teamCode, String teamName, String ftrCode, String procType, String lineCode,
-			String description, String createUser, Date createTime, String updateUser, Date updateTime, int used,
-			MST140 mst140) {
-		super();
-		this.teamCode = teamCode;
-		this.teamName = teamName;
-		this.ftrCode = ftrCode;
-		this.procType = procType;
-		this.lineCode = lineCode;
-		this.description = description;
-		this.createUser = createUser;
-		this.createTime = createTime;
-		this.updateUser = updateUser;
-		this.updateTime = updateTime;
-		this.used = used;
-		this.mst140 = mst140;
-	}
-	
-	
+	private int used;	
 }

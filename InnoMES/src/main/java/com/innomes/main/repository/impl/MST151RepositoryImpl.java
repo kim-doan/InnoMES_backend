@@ -40,8 +40,9 @@ public class MST151RepositoryImpl extends QuerydslRepositorySupport implements M
 			builder.and(mst151.compId.like("%" + masterPriceParam.getCompId() + "%"));
 		}
 		
+		builder.and(mst151.priceType.eq(masterPriceParam.getPriceType()));
 		builder.and(mst151B.compId.isNull());
-		builder.and(mst151.used.eq(0));
+		builder.and(mst151.used.eq(1));
 		
 		QueryResults<MST151> result = query.from(mst151)
 				.select(mst151)
