@@ -63,6 +63,7 @@ public class MST113RepositoryImpl extends QuerydslRepositorySupport implements M
 				.innerJoin(mst113.mst110, mst110)
 				.fetchJoin()
 				.where(builder)
+				.orderBy(mst113.mst110.createTime.desc())
 				.offset(pageable.getOffset())
 				.limit(pageable.getPageSize())
 				.fetchResults();

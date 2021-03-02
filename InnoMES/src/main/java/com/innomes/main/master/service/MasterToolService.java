@@ -80,7 +80,7 @@ public class MasterToolService {
 						.itemName(param.getItemName())
 						.itemType(param.getItemType())
 						.lotSize(param.getLotSize())
-						.lotUnit("UNT018") // EA (공구)
+						.lotUnit("UNT018001") // EA (공구)
 						.safetyQnt(param.getSafetyQnt())
 						.safetyUnit(param.getSafetyUnit())
 						.locCode(param.getLocCode())
@@ -90,7 +90,7 @@ public class MasterToolService {
 						.createTime(new Date())
 						.updateUser(param.getUpdateUser())
 						.updateTime(new Date())
-						.used(1)
+						.used(param.getUsed())
 						.build();
 				
 				MST113 mst113 = MST113.builder()
