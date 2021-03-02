@@ -55,4 +55,10 @@ public class MasterCompanyDTO {
 	private String chargeEmail;
 	
 	private String description;
+	
+	private String createUser;
+	
+	private String updateUser;
+	
+	private int used;
 }

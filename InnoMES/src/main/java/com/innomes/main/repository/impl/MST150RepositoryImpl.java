@@ -37,6 +37,8 @@ public class MST150RepositoryImpl extends QuerydslRepositorySupport implements M
 			builder.and(mst150.compName.like("%" + masterCompanyParam.getCompName() + "%"));
 		}
 		
+		builder.and(mst150.used.eq(1));
+		
 		QueryResults<MST150> result = query.from(mst150)
 				.select(mst150)
 				.where(builder)
