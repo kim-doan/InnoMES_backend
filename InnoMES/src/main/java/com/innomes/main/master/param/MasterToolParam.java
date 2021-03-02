@@ -22,13 +22,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class MasterToolParam implements Pageable{
-	
-	/* save */
-	private MST110 mst110;
-	
-	private MST113 mst113;
 
-	/* search */
 	// MST110 PARAM
 	private String itemId;
 	
@@ -89,7 +83,7 @@ public class MasterToolParam implements Pageable{
 
 	@Override
 	public String toString() {
-		return "MasterToolParam [mst110=" + mst110 + ", mst113=" + mst113 + ", itemCode=" + itemCode + ", itemName=" + itemName + ", itemType=" + itemType + ", invType=" + invType + ", toolType=" + toolType + ", toolCtg=" + toolCtg
+		return "MasterToolParam [itemCode=" + itemCode + ", itemName=" + itemName + ", itemType=" + itemType + ", invType=" + invType + ", toolType=" + toolType + ", toolCtg=" + toolCtg
 				+ ", toolGroup=" + toolGroup + "]";
 	}
 
