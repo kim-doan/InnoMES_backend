@@ -29,14 +29,14 @@ public class MasterPriceItemController {
 	private MasterPriceItemService masterPriceItemService;
 	
 	
-	@ApiOperation(value = "품목리스트 (단가)", notes = "품목리스트를 반환합니다.")
+	@ApiOperation(value = "품목리스트 (판매단가)", notes = "품목리스트를 반환합니다.")
 	@CrossOrigin
 	@PostMapping("/master/priceItem/items")
 	public PageListResult<MasterProductDTO> getPriceItem(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
 
-		return responseService.getPageListResult(MasterProductDTO.class, masterPriceItemService.getPriceItem(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterProductDTO.class, masterPriceItemService.getSellPriceItem(masterPriceItemParam, pageable));
 	}
 	
 	@ApiOperation(value = "품목별 단가정보", notes = "품목별 단가정보 리스트를 반환합니다.")
@@ -45,7 +45,7 @@ public class MasterPriceItemController {
 	public PageListResult<MasterPriceItemDTO> getSellPrice(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
-		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceItemService.getPriceInfo(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceItemService.getSellPriceInfo(masterPriceItemParam, pageable));
 	}
 	
 }

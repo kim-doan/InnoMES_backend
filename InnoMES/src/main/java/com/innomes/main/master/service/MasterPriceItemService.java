@@ -33,7 +33,11 @@ public class MasterPriceItemService {
 	private MST110Repository mst110Repository;
 	
 	
-	public Page<MasterProductDTO> getPriceItem(MasterPriceItemParam masterPriceItemParam, Pageable pageable){
+	public Page<MasterProductDTO> getSellPriceItem(MasterPriceItemParam masterPriceItemParam, Pageable pageable){
+		
+		//TPS002001 : 판매단가
+		masterPriceItemParam.setPriceType("TPS002001");
+		
 		Page<MST110> output = mst110Repository.findAllPriceItem(masterPriceItemParam, pageable);
 		List<MST110> content = output.getContent();
 		List<MasterProductDTO> dtoList = new ArrayList<MasterProductDTO>();
@@ -51,7 +55,11 @@ public class MasterPriceItemService {
 		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
 	}
 	
-	public Page<MasterPriceItemDTO> getPriceInfo(MasterPriceItemParam masterPriceItemParam, Pageable pageable){
+	public Page<MasterPriceItemDTO> getSellPriceInfo(MasterPriceItemParam masterPriceItemParam, Pageable pageable){
+		
+		//TPS002001 : 판매단가
+		masterPriceItemParam.setPriceType("TPS002001");
+		
 		Page<MST151> output = mst151Repository.findAllLike(masterPriceItemParam, pageable);
 		List<MST151> content = output.getContent();
 		List<MasterPriceItemDTO> dtoList = new ArrayList<MasterPriceItemDTO>();
