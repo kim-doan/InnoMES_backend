@@ -16,6 +16,7 @@ import com.innomes.main.master.model.QMST142;
 import com.innomes.main.master.param.MasterUserParam;
 import com.innomes.main.repository.custom.MST140RepositoryCustom;
 import com.innomes.main.system.model.QSYS800;
+import com.innomes.main.system.model.SYS810;
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryResults;
@@ -65,6 +66,7 @@ public class MST140RepositoryImpl extends QuerydslRepositorySupport implements M
 				.fetchJoin()
 				.offset(pageable.getOffset())
 				.limit(pageable.getPageSize())
+				.orderBy(mst140.createTime.desc(), mst140.userNo.asc())
 				.fetchResults();
 		
 		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
@@ -100,14 +102,13 @@ public class MST140RepositoryImpl extends QuerydslRepositorySupport implements M
 		BooleanBuilder builder = new BooleanBuilder();
 		
 		builder.and(mst140.userNo.eq(userNo));
-		builder.and(mst140.used.eq(1));
 		
 		Optional<MST140> result = Optional.ofNullable(query.from(mst140)
 				.select(mst140)
 				.where(builder)
-				.innerJoin(mst140.sys800, sys800)
+				.leftJoin(mst140.sys800, sys800)
 				.fetchJoin()
-				.innerJoin(mst140.sys800.roles)
+				.leftJoin(sys800.roles)
 				.fetchJoin()
 				.leftJoin(mst140.mst141, mst141)
 				.fetchJoin()

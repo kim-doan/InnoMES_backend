@@ -32,7 +32,7 @@ public class MasterPriceItemService {
 	@Autowired
 	private MST110Repository mst110Repository;
 	
-	
+	//메인그리드
 	public Page<MasterProductDTO> getSellPriceItem(MasterPriceItemParam masterPriceItemParam, Pageable pageable){
 		
 		//TPS002001 : 판매단가
@@ -55,6 +55,7 @@ public class MasterPriceItemService {
 		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
 	}
 	
+	//서브그리드
 	public Page<MasterPriceItemDTO> getSellPriceInfo(MasterPriceItemParam masterPriceItemParam, Pageable pageable){
 		
 		//TPS002001 : 판매단가

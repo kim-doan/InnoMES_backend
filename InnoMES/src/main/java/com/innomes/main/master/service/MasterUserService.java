@@ -256,7 +256,7 @@ public class MasterUserService {
 						.userNo(masterUserParam[i].getUserNo())
 						.userId(masterUserParam[i].getUserId())
 						.userPassword(passwordEncoder.encode(masterUserParam[i].getUserPassword()))
-						.initialPwYN(masterUserParam[i].getInitialPwYN())
+						.initialPwYN(0)
 						.createUser(masterUserParam[i].getCreateUser())
 						.createTime(new Date())
 						.updateUser(masterUserParam[i].getUpdateUser())
@@ -360,6 +360,79 @@ public class MasterUserService {
 		
 		return success;
 	}
+	
+	//유저정보 저장
+	public boolean saveUserInfo(MasterUserParam[] masterUserParam) {
+		boolean success = true;
+		
+		List<MST140> mst140List = new ArrayList<MST140>();
+		List<SYS800> sys800List = new ArrayList<SYS800>();
+
+		try {
+			for (MasterUserParam param : masterUserParam) {
+				Optional<MST140> dbMst140 = mst140Repository.findByIdCustom(param.getUserNo());
+				
+				MST140 mst140 = MST140.builder()
+						.userNo(param.getUserNo())
+						.userName(param.getUserName())
+						.departmentCode(param.getDepartmentCode())
+						.gradeCode(param.getGradeCode())
+						.userType(param.getUserType())
+						.recruteDate(param.getRecruteDate())
+						.resignDate(param.getResignDate())
+						.teamCode(param.getTeamCode())
+						.shift(param.getShift())
+						.leaderYN(param.getLeaderYN())
+						.description(param.getDescription())
+						.createUser(param.getCreateUser())
+						.createTime(new Date())
+						.updateUser(param.getUpdateUser())
+						.updateTime(new Date())
+						.used(param.getUsed())
+						.build();
+				mst140List.add(mst140);
+				
+				SYS800 sys800 = SYS800.builder()
+						.userNo(param.getUserNo())
+						.userId(param.getUserId())
+						.createUser(param.getCreateUser())
+						.createTime(new Date())
+						.updateUser(param.getUpdateUser())
+						.updateTime(new Date())
+						.used(param.getUsed())
+						.build();
+				
+				sys800List.add(sys800);
+				
+				if(dbMst140.isPresent()) {
+					//수정
+					mst140.setNew(false);
+					sys800.setUserPassword(dbMst140.get().getSys800().getUserPassword());
+					sys800.setInitialPwYN(dbMst140.get().getSys800().getInitialPwYN());
+					sys800.setRoles(dbMst140.get().getSys800().getRoles());
+				} else {
+					//추가
+					mst140.setNew(true);
+					sys800.setUserPassword(passwordEncoder.encode(param.getUserNo()));
+					sys800.setInitialPwYN(1); // 초기비밀번호 true
+					sys800.setRoles(Collections.singletonList("ROLE_USER"));
+				}
+			}
+			
+			mst140Repository.saveAll(mst140List);
+			mst140Repository.flush();
+			mst140List.clear();
+			sys800Repository.saveAll(sys800List);
+			sys800Repository.flush();
+			sys800List.clear();
+		} catch (Exception e) {
+			success = false;
+		}
+		
+		return success;
+	}
+	
+	
 	
 	//유저 비활성화 / 활성화
 	public boolean deleteUserInfo(MasterUserParam[] masterUserParam) {

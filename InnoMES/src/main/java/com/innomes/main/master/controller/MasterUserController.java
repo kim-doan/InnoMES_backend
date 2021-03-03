@@ -92,6 +92,19 @@ public class MasterUserController {
 		return responseService.getPageListResult(MasterUserDTO.class, userDTO);
 	}
 	
+	//사용자 정보 저장
+	@CrossOrigin
+	@PostMapping("/master/userInfo/save")
+	public CommonResult saveUser(@Valid @RequestBody(required = true) MasterUserParam[] masterUserParam) {
+		boolean success = masterUserService.saveUserInfo(masterUserParam);
+		
+		if(success == true) { // 성공
+			return responseService.getSuccessResult();
+		} else {
+			throw new CUserRegisterFailException();
+		}
+	}
+	
 	// 로그인
 	@CrossOrigin
 	@PostMapping("/master/userInfo/login")
