@@ -32,34 +32,34 @@ public class MasterPriceItemService {
 	@Autowired
 	private MST110Repository mst110Repository;
 	
-	//판매단가정보 메인그리드
-	public Page<MasterPriceItemDTO> getSellItemList(MasterPriceItemParam masterPriceItemParam, Pageable pageable){
-		
-		//TPS002001 : 판매단가
-		masterPriceItemParam.setPriceType("TPS002001");
-		
-		Page<MST110> output = mst110Repository.findAllPriceItem(masterPriceItemParam, pageable);
-		List<MST110> content = output.getContent();
-		List<MasterPriceItemDTO> dtoList = new ArrayList<MasterPriceItemDTO>();
-		for(MST110 mst110 : content) {
-			MasterPriceItemDTO dto = (MasterPriceItemDTO.builder()
-					.itemId(mst110.getItemId())
-					.itemCode(mst110.getItemCode())
-					.itemName(mst110.getItemName())
-					.itemType(mst110.getItemType())
-					.build());
-			
-			dtoList.add(dto);
-		}
-		
-		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
+	//판매단가정보 품목리스트 (메인그리드)
+	public Page<MasterPriceItemDTO> getSellItemList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {
+		masterPriceItemParam.setPriceType("TPS002001");		//판매단가
+		return getItemList(masterPriceItemParam, pageable);
 	}
 	
-	//판매단가정보 서브그리드
-	public Page<MasterPriceDTO> getSellPriceInfo(MasterPriceItemParam masterPriceItemParam, Pageable pageable){
-		
-		//TPS002001 : 판매단가
-		masterPriceItemParam.setPriceType("TPS002001");
+	//판매단가정보 거래처별 단가리스트 (서브그리드)
+	public Page<MasterPriceDTO> getSellPriceList(MasterPriceItemParam masterPriceItemParam, Pageable pageable){
+		masterPriceItemParam.setPriceType("TPS002001");		//판매단가
+		return getPriceList(masterPriceItemParam, pageable);
+	}
+	
+	//구매단가정보 품목리스트(메인그리드)
+	public Page<MasterPriceItemDTO> getPurchaseItemList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {
+		masterPriceItemParam.setPriceType("TPS002002");		//구매단가
+		return getItemList(masterPriceItemParam, pageable);
+	}
+	
+	//구매단가정보 거래처별 단가리스트 (서브그리드)
+	public Page<MasterPriceDTO> getPurchasePriceList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {
+		masterPriceItemParam.setPriceType("TPS002002");		//판매단가
+		return getPriceList(masterPriceItemParam, pageable);
+	}
+	
+	
+	
+	
+	private Page<MasterPriceDTO> getPriceList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {
 		
 		Page<MST151> output = mst151Repository.findAllLike(masterPriceItemParam, pageable);
 		List<MST151> content = output.getContent();
@@ -88,6 +88,25 @@ public class MasterPriceItemService {
 					.deliveryType(mst151.getDeliveryType())
 					.deliveryDay(mst151.getDeliveryDay())
 					.description(mst151.getDescription())
+					.build());
+			
+			dtoList.add(dto);
+		}
+		
+		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
+	}
+	
+	private Page<MasterPriceItemDTO> getItemList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {
+		
+		Page<MST110> output = mst110Repository.findAllPriceItem(masterPriceItemParam, pageable);
+		List<MST110> content = output.getContent();
+		List<MasterPriceItemDTO> dtoList = new ArrayList<MasterPriceItemDTO>();
+		for(MST110 mst110 : content) {
+			MasterPriceItemDTO dto = (MasterPriceItemDTO.builder()
+					.itemId(mst110.getItemId())
+					.itemCode(mst110.getItemCode())
+					.itemName(mst110.getItemName())
+					.itemType(mst110.getItemType())
 					.build());
 			
 			dtoList.add(dto);

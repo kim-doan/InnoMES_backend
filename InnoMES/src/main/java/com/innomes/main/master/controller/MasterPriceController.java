@@ -32,7 +32,7 @@ public class MasterPriceController {
 	
 	@ApiOperation(value = "판매단가 품목리스트", notes = "판매단가 유형의 품목리스트를 반환합니다.")
 	@CrossOrigin
-	@PostMapping("/master/priceItem/items")
+	@PostMapping("/master/masterPrice/sell/item")
 	public PageListResult<MasterPriceItemDTO> getSellItemList(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
@@ -40,13 +40,31 @@ public class MasterPriceController {
 		return responseService.getPageListResult(MasterProductDTO.class, masterPriceItemService.getSellItemList(masterPriceItemParam, pageable));
 	}
 	
-	@ApiOperation(value = "품목별 단가정보", notes = "품목별 단가정보 리스트를 반환합니다.")
+	@ApiOperation(value = "품목별 판매단가 정보", notes = "품목별 판매단가 정보 리스트를 반환합니다.")
 	@CrossOrigin
-	@PostMapping("/master/priceItem/sellPrice")
-	public PageListResult<MasterPriceDTO> getSellPrice(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
+	@PostMapping("/master/masterPrice/sell/price")
+	public PageListResult<MasterPriceDTO> getSellPriceList(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
-		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceItemService.getSellPriceInfo(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceItemService.getSellPriceList(masterPriceItemParam, pageable));
 	}
 	
+	@ApiOperation(value = "구매단가 품목리스트", notes = "구매단가 유형의 품목리스트를 반환합니다.")
+	@CrossOrigin
+	@PostMapping("/master/masterPrice/purchase/item")
+	public PageListResult<MasterPriceItemDTO> getPurchaseItemList(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
+		if(masterPriceItemParam == null)
+			masterPriceItemParam = new MasterPriceItemParam();
+
+		return responseService.getPageListResult(MasterProductDTO.class, masterPriceItemService.getPurchaseItemList(masterPriceItemParam, pageable));
+	}
+	
+	@ApiOperation(value = "품목별 구매단가 정보", notes = "품목별 구매단가 정보 리스트를 반환합니다.")
+	@CrossOrigin
+	@PostMapping("/master/masterPrice/purchase/price")
+	public PageListResult<MasterPriceDTO> getPurchasePriceList(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
+		if(masterPriceItemParam == null)
+			masterPriceItemParam = new MasterPriceItemParam();
+		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceItemService.getPurchasePriceList(masterPriceItemParam, pageable));
+	}
 }
