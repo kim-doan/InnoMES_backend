@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
+import com.innomes.main.exception.CValiedationItemCodeException;
 import com.innomes.main.master.dto.MasterSpareDTO;
 import com.innomes.main.master.model.MST110;
 import com.innomes.main.master.model.MST114;
@@ -26,6 +27,9 @@ import com.innomes.main.repository.MST114Repository;
 public class MasterSpareService {
 	@Autowired
 	private MST114Repository mst114Repository;
+	
+	@Autowired
+	private MasterProductService masterProductService;
 	
 	@Autowired
 	private ModelMapper modelMapper;
@@ -46,6 +50,12 @@ public class MasterSpareService {
 		
 		try {
 			for (MasterSpareParam param : masterSpareParams) {
+				
+				//itemCode 중복체크 (삭제 아닐경우)
+				if(param.getUsed() == 1) {
+					masterProductService.valiedationItemCode(param.getItemCode());
+				}
+				
 				MST110 mst110 = MST110.builder()
 						.itemId(param.getItemId())
 						.itemCode(param.getItemCode())
@@ -82,7 +92,10 @@ public class MasterSpareService {
 			mst114Repository.saveAll(mst114List);
 			mst114Repository.flush();
 			mst114List.clear();
-		}catch (Exception e){
+		} catch(CValiedationItemCodeException e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
+			throw new CValiedationItemCodeException();
+		} catch (Exception e){
 			e.printStackTrace();
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
 			success = false;

@@ -15,10 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.google.common.reflect.TypeToken;
+import com.innomes.main.exception.CValiedationItemCodeException;
 import com.innomes.main.master.dto.MasterMaterialDTO;
 import com.innomes.main.master.model.MST110;
 import com.innomes.main.master.model.MST112;
 import com.innomes.main.master.param.MasterMaterialParam;
+import com.innomes.main.repository.MST110Repository;
 import com.innomes.main.repository.MST112Repository;
 
 @Service
@@ -26,6 +28,9 @@ import com.innomes.main.repository.MST112Repository;
 public class MasterMaterialService {
 	@Autowired
 	private MST112Repository mst112Repository;
+	
+	@Autowired
+	private MasterProductService masterProductService;
 	
 	@Autowired
 	private ModelMapper modelMapper;
@@ -45,6 +50,11 @@ public class MasterMaterialService {
 		
 		try {
 			for (int i = 0; i < masterMaterialParams.length; i++) {
+				
+				//itemCode 중복체크 (삭제 아닐경우)
+				if(masterMaterialParams[i].getUsed() == 1) {
+					masterProductService.valiedationItemCode(masterMaterialParams[i].getItemCode());
+				}
 				
 				MST110 mst110 = MST110.builder()
 						.itemId(masterMaterialParams[i].getItemId())
@@ -87,6 +97,9 @@ public class MasterMaterialService {
 			mst112Repository.flush();
 			mst112List.clear();
 			
+		} catch(CValiedationItemCodeException e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
+			throw new CValiedationItemCodeException();
 		} catch(Exception e) {
 			e.printStackTrace();
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백

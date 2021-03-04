@@ -20,33 +20,5 @@ public class MasterPriceItemDTO {
 	
 	private String itemName;
 	
-	private String compId;
-	
-	private String compName;
-	
-	private String priceRevCause;
-	
-	private String priceRevUser;
-	
-	private String compItemId;
-	
-	private double priceStd;
-	
-	private String priceUnit;
-	
-	private String deliveryType;
-	
-	private int deliveryDay;
-		
-	private int priceRev;
-	
-	private String description;
-	
-	private String createUser;
-
-	private Date createTime;
-	
-	private String updateUser;
-	
-	private Date updateTime;
+	private String itemType;
 }
