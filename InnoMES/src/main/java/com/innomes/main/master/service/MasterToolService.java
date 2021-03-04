@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.innomes.main.exception.CToolSaveException;
+import com.innomes.main.exception.CValiedationItemCodeException;
 import com.innomes.main.master.dto.MasterToolDTO;
 import com.innomes.main.master.model.MST110;
 import com.innomes.main.master.model.MST113;
@@ -25,6 +26,9 @@ import com.innomes.main.repository.MST113Repository;
 public class MasterToolService {
 	@Value("${spring.jpa.properties.hibernate.jdbc.batch_size}")
 	private int batchSize;
+	
+	@Autowired
+	private MasterProductService masterProductService;
 	
 	@Autowired
 	private MST113Repository mst113Repository;
@@ -74,6 +78,12 @@ public class MasterToolService {
 		List<MST113> mst113List = new ArrayList<MST113>();
 		try {
 			for(MasterToolParam param : paramList) {
+				
+				//itemCode 중복체크 (삭제 아닐경우)
+				if(param.getUsed() == 1) {
+					masterProductService.valiedationItemCode(param.getItemCode());
+				}
+				
 				MST110 mst110 = MST110.builder()
 						.itemId(param.getItemId())
 						.itemCode(param.getItemCode())
@@ -126,6 +136,9 @@ public class MasterToolService {
 			e.printStackTrace();
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
 			throw new CToolSaveException();
+		} catch(CValiedationItemCodeException e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
+			throw new CValiedationItemCodeException();
 		}catch (Exception e) {
 			e.printStackTrace();
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백

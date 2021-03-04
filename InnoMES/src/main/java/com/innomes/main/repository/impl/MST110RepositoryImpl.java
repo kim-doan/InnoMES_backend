@@ -1,5 +1,7 @@
 package com.innomes.main.repository.impl;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -51,5 +53,15 @@ public class MST110RepositoryImpl extends QuerydslRepositorySupport implements M
 				.fetchResults();
 		
 		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
+	}
+	@Override
+	public List<MST110> findAllByItemCode(String itemCode) {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		QMST110 mst110 = QMST110.mST110;
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(mst110.itemCode.eq(itemCode));
+		builder.and(mst110.used.eq(1));
+		return null;
 	}
 }

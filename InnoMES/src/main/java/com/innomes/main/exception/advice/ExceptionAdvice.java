@@ -37,6 +37,7 @@ import com.innomes.main.exception.CUserDuplicationException;
 import com.innomes.main.exception.CUserNotFoundException;
 import com.innomes.main.exception.CUserRegisterFailException;
 import com.innomes.main.exception.CUserSaveException;
+import com.innomes.main.exception.CValiedationItemCodeException;
 import com.innomes.main.response.model.CommonResult;
 import com.innomes.main.response.service.ResponseService;
 
@@ -196,5 +197,11 @@ public class ExceptionAdvice {
 	@ExceptionHandler(CLoginFailException.class)
 	public CommonResult loginFailException(HttpServletRequest request, CLoginFailException e) {
 		return responseService.getFailResult("E0022", getMessage("loginFailException.msg"));
+	}
+	
+	//아이템코드 중복 에러
+	@ExceptionHandler(CValiedationItemCodeException.class)
+	public CommonResult valiedationItemCodeException(HttpServletRequest request, CValiedationItemCodeException e) {
+		return responseService.getFailResult("E0023", getMessage("valiedationItemCodeException.msg"));
 	}
 }

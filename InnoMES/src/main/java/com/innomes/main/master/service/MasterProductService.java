@@ -14,10 +14,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.innomes.main.exception.CProductSaveException;
+import com.innomes.main.exception.CValiedationItemCodeException;
 import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.model.MST110;
 import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.param.MasterProductParam;
+import com.innomes.main.repository.MST110Repository;
 import com.innomes.main.repository.MST111Repository;
 
 @Service
@@ -28,6 +30,9 @@ public class MasterProductService {
 	
 	@Autowired
 	private MST111Repository mst111Repository;
+	
+	@Autowired
+	private MST110Repository mst110Repository;
 	
 	//전체 조회
 	public Page<MasterProductDTO> findAllLike(MasterProductParam masterItemParam, Pageable pageable) {
@@ -127,6 +132,11 @@ public class MasterProductService {
 		try {
 			for(int i=0;i<masterProductParam.length;i++) {
 				
+				//itemCode 중복 체크 ( 삭제 아닐경우 )
+				if( masterProductParam[i].getUsed() == 1) {
+					valiedationItemCode(masterProductParam[i].getItemCode());
+				}
+				
 				MST110 mst110 = MST110.builder()
 						.itemId(masterProductParam[i].getItemId())
 						.itemCode(masterProductParam[i].getItemCode())
@@ -180,6 +190,9 @@ public class MasterProductService {
 			e.printStackTrace();
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
 			throw new CProductSaveException();
+		} catch(CValiedationItemCodeException e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
+			throw new CValiedationItemCodeException();
 		} catch (Exception e) {
 			e.printStackTrace();
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
@@ -187,5 +200,12 @@ public class MasterProductService {
 		}
 		
 		return success;
+	}
+	
+	public void valiedationItemCode(String itemCode) {
+		List<MST110> checkValiedation = mst110Repository.findByItemCodeAndUsed(itemCode, 1);
+		if(checkValiedation.size() > 0) {
+			throw new CValiedationItemCodeException();
+		}
 	}
 }

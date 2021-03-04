@@ -64,3 +64,6 @@ accountNotFoundException:
 loginFailException:
   code: "E0022"
   msg: "아이디/비밀번호를 확인해주세요."
+valiedationItemCodeException:
+  code: "E0023"
+  msg: "중복된 제품코드 입니다."
