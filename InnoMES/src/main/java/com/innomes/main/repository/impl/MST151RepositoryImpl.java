@@ -36,9 +36,9 @@ public class MST151RepositoryImpl extends QuerydslRepositorySupport implements M
 		if(!StringUtils.isEmpty(masterPriceParam.getItemId())) {
 			builder.and(mst151.itemId.like("%" + masterPriceParam.getItemId() + "%"));
 		}
-		if(!StringUtils.isEmpty(masterPriceParam.getCompId())) {
-			builder.and(mst151.compId.like("%" + masterPriceParam.getCompId() + "%"));
-		}
+//		if(!StringUtils.isEmpty(masterPriceParam.getCompId())) {
+//			builder.and(mst151.compId.like("%" + masterPriceParam.getCompId() + "%"));
+//		}
 		
 		builder.and(mst151.priceType.eq(masterPriceParam.getPriceType()));
 		builder.and(mst151B.compId.isNull());
