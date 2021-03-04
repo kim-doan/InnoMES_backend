@@ -10,5 +10,4 @@ import com.innomes.main.master.param.MasterPriceItemParam;
 
 public interface MST110RepositoryCustom {
 	Page<MST110> findAllPriceItem(MasterPriceItemParam masterPriceItemParam, Pageable pageable);
-	List<MST110> findAllByItemCode(String itemCode);
 }

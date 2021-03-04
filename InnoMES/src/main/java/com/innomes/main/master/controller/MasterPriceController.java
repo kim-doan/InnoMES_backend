@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.innomes.main.master.dto.MasterPriceDTO;
 import com.innomes.main.master.dto.MasterPriceItemDTO;
 import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.param.MasterPriceItemParam;
@@ -20,8 +21,8 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/api")
-@Api(value = "MasterPriceItemController")
-public class MasterPriceItemController {
+@Api(value = "MasterPriceController")
+public class MasterPriceController {
 	@Autowired
 	private ResponseService responseService;
 	
@@ -29,20 +30,20 @@ public class MasterPriceItemController {
 	private MasterPriceItemService masterPriceItemService;
 	
 	
-	@ApiOperation(value = "품목리스트 (판매단가)", notes = "품목리스트를 반환합니다.")
+	@ApiOperation(value = "판매단가 품목리스트", notes = "판매단가 유형의 품목리스트를 반환합니다.")
 	@CrossOrigin
 	@PostMapping("/master/priceItem/items")
-	public PageListResult<MasterProductDTO> getPriceItem(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
+	public PageListResult<MasterPriceItemDTO> getSellItemList(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
 
-		return responseService.getPageListResult(MasterProductDTO.class, masterPriceItemService.getSellPriceItem(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterProductDTO.class, masterPriceItemService.getSellItemList(masterPriceItemParam, pageable));
 	}
 	
 	@ApiOperation(value = "품목별 단가정보", notes = "품목별 단가정보 리스트를 반환합니다.")
 	@CrossOrigin
 	@PostMapping("/master/priceItem/sellPrice")
-	public PageListResult<MasterPriceItemDTO> getSellPrice(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
+	public PageListResult<MasterPriceDTO> getSellPrice(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
 		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceItemService.getSellPriceInfo(masterPriceItemParam, pageable));

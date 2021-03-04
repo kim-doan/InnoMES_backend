@@ -1,7 +1,5 @@
 package com.innomes.main.repository.impl;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -10,13 +8,11 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 import com.innomes.main.master.model.MST110;
 import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.QMST110;
-import com.innomes.main.master.model.QMST151;
 import com.innomes.main.master.param.MasterPriceItemParam;
 import com.innomes.main.repository.custom.MST110RepositoryCustom;
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryResults;
-import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 public class MST110RepositoryImpl extends QuerydslRepositorySupport implements MST110RepositoryCustom {
@@ -53,15 +49,5 @@ public class MST110RepositoryImpl extends QuerydslRepositorySupport implements M
 				.fetchResults();
 		
 		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
-	}
-	@Override
-	public List<MST110> findAllByItemCode(String itemCode) {
-		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
-		QMST110 mst110 = QMST110.mST110;
-		BooleanBuilder builder = new BooleanBuilder();
-		
-		builder.and(mst110.itemCode.eq(itemCode));
-		builder.and(mst110.used.eq(1));
-		return null;
 	}
 }
