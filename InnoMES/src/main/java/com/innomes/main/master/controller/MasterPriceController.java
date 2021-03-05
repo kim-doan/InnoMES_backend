@@ -12,7 +12,7 @@ import com.innomes.main.master.dto.MasterPriceDTO;
 import com.innomes.main.master.dto.MasterPriceItemDTO;
 import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.param.MasterPriceItemParam;
-import com.innomes.main.master.service.MasterPriceItemService;
+import com.innomes.main.master.service.MasterPriceService;
 import com.innomes.main.response.model.PageListResult;
 import com.innomes.main.response.service.ResponseService;
 
@@ -27,7 +27,7 @@ public class MasterPriceController {
 	private ResponseService responseService;
 	
 	@Autowired
-	private MasterPriceItemService masterPriceItemService;
+	private MasterPriceService masterPriceService;
 	
 	
 	@ApiOperation(value = "판매단가 품목리스트", notes = "판매단가 유형의 품목리스트를 반환합니다.")
@@ -37,7 +37,7 @@ public class MasterPriceController {
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
 
-		return responseService.getPageListResult(MasterProductDTO.class, masterPriceItemService.getSellItemList(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterProductDTO.class, masterPriceService.getSellItemList(masterPriceItemParam, pageable));
 	}
 	
 	@ApiOperation(value = "품목별 판매단가 정보", notes = "품목별 판매단가 정보 리스트를 반환합니다.")
@@ -46,7 +46,7 @@ public class MasterPriceController {
 	public PageListResult<MasterPriceDTO> getSellPriceList(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
-		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceItemService.getSellPriceList(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceService.getSellPriceList(masterPriceItemParam, pageable));
 	}
 	
 	@ApiOperation(value = "구매단가 품목리스트", notes = "구매단가 유형의 품목리스트를 반환합니다.")
@@ -56,7 +56,7 @@ public class MasterPriceController {
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
 
-		return responseService.getPageListResult(MasterProductDTO.class, masterPriceItemService.getPurchaseItemList(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterProductDTO.class, masterPriceService.getPurchaseItemList(masterPriceItemParam, pageable));
 	}
 	
 	@ApiOperation(value = "품목별 구매단가 정보", notes = "품목별 구매단가 정보 리스트를 반환합니다.")
@@ -65,6 +65,6 @@ public class MasterPriceController {
 	public PageListResult<MasterPriceDTO> getPurchasePriceList(@RequestBody(required = false) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
-		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceItemService.getPurchasePriceList(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceService.getPurchasePriceList(masterPriceItemParam, pageable));
 	}
 }
