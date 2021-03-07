@@ -65,25 +65,24 @@ public class MasterProcessService {
 		try {
 			for (MasterProcessParam param : paramList) {
 				
-				/*
-				 * MST120 mst120 = MST120.builder() .procCode(param.getMst120().getProcCode())
-				 * .procName(param.getMst120().getProcName())
-				 * .procType(param.getMst120().getProcType())
-				 * .inOutType(param.getMst120().getInOutType())
-				 * .prdtionYN(param.getMst120().getPrdtionYN())
-				 * .supplyYN(param.getMst120().getSupplyYN())
-				 * .workOrderYN(param.getMst120().getWorkOrderYN())
-				 * .defaultYN(param.getMst120().getDefaultYN())
-				 * .inspFinishedYN(param.getMst120().getInspFinishedYN())
-				 * .asYN(param.getMst120().getAsYN())
-				 * .description(param.getMst120().getDescription())
-				 * .used(param.getMst120().getUsed())
-				 * .createUser(param.getMst120().getCreateUser()) .createTime(new Date())
-				 * .updateUser(param.getMst120().getUpdateUser()) .updateTime(new Date())
-				 * .build();
-				 */
+		
+		 MST120 mst120 = MST120.builder() .procCode(param.getProcCode())
+											.procName(param.getProcName())
+											.procType(param.getProcType())
+											.inOutType(param.getInOutType())
+											.prdtionYN(param.getPrdtionYN())
+											.supplyYN(param.getSupplyYN())
+											.workOrderYN(param.getWorkOrderYN())
+											.defaultYN(param.getDefaultYN())
+											.inspFinishedYN(param.getInspFinishedYN())
+											.asYN(param.getAsYN())
+											.description(param.getDescription())
+											.used(param.getUsed())
+											.createUser(param.getCreateUser()) .createTime(new Date())
+											.updateUser(param.getUpdateUser()) .updateTime(new Date())
+											.build();
+		
 				
-				mst120List.add(param.getMst120());
 
 				int curIndex = paramList.indexOf(param);
 				if ((curIndex + 1) % batchSize == 0 && curIndex > 0) {
