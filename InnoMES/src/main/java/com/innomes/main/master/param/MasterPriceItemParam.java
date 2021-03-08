@@ -1,6 +1,5 @@
 package com.innomes.main.master.param;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

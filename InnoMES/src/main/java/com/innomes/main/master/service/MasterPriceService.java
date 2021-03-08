@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.innomes.main.master.dto.MasterPriceDTO;
 import com.innomes.main.master.dto.MasterPriceItemDTO;
@@ -54,6 +55,25 @@ public class MasterPriceService {
 	public Page<MasterPriceDTO> getPurchasePriceList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {
 		masterPriceItemParam.setPriceType("TPS002002");		//구매단가
 		return getPriceList(masterPriceItemParam, pageable);
+	}
+	
+	//단가정보 저장 ( 개정, 삭제 )
+	public boolean setSellPriceList(MasterPriceItemParam[] masterPriceItemParams) {
+		
+		boolean success = true;
+		
+		try {
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
+			success = false;
+		}
+		
+		return success;
 	}
 	
 	

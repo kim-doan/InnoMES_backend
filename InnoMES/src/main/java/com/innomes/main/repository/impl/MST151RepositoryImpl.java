@@ -61,4 +61,20 @@ public class MST151RepositoryImpl extends QuerydslRepositorySupport implements M
 		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
 		
 	}
+
+	@Override
+	public List<MST151> findPriceRevList(String priceType) {
+		
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QMST151 mst151 = QMST151.mST151;
+		QMST151 mst151B = new QMST151("mst151B");
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		if(!StringUtils.isEmpty(priceType)) {
+			builder.and(mst151.priceType.eq(priceType));
+		}
+		
+		return null;
+	}
 }
