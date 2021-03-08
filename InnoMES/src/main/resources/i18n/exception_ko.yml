@@ -67,3 +67,6 @@ loginFailException:
 valiedationItemCodeException:
   code: "E0023"
   msg: "중복된 제품코드 입니다."
+priceSaveException:
+  code: "E0024"
+  msg: "단가정보 저장에 실패했습니다."

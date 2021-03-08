@@ -8,8 +8,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 
 import com.innomes.main.master.model.MST151;
+import com.innomes.main.master.model.MST151PK;
 import com.innomes.main.master.model.QMST110;
 import com.innomes.main.master.model.QMST151;
+import com.innomes.main.master.model.QMST200;
 import com.innomes.main.master.param.MasterPriceItemParam;
 import com.innomes.main.master.param.MasterPriceParam;
 import com.innomes.main.repository.custom.MST151RepositoryCustom;
@@ -36,9 +38,6 @@ public class MST151RepositoryImpl extends QuerydslRepositorySupport implements M
 		if(!StringUtils.isEmpty(masterPriceParam.getItemId())) {
 			builder.and(mst151.itemId.like("%" + masterPriceParam.getItemId() + "%"));
 		}
-//		if(!StringUtils.isEmpty(masterPriceParam.getCompId())) {
-//			builder.and(mst151.compId.like("%" + masterPriceParam.getCompId() + "%"));
-//		}
 		
 		builder.and(mst151.priceType.eq(masterPriceParam.getPriceType()));
 		builder.and(mst151B.compId.isNull());
@@ -64,13 +63,13 @@ public class MST151RepositoryImpl extends QuerydslRepositorySupport implements M
 
 	@Override
 	public List<MST151> findPriceRevList(String priceType) {
-		
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		
 		QMST151 mst151 = QMST151.mST151;
 		QMST151 mst151B = new QMST151("mst151B");
 		
 		BooleanBuilder builder = new BooleanBuilder();
+		
 		if(!StringUtils.isEmpty(priceType)) {
 			builder.and(mst151.priceType.eq(priceType));
 		}
@@ -86,5 +85,40 @@ public class MST151RepositoryImpl extends QuerydslRepositorySupport implements M
 				.fetchJoin()
 				.where(builder)
 				.fetch();
+	}
+
+	@Override
+	public Integer findMaxRev(MST151PK pk) {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QMST151 mst151 = QMST151.mST151;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(mst151.itemId.eq(pk.getItemId()));
+		builder.and(mst151.compId.eq(pk.getCompId()));
+		builder.and(mst151.priceType.eq(pk.getPriceType()));
+		
+		Integer maxRev = query.from(mst151)
+					.select(mst151.priceRev.max())
+					.where(builder)
+					.fetchOne();
+		
+		return maxRev;
+	}
+
+	@Override
+	public long delBeforeRev(MST151PK pk, int used) {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QMST151 mst151 = QMST151.mST151;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(mst151.itemId.eq(pk.getItemId()));
+		builder.and(mst151.compId.eq(pk.getCompId()));
+		builder.and(mst151.priceType.eq(pk.getPriceType()));
+		
+		return query.update(mst151).set(mst151.used, used).where(builder).execute();
 	}
 }
