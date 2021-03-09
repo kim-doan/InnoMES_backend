@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.innomes.main.exception.CPriceSaveException;
 import com.innomes.main.master.dto.MasterPriceDTO;
 import com.innomes.main.master.dto.MasterPriceItemDTO;
 import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.param.MasterPriceItemParam;
 import com.innomes.main.master.service.MasterPriceService;
+import com.innomes.main.response.model.CommonResult;
 import com.innomes.main.response.model.PageListResult;
 import com.innomes.main.response.service.ResponseService;
 
@@ -66,5 +68,17 @@ public class MasterPriceController {
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
 		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceService.getPurchasePriceList(masterPriceItemParam, pageable));
+	}
+	
+	@ApiOperation(value = "단가정보 저장 (판매, 구매)", notes = "단가정보를 저장합니다. (판매, 구매)")
+	@CrossOrigin
+	@PostMapping("/master/price/save")
+	public CommonResult setPriceInfo(@RequestBody(required = true) MasterPriceItemParam[] masterPriceItemParams) {
+		boolean result = masterPriceService.setPriceInfo(masterPriceItemParams);
+		
+		if(result)
+			return responseService.getSuccessResult();
+		else
+			throw new CPriceSaveException();
 	}
 }

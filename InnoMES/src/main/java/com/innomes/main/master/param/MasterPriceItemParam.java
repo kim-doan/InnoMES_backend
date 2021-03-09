@@ -1,6 +1,7 @@
 package com.innomes.main.master.param;
 
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,5 +22,33 @@ public class MasterPriceItemParam {
 	
 	private String compId;
 	
+	private Integer priceRev;
+	
 	private String priceType;
+	
+	private String priceRevCause;
+	
+	private String priceRevUser;
+	
+	private String compItemId;
+	
+	private Double priceStd;
+	
+	private String priceUnit;
+	
+	private String deliveryType;
+	
+	private Integer deliveryDay;
+	
+	private String description;
+	
+	private String createUser;
+	
+	private Date createTime;
+	
+	private String updateUser;
+	
+	private Date updateTime;
+	
+	private Integer used;
 }

@@ -23,6 +23,7 @@ import com.innomes.main.exception.CCompanySaveException;
 import com.innomes.main.exception.CLoginFailException;
 import com.innomes.main.exception.CMaterialSaveException;
 import com.innomes.main.exception.COrderIdNotFoundException;
+import com.innomes.main.exception.CPriceSaveException;
 import com.innomes.main.exception.CProcessNotFoundException;
 import com.innomes.main.exception.CProcessSaveException;
 import com.innomes.main.exception.CProductSaveException;
@@ -203,5 +204,11 @@ public class ExceptionAdvice {
 	@ExceptionHandler(CValiedationItemCodeException.class)
 	public CommonResult valiedationItemCodeException(HttpServletRequest request, CValiedationItemCodeException e) {
 		return responseService.getFailResult("E0023", getMessage("valiedationItemCodeException.msg"));
+	}
+	
+	//단가정보 저장 실패
+	@ExceptionHandler(CPriceSaveException.class)
+	public CommonResult priceSaveException(HttpServletRequest request, CPriceSaveException e) {
+		return responseService.getFailResult("E0024", getMessage("priceSaveException.msg"));
 	}
 }

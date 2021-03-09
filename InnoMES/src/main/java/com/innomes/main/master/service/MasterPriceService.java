@@ -1,6 +1,7 @@
 package com.innomes.main.master.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,14 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
+import com.innomes.main.exception.CPriceSaveException;
 import com.innomes.main.master.dto.MasterPriceDTO;
 import com.innomes.main.master.dto.MasterPriceItemDTO;
 import com.innomes.main.master.model.MST110;
 import com.innomes.main.master.model.MST151;
+import com.innomes.main.master.model.MST151PK;
 import com.innomes.main.master.param.MasterPriceItemParam;
 import com.innomes.main.repository.MST110Repository;
 import com.innomes.main.repository.MST151Repository;
@@ -54,6 +58,65 @@ public class MasterPriceService {
 	public Page<MasterPriceDTO> getPurchasePriceList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {
 		masterPriceItemParam.setPriceType("TPS002002");		//구매단가
 		return getPriceList(masterPriceItemParam, pageable);
+	}
+	
+	//단가정보 저장 ( 개정, 삭제 )
+	public boolean setPriceInfo(MasterPriceItemParam[] masterPriceItemParams) {
+		
+		boolean success = true;
+		List<MST151> mst151List = new ArrayList<MST151>();
+		
+		try {
+			for(int i=0;i< masterPriceItemParams.length;i++) {
+				MST151PK pk = MST151PK.builder()
+						.itemId(masterPriceItemParams[i].getItemId())
+						.compId(masterPriceItemParams[i].getCompId())
+						.priceType(masterPriceItemParams[i].getPriceType())
+						.build();
+				
+				if(i == 0) {
+					mst151Repository.delBeforeRev(pk, 0); // 이전 리비전 used 0
+				}
+				
+				MST151 mst151 = MST151.builder()
+						.itemId(masterPriceItemParams[i].getItemId())
+						.compId(masterPriceItemParams[i].getCompId())
+						.priceRev(mst151Repository.findMaxRev(pk))
+						.priceType(masterPriceItemParams[i].getPriceType())
+						.priceRevCause(masterPriceItemParams[i].getPriceRevCause())
+						.priceRevUser(masterPriceItemParams[i].getPriceRevUser())
+						.compItemId(masterPriceItemParams[i].getCompItemId())
+						.priceStd(masterPriceItemParams[i].getPriceStd())
+						.priceUnit(masterPriceItemParams[i].getPriceUnit())
+						.deliveryType(masterPriceItemParams[i].getDeliveryType())
+						.deliveryDay(masterPriceItemParams[i].getDeliveryDay())
+						.description(masterPriceItemParams[i].getDescription())
+						.createUser(masterPriceItemParams[i].getCreateUser())
+						.createTime(new Date())
+						.updateUser(masterPriceItemParams[i].getUpdateUser())
+						.updateTime(masterPriceItemParams[i].getUpdateTime())
+						.used(masterPriceItemParams[i].getUsed())
+						.build();
+				
+				mst151List.add(mst151);
+				
+				if ((i + 1) % batchSize == 0 && i > 0) {
+					mst151Repository.saveAll(mst151List);
+					mst151Repository.flush();
+					mst151List.clear();
+				}
+			}
+			mst151Repository.saveAll(mst151List);
+			mst151Repository.flush();
+			mst151List.clear();
+		} catch (CPriceSaveException e) {
+			throw new CPriceSaveException();
+		} catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
+			success = false;
+		}
+		
+		return success;
 	}
 	
 	

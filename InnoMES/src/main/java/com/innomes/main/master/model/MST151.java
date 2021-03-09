@@ -51,7 +51,7 @@ public class MST151 {
 	private String compItemId;
 	
 	@Column(name = "PRICE_STD")
-	private double priceStd;
+	private Double priceStd;
 	
 	@Column(name = "PRICE_UNIT")
 	private String priceUnit;
@@ -65,20 +65,20 @@ public class MST151 {
 	@Column(name = "DESCRIPTION")
 	private String description;
 	
-	@Column(name = "CREATE_USER")
+	@Column(name = "CREATE_USER", insertable = true, updatable = false)
 	private String createUser;
 	
-	@Column(name = "CREATE_TIME")
+	@Column(name = "CREATE_TIME", insertable = true, updatable = false)
 	private Date createTime;
 	
-	@Column(name = "UPDATE_USER")
+	@Column(name = "UPDATE_USER", insertable = false, updatable = true)
 	private String updateUser;
 	
-	@Column(name = "UPDATE_TIME")
+	@Column(name = "UPDATE_TIME", insertable = false, updatable = true)
 	private Date updateTime;
 	
 	@Column(name = "USED")
-	private int used;
+	private Integer used;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "ITEM_ID", insertable = false, updatable = false)
