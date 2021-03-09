@@ -20,11 +20,11 @@ public class MasterProcessParam {
 	
 	private String inOutType;
 	
-	private int prdtionYN;
+	private Integer prdtionYN;
 	
-	private int supplyYN;
+	private Integer supplyYN;
 	
-	private int workOrderYN;
+	private Integer workOrderYN;
 	
 	private Integer defaultYN;
 	
@@ -34,7 +34,7 @@ public class MasterProcessParam {
 	
 	private String description;
 	
-	private int used;
+	private Integer used;
 	
 	private String createUser;
 	

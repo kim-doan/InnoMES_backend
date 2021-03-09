@@ -52,19 +52,19 @@ public class MST120{
 			+ "\n Production Process?(0 : Prod.Process / 1 : Non-prod. process(IN, SP))"
 			+ "\n MST120.PRDTION_YN")
 	@Column(name = "PRDTION_YN")
-	private int prdtionYN;
+	private Integer prdtionYN;
 	
 	@ApiModelProperty(value = "수불관리유무(0: 수불관리 / 1: 비수불관리)"
 			+ "\n IN-OUT management(0 : Manage / 1 : Not manage)"
 			+ "\n MST120.SUPLLY_YN")
 	@Column(name = "SUPLLY_YN")
-	private int supplyYN;
+	private Integer supplyYN;
 	
 	@ApiModelProperty(value = "지시유무 (0: 지시공정 / 1: 비지시공정)"
 			+ "\n Ordered?(0 : Process with order / 1 : Process without order)"
 			+ "\n MST120.WORK_ORDER_YN")
 	@Column(name = "WORK_ORDER_YN")
-	private int workOrderYN;
+	private Integer workOrderYN;
 	
 	@ApiModelProperty(value = "기본공정여부 (0: 필수 / 1: 사용자 지정)"
 			+ "\n Default Process(0 : Default(IN, SP) / 1 : User assignment)"
@@ -90,8 +90,8 @@ public class MST120{
 	@Column(name = "DESCRIPTION")
 	private String description;
 	
-	@Column(name="USED", insertable = false, updatable = true)
-	private int used;
+	@Column(name="USED", insertable = true, updatable = true)
+	private Integer used;
 	
 	@ApiModelProperty(required = true, value = "생성자"
 			+ "\n Author"

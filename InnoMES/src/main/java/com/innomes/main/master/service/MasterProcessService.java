@@ -78,12 +78,14 @@ public class MasterProcessService {
 											.asYN(param.getAsYN())
 											.description(param.getDescription())
 											.used(param.getUsed())
-											.createUser(param.getCreateUser()) .createTime(new Date())
-											.updateUser(param.getUpdateUser()) .updateTime(new Date())
+											.createUser(param.getCreateUser()) 
+											.createTime(new Date())
+											.updateUser(param.getUpdateUser()) 
+											.updateTime(new Date())
 											.build();
 		
 				
-
+		 mst120List.add(mst120);
 				int curIndex = paramList.indexOf(param);
 				if ((curIndex + 1) % batchSize == 0 && curIndex > 0) {
 					mst120Repository.saveAll(mst120List);
