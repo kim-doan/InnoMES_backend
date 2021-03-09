@@ -17,7 +17,7 @@ public class UtilService {
 	 *   DTO	=>	MODEL
 	 *   변환 메서드
 	 */
-	<S,T> List<T> convertToDto(List<S> source, Class<T> targetClass) {
+	public <S,T> List<T> convertModelAndDto(List<S> source, Class<T> targetClass) {
 		return source
 				.stream()
 				.map(element -> modelMapper.map(element, targetClass))

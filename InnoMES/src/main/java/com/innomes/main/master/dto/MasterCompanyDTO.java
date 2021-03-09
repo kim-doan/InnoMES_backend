@@ -16,6 +16,8 @@ public class MasterCompanyDTO {
 	
 	private String compName;
 	
+	private String companyNo;
+	
 	private Integer saleYN;
 	
 	private Integer purchaseYN;
