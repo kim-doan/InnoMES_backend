@@ -16,8 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.innomes.main.exception.CValiedationItemCodeException;
+import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.dto.MasterSpareDTO;
 import com.innomes.main.master.model.MST110;
+import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.MST114;
 import com.innomes.main.master.param.MasterSpareParam;
 import com.innomes.main.repository.MST114Repository;
@@ -40,6 +42,45 @@ public class MasterSpareService {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		Page<MST114> output = mst114Repository.findAllLike(masterSpareParam, pageable);
 		return new PageImpl<>(modelMapper.map(output.getContent(), new TypeToken<List<MasterSpareDTO>>(){}.getType()),pageable, output.getTotalElements());
+	}
+	
+	public List<MasterSpareDTO> findAll() {
+		List<MST114> content = mst114Repository.findAll();
+		
+		List<MasterSpareDTO> dtoList = new ArrayList<MasterSpareDTO>();
+		
+		for(int i=0;i<content.size();i++) {
+			MasterSpareDTO dto = MasterSpareDTO.builder()
+					.itemId(content.get(i).getMst110().getItemId())
+					.itemCode(content.get(i).getMst110().getItemCode())
+					.itemName(content.get(i).getMst110().getItemName())
+					.itemType(content.get(i).getMst110().getItemType())
+					.lotSize(content.get(i).getMst110().getLotSize())
+					.lotUnit(content.get(i).getMst110().getLotUnit())
+					.safetyQnt(content.get(i).getMst110().getSafetyQnt())
+					.safetyUnit(content.get(i).getMst110().getSafetyUnit())
+					.locCode(content.get(i).getMst110().getLocCode())
+					.invType(content.get(i).getMst110().getInvType())
+					.description(content.get(i).getMst110().getDescription())
+					.createUser(content.get(i).getMst110().getCreateUser())
+					.createTime(content.get(i).getMst110().getCreateTime())
+					.updateUser(content.get(i).getMst110().getUpdateUser())
+					.updateTime(content.get(i).getMst110().getUpdateTime())
+					.used(content.get(i).getMst110().getUsed())
+					.partId(content.get(i).getPartId())
+					.partType(content.get(i).getPartType())
+					.partCtg(content.get(i).getPartCtg())
+					.partGroup(content.get(i).getPartGroup())
+					.partShiftCycle(content.get(i).getPartShiftCycle())
+					.cycleUnit(content.get(i).getCycleUnit())
+					.lotYN(content.get(i).getLotYN())
+					.incInspYN(content.get(i).getIncInspYN())
+					.build();
+			
+			dtoList.add(dto);
+		}
+		
+		return dtoList;
 	}
 	
 	//예비품 INSERT & UPDATE

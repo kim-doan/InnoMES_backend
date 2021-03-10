@@ -1,5 +1,7 @@
 package com.innomes.main.repository.impl;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -29,8 +31,6 @@ public class MST120RepositoryImpl extends QuerydslRepositorySupport implements M
 		
 		if(masterProcessParam.getDefaultYN() != null) {
 			builder.and(mst120.defaultYN.eq(masterProcessParam.getDefaultYN()));
-		} else {
-			builder.and(mst120.defaultYN.eq(1));
 		}
 		if(!StringUtils.isEmpty(masterProcessParam.getProcCode())) {
 			builder.and(mst120.procCode.like("%" + masterProcessParam.getProcCode() + "%"));
@@ -52,6 +52,23 @@ public class MST120RepositoryImpl extends QuerydslRepositorySupport implements M
 		
 		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
 
+	}
+
+	@Override
+	public List<MST120> findAll() {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		QMST120 mst120 = QMST120.mST120;
+
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(mst120.used.eq(1));
+		
+		List<MST120> result = query.from(mst120)
+				.select(mst120)
+				.where(builder)
+				.fetch();
+		
+		return result;
 	}
 
 }

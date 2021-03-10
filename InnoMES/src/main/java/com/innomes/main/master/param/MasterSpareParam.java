@@ -57,18 +57,9 @@ public class MasterSpareParam {
 	
 	private double partShiftCycle;
 	
+	private Integer incInspYN;
+	
 	private String cycleUnit;
 	
 	private int lotYN;
-
-	@Override
-	public String toString() {
-		return "MasterSpareParam [itemId=" + itemId + ", itemCode=" + itemCode + ", itemName=" + itemName
-				+ ", itemType=" + itemType + ", lotSize=" + lotSize + ", lotUnit=" + lotUnit + ", safetyQnt="
-				+ safetyQnt + ", safetyUnit=" + safetyUnit + ", locCode=" + locCode + ", invType=" + invType
-				+ ", description=" + description + ", createUser=" + createUser + ", createTime=" + createTime
-				+ ", updateUser=" + updateUser + ", updateTime=" + updateTime + ", used=" + used + ", partId=" + partId
-				+ ", partType=" + partType + ", partCtg=" + partCtg + ", partGroup=" + partGroup + ", partShiftCycle="
-				+ partShiftCycle + ", cycleUnit=" + cycleUnit + ", lotYN=" + lotYN + "]";
-	}
 }

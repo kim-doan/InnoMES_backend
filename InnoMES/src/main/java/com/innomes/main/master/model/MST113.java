@@ -41,6 +41,12 @@ public class MST113 {
 	@Column(name = "PRDTION_PROC")
 	private String prdtionProc;
 	
+	@Column(name = "REP_ITEM_ID")
+	private String repItemId;
+	
+	@Column(name = "PROC_TYPE")
+	private String procType;
+	
 	@Column(name = "TOOL_LIFE_CNT")
 	private double toolLifeCnt;
 	
@@ -53,11 +59,11 @@ public class MST113 {
 	@Column(name = "TOOL_RECYCLE_CNT")
 	private double toolRecycleCnt;
 	
+	@Column(name = "INC_INSP_YN")
+	private Integer incInspYN;
+	
 	@Column(name = "LOT_YN")
 	private int lotYN;
-	
-	@Column(name = "REP_ITEM_ID")
-	private String repItemId;
 	
 	@OneToOne(cascade = CascadeType.ALL)
     @MapsId

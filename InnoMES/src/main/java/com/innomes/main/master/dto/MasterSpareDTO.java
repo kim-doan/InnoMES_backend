@@ -57,6 +57,8 @@ public class MasterSpareDTO {
 	
 	private double partShiftCycle;
 	
+	private Integer incInspYN;
+	
 	private String cycleUnit;
 	
 	private int lotYN;

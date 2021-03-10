@@ -1,5 +1,7 @@
 package com.innomes.main.master.dto;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,4 +37,14 @@ public class MasterProcessDTO {
 	private Integer asYN;
 
 	private String description;
+	
+	private String createUser;
+	
+	private Date createTime;
+	
+	private String updateUser;
+	
+	private Date updateTime;
+	
+	private Integer used;
 }

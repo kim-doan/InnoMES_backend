@@ -17,6 +17,8 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import com.innomes.main.exception.CProcessSaveException;
 import com.innomes.main.exception.CToolSaveException;
 import com.innomes.main.master.dto.MasterProcessDTO;
+import com.innomes.main.master.dto.MasterProductDTO;
+import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.MST120;
 import com.innomes.main.master.param.MasterProcessParam;
 import com.innomes.main.repository.MST120Repository;
@@ -57,6 +59,35 @@ public class MasterProcessService {
 		return new PageImpl<MasterProcessDTO>(dtoList,pageable,output.getTotalElements());
 	}
 	
+	public List<MasterProcessDTO> findAll() {
+		List<MST120> content = mst120Repository.findAll();
+		
+		List<MasterProcessDTO> dtoList = new ArrayList<MasterProcessDTO>();
+		
+		for(int i=0;i<content.size();i++) {
+			MasterProcessDTO dto = MasterProcessDTO.builder()
+					.procCode(content.get(i).getProcCode())
+					.procName(content.get(i).getProcName())
+					.procType(content.get(i).getProcType())
+					.inOutType(content.get(i).getInOutType())
+					.prdtionYN(content.get(i).getPrdtionYN())
+					.supplyYN(content.get(i).getSupplyYN())
+					.workOrderYN(content.get(i).getWorkOrderYN())
+					.defaultYN(content.get(i).getDefaultYN())
+					.description(content.get(i).getDescription())
+					.createUser(content.get(i).getCreateUser())
+					.createTime(content.get(i).getCreateTime())
+					.updateUser(content.get(i).getUpdateUser())
+					.updateTime(content.get(i).getUpdateTime())
+					.used(content.get(i).getUsed())
+					.build();
+			
+			dtoList.add(dto);
+		}
+		
+		return dtoList;
+	}
+	
 	public boolean saveMasterProcess(List<MasterProcessParam> paramList) {
 		boolean success = true;
 
@@ -64,28 +95,27 @@ public class MasterProcessService {
 
 		try {
 			for (MasterProcessParam param : paramList) {
+				 MST120 mst120 = MST120.builder() 
+						 	.procCode(param.getProcCode())
+							.procName(param.getProcName())
+							.procType(param.getProcType())
+							.inOutType(param.getInOutType())
+							.prdtionYN(param.getPrdtionYN())
+							.supplyYN(param.getSupplyYN())
+							.workOrderYN(param.getWorkOrderYN())
+							.defaultYN(param.getDefaultYN())
+							.inspFinishedYN(param.getInspFinishedYN())
+							.asYN(param.getAsYN())
+							.description(param.getDescription())
+							.used(param.getUsed())
+							.createUser(param.getCreateUser()) 
+							.createTime(new Date())
+							.updateUser(param.getUpdateUser()) 
+							.updateTime(new Date())
+							.build();
+				 
+				mst120List.add(mst120);
 				
-		
-		 MST120 mst120 = MST120.builder() .procCode(param.getProcCode())
-											.procName(param.getProcName())
-											.procType(param.getProcType())
-											.inOutType(param.getInOutType())
-											.prdtionYN(param.getPrdtionYN())
-											.supplyYN(param.getSupplyYN())
-											.workOrderYN(param.getWorkOrderYN())
-											.defaultYN(param.getDefaultYN())
-											.inspFinishedYN(param.getInspFinishedYN())
-											.asYN(param.getAsYN())
-											.description(param.getDescription())
-											.used(param.getUsed())
-											.createUser(param.getCreateUser()) 
-											.createTime(new Date())
-											.updateUser(param.getUpdateUser()) 
-											.updateTime(new Date())
-											.build();
-		
-				
-		 mst120List.add(mst120);
 				int curIndex = paramList.indexOf(param);
 				if ((curIndex + 1) % batchSize == 0 && curIndex > 0) {
 					mst120Repository.saveAll(mst120List);

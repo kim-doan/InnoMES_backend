@@ -15,8 +15,10 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.innomes.main.exception.CToolSaveException;
 import com.innomes.main.exception.CValiedationItemCodeException;
+import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.dto.MasterToolDTO;
 import com.innomes.main.master.model.MST110;
+import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.MST113;
 import com.innomes.main.master.param.MasterToolParam;
 import com.innomes.main.repository.MST113Repository;
@@ -70,6 +72,52 @@ public class MasterToolService {
 		}
 		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
 	}
+	
+	public List<MasterToolDTO> findAll() {
+		List<MST113> content = mst113Repository.findAll();
+		
+		List<MasterToolDTO> dtoList = new ArrayList<MasterToolDTO>();
+		
+		for(int i=0;i<content.size();i++) {
+			MasterToolDTO dto = MasterToolDTO.builder()
+					.itemId(content.get(i).getMst110().getItemId())
+					.itemCode(content.get(i).getMst110().getItemCode())
+					.itemName(content.get(i).getMst110().getItemName())
+					.itemType(content.get(i).getMst110().getItemType())
+					.lotSize(content.get(i).getMst110().getLotSize())
+					.lotUnit(content.get(i).getMst110().getLotUnit())
+					.safetyQnt(content.get(i).getMst110().getSafetyQnt())
+					.safetyUnit(content.get(i).getMst110().getSafetyUnit())
+					.locCode(content.get(i).getMst110().getLocCode())
+					.invType(content.get(i).getMst110().getInvType())
+					.description(content.get(i).getMst110().getDescription())
+					.createUser(content.get(i).getMst110().getCreateUser())
+					.createTime(content.get(i).getMst110().getCreateTime())
+					.updateUser(content.get(i).getMst110().getUpdateUser())
+					.updateTime(content.get(i).getMst110().getUpdateTime())
+					.used(content.get(i).getMst110().getUsed())
+					.toolId(content.get(i).getToolId())
+					.toolType(content.get(i).getToolType())
+					.toolCtg(content.get(i).getToolCtg())
+					.toolGroup(content.get(i).getToolGroup())
+					.toolProc(content.get(i).getToolProc())
+					.prdtionProc(content.get(i).getPrdtionProc())
+					.repItemId(content.get(i).getRepItemId())
+					.procType(content.get(i).getProcType())
+					.incInspYN(content.get(i).getIncInspYN())
+					.toolLifeCnt(content.get(i).getToolLifeCnt())
+					.toolWarningRate(content.get(i).getToolWarningRate())
+					.toolChkCycle(content.get(i).getToolChkCycle())
+					.toolRecycleCnt(content.get(i).getToolRecycleCnt())
+					.lotYN(content.get(i).getLotYN())
+					.build();
+			
+			dtoList.add(dto);
+		}
+		
+		return dtoList;
+	}
+	
 	public boolean saveTool(List<MasterToolParam> paramList) {
 		
 		boolean success = true;

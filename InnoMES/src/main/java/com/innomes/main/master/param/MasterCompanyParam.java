@@ -11,9 +11,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class MasterCompanyParam {
-private String compId;
+	private String compId;
 	
 	private String compName;
+	
+	private String companyNo;
 	
 	private Integer saleYN;
 	

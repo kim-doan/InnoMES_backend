@@ -24,6 +24,8 @@ public class MST150 {
 	private String compId;
 	@Column(name="COMP_NAME")
 	private String compName;
+	@Column(name="COMPANY_NO")
+	private String companyNo;
 	@Column(name="SALE_YN")
 	private Integer saleYN;
 	@Column(name="PURCHASE_YN")

@@ -21,7 +21,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MasterToolParam implements Pageable{
+public class MasterToolParam{
 
 	// MST110 PARAM
 	private String itemId;
@@ -77,63 +77,12 @@ public class MasterToolParam implements Pageable{
 	
 	private double toolRecycleCnt;
 	
+	private Integer incInspYN;
+	
+	private String procType;
+	
 	private int lotYN;
 	
 	private String repItemId;
-
-	@Override
-	public String toString() {
-		return "MasterToolParam [itemCode=" + itemCode + ", itemName=" + itemName + ", itemType=" + itemType + ", invType=" + invType + ", toolType=" + toolType + ", toolCtg=" + toolCtg
-				+ ", toolGroup=" + toolGroup + "]";
-	}
-
-	@Override
-	public int getPageNumber() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getPageSize() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public long getOffset() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Sort getSort() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Pageable next() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Pageable previousOrFirst() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Pageable first() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean hasPrevious() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
 	
 }

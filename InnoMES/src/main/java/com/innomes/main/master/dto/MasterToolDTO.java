@@ -1,5 +1,7 @@
 package com.innomes.main.master.dto;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,6 +36,16 @@ public class MasterToolDTO {
 	
 	private String description; // 비고
 	
+	private String createUser;
+	
+	private Date createTime;
+	
+	private String updateUser;
+	
+	private Date updateTime;
+	
+	private int used;
+	
 	/* MST113 */
 	private String toolId; // 공구ID
 	
@@ -53,7 +65,11 @@ public class MasterToolDTO {
 	
 	private double toolRecycleCnt; // 가공기준횟수
 	
+	private Integer incInspYN;
+	
 	private String repItemId; // 대표품번
+	
+	private String procType;
 	
 	private String prdtionProc; // 생산공정
 	

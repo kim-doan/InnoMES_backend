@@ -23,7 +23,9 @@ import com.innomes.main.exception.CUserNotFoundException;
 import com.innomes.main.exception.CUserRegisterFailException;
 import com.innomes.main.exception.CUserSaveException;
 import com.innomes.main.jwt.JwtTokenProvider;
+import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.dto.MasterUserDTO;
+import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.MST140;
 import com.innomes.main.master.param.AuthenticationRequest;
 import com.innomes.main.master.param.MasterUserParam;
@@ -90,6 +92,39 @@ public class MasterUserService {
 		}
 		
 		return new PageImpl<>(userDtoList, pageable, output.getTotalElements());
+	}
+	
+	public List<MasterUserDTO> findAll() {
+		List<MST140> content = mst140Repository.findAll();
+		
+		List<MasterUserDTO> dtoList = new ArrayList<MasterUserDTO>();
+		
+		for(int i=0;i<content.size();i++) {
+			MasterUserDTO dto = MasterUserDTO.builder()
+					.userNo(content.get(i).getUserNo())
+					.userName(content.get(i).getUserName())
+					.userId(content.get(i).getSys800().getUserId())
+					.initialPwYN(content.get(i).getSys800().getInitialPwYN() == 1 ? true : false)
+					.departmentCode(content.get(i).getDepartmentCode())
+					.gradeCode(content.get(i).getGradeCode())
+					.userType(content.get(i).getUserType())
+					.recruteDate(content.get(i).getRecruteDate())
+					.resignDate(content.get(i).getResignDate())
+					.teamCode(content.get(i).getTeamCode())
+					.shift(content.get(i).getShift())
+					.leaderYN(content.get(i).getLeaderYN())
+					.description(content.get(i).getDescription())
+					.createUser(content.get(i).getCreateUser())
+					.createTime(content.get(i).getCreateTime())
+					.updateUser(content.get(i).getUpdateUser())
+					.updateTime(content.get(i).getUpdateTime())
+					.used(content.get(i).getUsed())
+					.build();
+			
+			dtoList.add(dto);
+		}
+		
+		return dtoList;
 	}
 	
 	//로그인
