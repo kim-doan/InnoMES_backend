@@ -21,8 +21,6 @@ public class MasterCompanyParam {
 	
 	private Integer saleYN;
 	
-	private String companyNo;
-	
 	private Integer purchaseYN;
 	
 	private Integer outsourcingYN;

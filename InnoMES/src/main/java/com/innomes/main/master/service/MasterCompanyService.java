@@ -42,7 +42,6 @@ public class MasterCompanyService {
 		List<MasterCompanyDTO> dtoList = util.convertModelAndDto(output.getContent(), MasterCompanyDTO.class);
 		return new PageImpl<>(dtoList,pageable, output.getTotalElements());
 	}
-<<<<<<< HEAD
 	
 	public List<MasterCompanyDTO> findAll() {
 		List<MST150> content = mst150Repository.findAll();
@@ -88,10 +87,7 @@ public class MasterCompanyService {
 	}
 	
 	
-	public boolean setCompInfo(List<MST150> compParam) {
-=======
 	public boolean setCompInfo(List<MasterCompanyParam> compParam) {
->>>>>>> ba1ece9b1847a061ff60f4f3c1901848d55a6a22
 		boolean success = true;
 		
 		try {
