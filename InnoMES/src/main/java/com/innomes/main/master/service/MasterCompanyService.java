@@ -22,6 +22,7 @@ import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.MST150;
 import com.innomes.main.master.param.MasterCompanyParam;
 import com.innomes.main.repository.MST150Repository;
+import com.innomes.main.util.service.UtilService;
 
 @Service
 @Transactional
@@ -32,12 +33,16 @@ public class MasterCompanyService {
 	@Autowired
 	private ModelMapper modelMapper;
 	
+	@Autowired
+	private UtilService util;
+	
 	//거래처 조회
 	public Page<MasterCompanyDTO> getCompInfo(MasterCompanyParam masterCompanyParam, Pageable pageable){
-		//modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		Page<MST150> output = mst150Repository.findAllLike(masterCompanyParam, pageable);
-		return new PageImpl<>(modelMapper.map(output.getContent(), new TypeToken<List<MasterCompanyDTO>>(){}.getType()),pageable, output.getTotalElements());
+		List<MasterCompanyDTO> dtoList = util.convertModelAndDto(output.getContent(), MasterCompanyDTO.class);
+		return new PageImpl<>(dtoList,pageable, output.getTotalElements());
 	}
+<<<<<<< HEAD
 	
 	public List<MasterCompanyDTO> findAll() {
 		List<MST150> content = mst150Repository.findAll();
@@ -84,15 +89,18 @@ public class MasterCompanyService {
 	
 	
 	public boolean setCompInfo(List<MST150> compParam) {
+=======
+	public boolean setCompInfo(List<MasterCompanyParam> compParam) {
+>>>>>>> ba1ece9b1847a061ff60f4f3c1901848d55a6a22
 		boolean success = true;
 		
 		try {
-			for (MST150 mst150 : compParam) {
+			List<MST150> mst150List = util.convertModelAndDto(compParam, MST150.class);
+			for (MST150 mst150: mst150List) {
 				mst150.setCreateTime(new Date());
 				mst150.setUpdateTime(new Date());
 			}
-			
-			mst150Repository.saveAll(compParam);
+			mst150Repository.saveAll(mst150List);
 			mst150Repository.flush();
 		}catch(Exception e) {
 			e.printStackTrace();

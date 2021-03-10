@@ -1,5 +1,7 @@
 package com.innomes.main.master.param;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +20,8 @@ public class MasterCompanyParam {
 	private String companyNo;
 	
 	private Integer saleYN;
+	
+	private String companyNo;
 	
 	private Integer purchaseYN;
 	
@@ -56,4 +60,14 @@ public class MasterCompanyParam {
 	private String chargeEmail;
 	
 	private String description;
+	
+	private String createUser;
+	
+	private Date createTime;
+	
+	private String updateUser;
+	
+	private Date updateTime;
+	
+	private Integer used;
 }

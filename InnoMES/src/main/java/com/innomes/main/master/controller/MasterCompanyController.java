@@ -47,7 +47,7 @@ public class MasterCompanyController {
 	@CrossOrigin
 	@ApiOperation(value = "거래처 정보 저장", notes = "거래처 정보를 저장합니다.")
 	@PostMapping("/master/company/save")
-	public CommonResult setCompInfo(@RequestBody(required = true) List<MST150> compParam) {
+	public CommonResult setCompInfo(@RequestBody(required = true) List<MasterCompanyParam> compParam) {
 		boolean result = masterCompanyService.setCompInfo(compParam);
 		
 		if(result) {
