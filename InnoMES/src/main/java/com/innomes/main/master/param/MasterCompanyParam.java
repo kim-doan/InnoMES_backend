@@ -17,9 +17,9 @@ public class MasterCompanyParam {
 	
 	private String compName;
 	
-	private Integer saleYN;
-	
 	private String companyNo;
+	
+	private Integer saleYN;
 	
 	private Integer purchaseYN;
 	

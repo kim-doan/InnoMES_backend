@@ -38,6 +38,9 @@ public class MST114 {
 	@Column(name="PART_SHIFT_CYCLE")
 	private double partShiftCycle;
 	
+	@Column(name="INC_INSP_YN")
+	private Integer incInspYN;
+	
 	@Column(name="CYCLE_UNIT")
 	private String cycleUnit;
 	

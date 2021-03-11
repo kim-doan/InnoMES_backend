@@ -20,6 +20,7 @@ import com.innomes.main.master.model.MST110;
 import com.innomes.main.master.model.MST151;
 import com.innomes.main.master.model.MST151PK;
 import com.innomes.main.master.param.MasterPriceItemParam;
+import com.innomes.main.pool.service.MasterPoolService;
 import com.innomes.main.repository.MST110Repository;
 import com.innomes.main.repository.MST151Repository;
 
@@ -35,6 +36,9 @@ public class MasterPriceService {
 	
 	@Autowired
 	private MST110Repository mst110Repository;
+	
+	@Autowired
+	private MasterPoolService masterPoolService;
 	
 	//판매단가정보 품목리스트 (메인그리드)
 	public Page<MasterPriceItemDTO> getSellItemList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {
@@ -60,7 +64,7 @@ public class MasterPriceService {
 		return getPriceList(masterPriceItemParam, pageable);
 	}
 	
-	//단가정보 저장 ( 개정, 삭제 )
+	//단가정보 개정
 	public boolean setPriceInfo(MasterPriceItemParam[] masterPriceItemParams) {
 		
 		boolean success = true;
@@ -94,7 +98,7 @@ public class MasterPriceService {
 						.createUser(masterPriceItemParams[i].getCreateUser())
 						.createTime(new Date())
 						.updateUser(masterPriceItemParams[i].getUpdateUser())
-						.updateTime(masterPriceItemParams[i].getUpdateTime())
+						.updateTime(new Date())
 						.used(masterPriceItemParams[i].getUsed())
 						.build();
 				
@@ -134,13 +138,7 @@ public class MasterPriceService {
 					.itemCode(mst151.getMst110().getItemCode())
 					.itemName(mst151.getMst110().getItemName())
 					.compId(mst151.getCompId())
-					/*	
-					 * 	*************************
-					 * 
-					 *		COMP_NAME 추가해야함 ( Pool 사용 )
-					 *
-					 *	*************************
-					 */
+					.compName(masterPoolService.getMST150(mst151.getCompId()).getCompName())
 					.priceRev(mst151.getPriceRev())
 					.priceType(mst151.getPriceType())
 					.priceRevCause(mst151.getPriceRevCause())

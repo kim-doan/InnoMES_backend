@@ -17,7 +17,9 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import com.google.common.reflect.TypeToken;
 import com.innomes.main.exception.CValiedationItemCodeException;
 import com.innomes.main.master.dto.MasterMaterialDTO;
+import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.model.MST110;
+import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.MST112;
 import com.innomes.main.master.param.MasterMaterialParam;
 import com.innomes.main.repository.MST110Repository;
@@ -40,6 +42,50 @@ public class MasterMaterialService {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		Page<MST112> output = mst112Repository.findAllLike(masterMaterialParam, pageable);
 		return new PageImpl<>(modelMapper.map(output.getContent(), new TypeToken<List<MasterMaterialDTO>>(){}.getType()),pageable, output.getTotalElements());
+	}
+	
+	//자재정보 조회
+	public List<MasterMaterialDTO> findAll() {
+		List<MST112> content = mst112Repository.findAll();
+		
+		List<MasterMaterialDTO> dtoList = new ArrayList<MasterMaterialDTO>();
+		
+		for(int i=0;i<content.size();i++) {
+			MasterMaterialDTO dto = MasterMaterialDTO.builder()
+					.itemId(content.get(i).getMst110().getItemId())
+					.itemCode(content.get(i).getMst110().getItemCode())
+					.itemName(content.get(i).getMst110().getItemName())
+					.itemType(content.get(i).getMst110().getItemType())
+					.lotSize(content.get(i).getMst110().getLotSize())
+					.lotUnit(content.get(i).getMst110().getLotUnit())
+					.safetyQnt(content.get(i).getMst110().getSafetyQnt())
+					.safetyUnit(content.get(i).getMst110().getSafetyUnit())
+					.locCode(content.get(i).getMst110().getLocCode())
+					.invType(content.get(i).getMst110().getInvType())
+					.description(content.get(i).getMst110().getDescription())
+					.createUser(content.get(i).getMst110().getCreateUser())
+					.createTime(content.get(i).getMst110().getCreateTime())
+					.updateUser(content.get(i).getMst110().getUpdateUser())
+					.updateTime(content.get(i).getMst110().getUpdateTime())
+					.used(content.get(i).getMst110().getUsed())
+					.matId(content.get(i).getMatId())
+					.matType(content.get(i).getMatType())
+					.matCtg(content.get(i).getMatCtg())
+					.matGroup(content.get(i).getMatGroup())
+					.attMatType(content.get(i).getAttMatType())
+					.attStdType(content.get(i).getAttStdType())
+					.attDiaType(content.get(i).getAttDiaType())
+					.incInspYN(content.get(i).getIncInspYN())
+					.incVolStd(content.get(i).getIncVolStd())
+					.incVolUnit(content.get(i).getIncVolUnit())
+					.lotYN(content.get(i).getLotYN())
+					.matProc(content.get(i).getMatProc())
+					.build();
+			
+			dtoList.add(dto);
+		}
+		
+		return dtoList;
 	}
 	
 	//자재 정보 저장

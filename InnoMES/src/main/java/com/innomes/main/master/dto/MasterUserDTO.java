@@ -40,4 +40,12 @@ public class MasterUserDTO {
 	private String description;
 	
 	private Integer used;
+	
+	private String createUser;
+	
+	private Date createTime;
+	
+	private String updateUser;
+	
+	private Date updateTime;
 }
