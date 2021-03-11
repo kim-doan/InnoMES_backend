@@ -62,6 +62,7 @@ public class MasterPoolService implements ApplicationListener<ApplicationReadyEv
 		SetMST112List();
 		SetMST113List();
 		SetMST114List();
+		SetMST120List();
 		SetMST140List();
 		SetMST150List();
 	}
