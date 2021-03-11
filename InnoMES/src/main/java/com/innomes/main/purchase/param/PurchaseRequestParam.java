@@ -59,5 +59,10 @@ public class PurchaseRequestParam {
 	private String reqLoc;
 
 	private int orderYn;
+	
+	//Search Param
+	private Date startDate;
+	
+	private Date endDate;
 
 }

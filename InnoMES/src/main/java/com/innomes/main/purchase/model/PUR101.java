@@ -78,9 +78,15 @@ public class PUR101 implements Persistable<PUR101PK> {
 	@Column(name = "USED")
 	private int used;
 	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+	@JoinColumns(value = {
+			@JoinColumn(name = "REQ_NO", referencedColumnName = "REQ_NO", insertable = false, updatable = false)
+	})
+	private PUR100 pur100;
+	
 	@Transient
 	private boolean isNew = false;
-	
+
 	@Override
 	public PUR101PK getId() {
 		return PUR101PK.builder()

@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.domain.Persistable;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,7 +29,7 @@ import lombok.Setter;
 @Getter @Setter
 @Table(name = "PUR100")
 @Builder
-public class PUR100 {
+public class PUR100 implements Persistable<String> {
 
 	@Id
 	@GenericGenerator(
@@ -74,4 +75,20 @@ public class PUR100 {
 
 	@Column(name = "USED")
 	private int used;
+	
+	@OneToMany(mappedBy = "pur100", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<PUR101> pur101 = new ArrayList<>();
+	
+	@Transient
+	private boolean isNew = false;
+
+	@Override
+	public String getId() {
+		return reqNo;
+	}
+
+	@Override
+	public boolean isNew() {
+		return isNew;
+	}
 }

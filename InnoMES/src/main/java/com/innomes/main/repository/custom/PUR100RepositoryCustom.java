@@ -1,5 +1,7 @@
 package com.innomes.main.repository.custom;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -8,4 +10,5 @@ import com.innomes.main.purchase.param.PurchaseRequestParam;
 
 public interface PUR100RepositoryCustom {
 	Page<PUR100> findAllLike(PurchaseRequestParam purchaseRequestParam, Pageable pageable);
+	List<PUR100> findAll();
 }
