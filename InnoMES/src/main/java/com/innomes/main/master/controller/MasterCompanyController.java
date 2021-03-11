@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.innomes.main.exception.CCompanySaveException;
 import com.innomes.main.master.dto.MasterCompanyDTO;
-import com.innomes.main.master.model.MST150;
 import com.innomes.main.master.param.MasterCompanyParam;
 import com.innomes.main.master.service.MasterCompanyService;
 import com.innomes.main.response.model.CommonResult;
