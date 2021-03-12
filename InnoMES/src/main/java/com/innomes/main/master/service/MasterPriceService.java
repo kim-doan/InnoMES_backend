@@ -116,6 +116,7 @@ public class MasterPriceService {
 		} catch (CPriceSaveException e) {
 			throw new CPriceSaveException();
 		} catch (Exception e) {
+			e.printStackTrace();
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); // 롤백
 			success = false;
 		}
