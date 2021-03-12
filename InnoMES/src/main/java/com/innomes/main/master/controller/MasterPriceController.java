@@ -47,9 +47,8 @@ public class MasterPriceController {
 	@PostMapping("/master/price/sell/priceList")
 	public PageListResult<MasterPriceDTO> getSellPriceList(@RequestBody(required = true) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
-			return responseService.getPageListResult(MasterPriceDTO.class, null);
-		else
-			return responseService.getPageListResult(MasterPriceDTO.class, masterPriceService.getSellPriceList(masterPriceItemParam, pageable));
+			masterPriceItemParam = new MasterPriceItemParam();
+		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceService.getSellPriceList(masterPriceItemParam, pageable));
 	}
 	
 	@ApiOperation(value = "구매단가 품목리스트", notes = "구매단가 유형의 품목리스트를 반환합니다.")
@@ -68,7 +67,7 @@ public class MasterPriceController {
 	public PageListResult<MasterPriceDTO> getPurchasePriceList(@RequestBody(required = true) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
-		return responseService.getPageListResult(MasterPriceDTO.class, masterPriceService.getPurchasePriceList(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceService.getPurchasePriceList(masterPriceItemParam, pageable));
 	}
 	
 	@ApiOperation(value = "단가정보 저장 (판매, 구매)", notes = "단가정보를 저장합니다. (판매, 구매)")
