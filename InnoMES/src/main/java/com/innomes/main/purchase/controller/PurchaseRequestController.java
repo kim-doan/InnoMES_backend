@@ -36,7 +36,7 @@ public class PurchaseRequestController {
 	private PurchaseRequestService purchaseRequestService;
 	
 	@CrossOrigin
-	@ApiOperation(value = "구매요청 조회", notes = "구매요청 정보를 반환합니다.")
+	@ApiOperation(value = "자재구매요청 조회", notes = "구매요청 정보를 반환합니다.")
 	@PostMapping("/purchaseRequest/material")
 	public PageListResult<PurchaseRequestDTO> getMaterialPurchaseRequestList(@RequestBody(required = false) PurchaseRequestParam purchaseRequestParam, final Pageable pageable){
 		if(purchaseRequestParam == null)
@@ -45,7 +45,7 @@ public class PurchaseRequestController {
 	}
 	
 	@CrossOrigin
-	@ApiOperation(value = "공구요청 조회", notes = "공구요청 정보를 반환합니다.")
+	@ApiOperation(value = "공구구매요청 조회", notes = "공구요청 정보를 반환합니다.")
 	@PostMapping("/purchaseRequest/tool")
 	public PageListResult<PurchaseRequestDTO> getToolPurchaseRequestList(@RequestBody(required = false) PurchaseRequestParam purchaseRequestParam, final Pageable pageable){
 		if(purchaseRequestParam == null)
@@ -54,7 +54,7 @@ public class PurchaseRequestController {
 	}
 	
 	@CrossOrigin
-	@ApiOperation(value = "예비품요청 조회", notes = "예비품요청 정보를 반환합니다.")
+	@ApiOperation(value = "예비품구매요청 조회", notes = "예비품요청 정보를 반환합니다.")
 	@PostMapping("/purchaseRequest/spare")
 	public PageListResult<PurchaseRequestDTO> getSparePurchaseRequestList(@RequestBody(required = false) PurchaseRequestParam purchaseRequestParam, final Pageable pageable){
 		if(purchaseRequestParam == null)
@@ -83,7 +83,4 @@ public class PurchaseRequestController {
 			throw new CCompanySaveException();
 		}
 	}
-	
-	
-
 }
