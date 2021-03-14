@@ -36,30 +36,19 @@ public class PurchaseRequestService {
 	
 	//제품 구매 요청 조회
 	public Page<PurchaseRequestDTO> getProductPurchaseRequest(PurchaseRequestParam purchaseRequestParam, Pageable pageable) {
-		purchaseRequestParam.setReqType("PCS001001"); //제품구매
-		return getPurchaseRequest(purchaseRequestParam, pageable);
+		return getPurchaseRequest(purchaseRequestParam, pageable, "PCS001001");
 	}
 	//자제 구매 요청 조회
 	public Page<PurchaseRequestDTO> getMaterialPurchaseRequest(PurchaseRequestParam purchaseRequestParam, Pageable pageable) {
-		purchaseRequestParam.setReqType("PCS001002"); //자재구매
-		return getPurchaseRequest(purchaseRequestParam, pageable);
+		return getPurchaseRequest(purchaseRequestParam, pageable, "PCS001002");
 	}
 	//공구 구매 요청 조회
 	public Page<PurchaseRequestDTO> getToolPurchaseRequest(PurchaseRequestParam purchaseRequestParam, Pageable pageable) {
-		purchaseRequestParam.setReqType("PCS001003"); //공구구매
-		return getPurchaseRequest(purchaseRequestParam, pageable);
+		return getPurchaseRequest(purchaseRequestParam, pageable, "PCS001003");
 	}
 	//예비품 구매 요청 조회
 	public Page<PurchaseRequestDTO> getSparePurchaseRequest(PurchaseRequestParam purchaseRequestParam, Pageable pageable) {
-		purchaseRequestParam.setReqType("PCS001004"); //예비품구매
-		return getPurchaseRequest(purchaseRequestParam, pageable);
-	}
-	
-	//구매 요청 상세 내용 조회
-	public Page<PurchaseRequestDetailDTO> getPurchaseRequestDetail(PurchaseRequestParam purchaseRequestParam, Pageable pageable) {
-		Page<PUR101> output = pur101Repository.findById(purchaseRequestParam, pageable);
-		List<PurchaseRequestDetailDTO> dtoList = util.convertModelAndDto(output.getContent(), PurchaseRequestDetailDTO.class);
-		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
+		return getPurchaseRequest(purchaseRequestParam, pageable, "PCS001004");
 	}
 	
 	public boolean setPurchaseRequest(List<PurchaseRequestParam> purchaseRequestParams) {
@@ -76,7 +65,8 @@ public class PurchaseRequestService {
 		return true;
 	}
 	
-	private Page<PurchaseRequestDTO> getPurchaseRequest(PurchaseRequestParam purchaseRequestParam, Pageable pageable) {
+	private Page<PurchaseRequestDTO> getPurchaseRequest(PurchaseRequestParam purchaseRequestParam, Pageable pageable, String priceType) {
+		purchaseRequestParam.setReqType(priceType);
 		Page<PUR100> output = pur100Repository.findAllLike(purchaseRequestParam, pageable);
 		List<PurchaseRequestDTO> dtoList = util.convertModelAndDto(output.getContent(), PurchaseRequestDTO.class);
 		return new PageImpl<>(dtoList, pageable, output.getTotalElements());

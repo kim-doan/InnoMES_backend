@@ -63,15 +63,6 @@ public class PurchaseRequestController {
 	}
 	
 	@CrossOrigin
-	@ApiOperation(value = "구매요청 상세내용 조회", notes = "구매요청 상세내용 정보를 반환합니다.")
-	@PostMapping("/purchaseRequest/detail")
-	public PageListResult<PurchaseRequestDetailDTO> getPurchaseRequestDetailList(@RequestBody(required = false) PurchaseRequestParam purchaseRequestParam, final Pageable pageable){
-		if(purchaseRequestParam == null)
-			purchaseRequestParam = new PurchaseRequestParam();
-		return responseService.getPageListResult(PurchaseRequestDTO.class, purchaseRequestService.getPurchaseRequestDetail(purchaseRequestParam, pageable));
-	}
-	
-	@CrossOrigin
 	@ApiOperation(value = "구매요청 정보 저장", notes = "구매요청 정보를 저장합니다.")
 	@PostMapping("/purchaseRequest/save")
 	public CommonResult setPurchaseRequest(@RequestBody(required = true) List<PurchaseRequestParam> purchaseRequestParams) {

@@ -1,6 +1,8 @@
 package com.innomes.main.purchase.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,4 +31,6 @@ public class PurchaseRequestDTO {
 	private Date apprDate;
 
 	private String description;
+	
+	private List<PurchaseRequestDetailDTO> pur101 = new ArrayList<PurchaseRequestDetailDTO>();
 }

@@ -2,6 +2,7 @@ package com.innomes.main.repository.impl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -10,12 +11,12 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 
 import com.innomes.main.purchase.model.PUR100;
 import com.innomes.main.purchase.model.QPUR100;
+import com.innomes.main.purchase.model.QPUR101;
 import com.innomes.main.purchase.param.PurchaseRequestParam;
 import com.innomes.main.repository.custom.PUR100RepositoryCustom;
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryResults;
-import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 public class PUR100RepositoryImpl extends QuerydslRepositorySupport implements PUR100RepositoryCustom{
@@ -27,6 +28,7 @@ public class PUR100RepositoryImpl extends QuerydslRepositorySupport implements P
 	public Page<PUR100> findAllLike(PurchaseRequestParam purchaseRequestParam, Pageable pageable) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		QPUR100 pur100 = QPUR100.pUR100;
+		QPUR101 pur101 = QPUR101.pUR101;
 		
 		/*
 		 *	화면상 검색조건
@@ -64,20 +66,13 @@ public class PUR100RepositoryImpl extends QuerydslRepositorySupport implements P
 		
 		QueryResults<PUR100> result = query.from(pur100)
 				.select(pur100)
+				.innerJoin(pur100.pur101, pur101)
 				.where(builder)
 				.offset(pageable.getOffset())
 				.limit(pageable.getPageSize())
+				.distinct()
 				.fetchResults();
 		
 		return new PageImpl<PUR100>(result.getResults(), pageable, result.getTotal());
-	}
-
-	@Override
-	public List<PUR100> findAll() {
-		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
-		QPUR100 pur100 = QPUR100.pUR100;
-		BooleanBuilder builder = new BooleanBuilder();
-		builder.and(pur100.used.eq(1));
-		return query.from(pur100).select(pur100).where(builder).fetch();
 	}
 }
