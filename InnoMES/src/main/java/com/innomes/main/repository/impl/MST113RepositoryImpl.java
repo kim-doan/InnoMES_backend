@@ -80,7 +80,7 @@ public class MST113RepositoryImpl extends QuerydslRepositorySupport implements M
 		
 		BooleanBuilder builder = new BooleanBuilder();
 		
-		builder.and(mst113.mst110.used.eq(1));
+//		builder.and(mst113.mst110.used.eq(1));
 		
 		List<MST113> result = query.from(mst113)
 				.select(mst113)
