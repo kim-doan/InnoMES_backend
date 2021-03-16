@@ -2,6 +2,8 @@ package com.innomes.main.repository.impl;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 
@@ -11,6 +13,7 @@ import com.innomes.main.code.param.CodeInfoParam;
 import com.innomes.main.repository.custom.COD100RepositoryCustom;
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.QueryResults;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 public class COD100RepositoryImpl extends QuerydslRepositorySupport implements COD100RepositoryCustom {
@@ -20,7 +23,7 @@ public class COD100RepositoryImpl extends QuerydslRepositorySupport implements C
 	}
 
 	@Override
-	public List<COD100> findAllLike(CodeInfoParam codeInfoParam, Pageable pageable) {
+	public Page<COD100> findAllLike(CodeInfoParam codeInfoParam, Pageable pageable) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		
 		QCOD100 cod100 = QCOD100.cOD100;
@@ -66,14 +69,14 @@ public class COD100RepositoryImpl extends QuerydslRepositorySupport implements C
 			builder.and(cod100.used.eq(codeInfoParam.getUsed()));
 		}
 		
-		List<COD100> result = query.from(cod100)
+		QueryResults<COD100> result = query.from(cod100)
 				.select(cod100)
 				.where(builder)
 				.offset(pageable.getOffset())
 				.limit(pageable.getPageSize())
-				.fetch();
+				.fetchResults();
 		
-		return result;
+		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
 	}
 
 	@Override

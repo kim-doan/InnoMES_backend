@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.innomes.main.code.model.COD100;
-import com.innomes.main.code.param.CodeInfoParam;
-import com.innomes.main.code.service.CodeInfoService;
+import com.innomes.main.code.model.COD400;
+import com.innomes.main.code.param.COD400Param;
+import com.innomes.main.code.service.FailCodeService;
 import com.innomes.main.response.model.PageListResult;
 import com.innomes.main.response.service.ResponseService;
 
@@ -21,22 +21,22 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
-public class CodeInfoController {
+public class FailCodeController {
 	
 	@Autowired
 	private ResponseService responseService;
 	
 	@Autowired
-	private CodeInfoService codeInfoService;
+	private FailCodeService failCodeService;
 	
-	@ApiOperation(value = "코드 전체 조회", notes = "코드정보 전체를 반환합니다. (검색조건 필터링 가능)")
+	@ApiOperation(value = "불량유형 전체 조회", notes = "불량유형정보 전체를 반환합니다. (검색조건 필터링 가능)")
 	@CrossOrigin
-	@PostMapping("/master/code")
-	public PageListResult<COD100> findAll(@RequestBody(required = false) CodeInfoParam codeInfoParam,
+	@PostMapping("/master/failCode")
+	public PageListResult<COD400> findAll(@RequestBody(required = false) COD400Param cod400Param,
 			@PageableDefault(value = 1000) final Pageable pageable) {
-		if(codeInfoParam == null) //파라메터가 없을경우
-			codeInfoParam = new CodeInfoParam(); // 전체 조회
+		if(cod400Param == null) //파라메터가 없을경우
+			cod400Param = new COD400Param(); // 전체 조회
 		
-		return responseService.getPageListResult(COD100.class, codeInfoService.findAllLike(codeInfoParam, pageable));
+		return responseService.getPageListResult(COD400.class, failCodeService.findAllLike(cod400Param, pageable));
 	}
 }
