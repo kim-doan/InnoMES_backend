@@ -59,7 +59,7 @@ public class MST150RepositoryImpl extends QuerydslRepositorySupport implements M
 		
 		BooleanBuilder builder = new BooleanBuilder();
 		
-		builder.and(mst150.used.eq(1));
+//		builder.and(mst150.used.eq(1));
 		
 		List<MST150> result = query.from(mst150)
 				.select(mst150)

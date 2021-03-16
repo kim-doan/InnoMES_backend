@@ -19,19 +19,34 @@ public class PurchaseRequestDetailDTO {
 	private int reqSeq;
 
 	private String reqCode;
+	
+	private String itemCode;
+	
+	private String itemName;
+	
+	private String attMatType;
+	
+	private String attDiaType;
+	
+	private String attStdType;
+	
+	private String matProc;
 
 	private double reqQnt;
 
 	private String reqUnit;
 
 	private String reqComp;
+	
+	private String compName;
 
 	private Date reqDue;
 
 	private String reqLoc;
+	
+	private String locName;
 
 	private int orderYN;
 
 	private String description;
-
 }

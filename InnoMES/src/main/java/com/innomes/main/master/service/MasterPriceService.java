@@ -85,7 +85,7 @@ public class MasterPriceService {
 				MST151 mst151 = MST151.builder()
 						.itemId(masterPriceItemParams[i].getItemId())
 						.compId(masterPriceItemParams[i].getCompId())
-						.priceRev(mst151Repository.findMaxRev(pk))
+						.priceRev(mst151Repository.findMaxRev(pk) == null ? 1 : mst151Repository.findMaxRev(pk) + 1)
 						.priceType(masterPriceItemParams[i].getPriceType())
 						.priceRevCause(masterPriceItemParams[i].getPriceRevCause())
 						.priceRevUser(masterPriceItemParams[i].getPriceRevUser())

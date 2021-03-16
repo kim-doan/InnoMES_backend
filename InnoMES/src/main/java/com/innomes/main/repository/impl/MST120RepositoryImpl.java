@@ -61,7 +61,7 @@ public class MST120RepositoryImpl extends QuerydslRepositorySupport implements M
 
 		BooleanBuilder builder = new BooleanBuilder();
 		
-		builder.and(mst120.used.eq(1));
+//		builder.and(mst120.used.eq(1));
 		
 		List<MST120> result = query.from(mst120)
 				.select(mst120)
