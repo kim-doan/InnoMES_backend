@@ -70,3 +70,6 @@ valiedationItemCodeException:
 priceSaveException:
   code: "E0024"
   msg: "단가정보 저장에 실패했습니다."
+manufactureProcessSaveException:
+  code: "E0025"
+  msg: "제조공정정보 개정에 실패했습니다."

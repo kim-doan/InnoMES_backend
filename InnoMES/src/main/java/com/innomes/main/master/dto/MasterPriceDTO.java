@@ -46,13 +46,13 @@ public class MasterPriceDTO {
 
 	private String description;
 
-	//private String createUser;
+	private String createUser;
 
-	//private Date createTime;
+	private Date createTime;
 
-	//private String updateUser;
+	private String updateUser;
 
-	//private Date updateTime;
+	private Date updateTime;
 
-	//private int used;
+	private int used;
 }

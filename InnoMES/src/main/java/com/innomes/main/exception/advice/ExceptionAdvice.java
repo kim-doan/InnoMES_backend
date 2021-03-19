@@ -21,6 +21,7 @@ import com.innomes.main.exception.CAccountNotFoundException;
 import com.innomes.main.exception.CAuthenticationEntryPointException;
 import com.innomes.main.exception.CCompanySaveException;
 import com.innomes.main.exception.CLoginFailException;
+import com.innomes.main.exception.CManufactureProcessSaveException;
 import com.innomes.main.exception.CMaterialSaveException;
 import com.innomes.main.exception.COrderIdNotFoundException;
 import com.innomes.main.exception.CPriceSaveException;
@@ -210,5 +211,11 @@ public class ExceptionAdvice {
 	@ExceptionHandler(CPriceSaveException.class)
 	public CommonResult priceSaveException(HttpServletRequest request, CPriceSaveException e) {
 		return responseService.getFailResult("E0024", getMessage("priceSaveException.msg"));
+	}
+	
+	//제조공정정보 개정 실패
+	@ExceptionHandler(CManufactureProcessSaveException.class)
+	public CommonResult manufactureProcessSaveException(HttpServletRequest request, CManufactureProcessSaveException e) {
+		return responseService.getFailResult("E0025", getMessage("manufactureProcessSaveException.msg"));
 	}
 }
