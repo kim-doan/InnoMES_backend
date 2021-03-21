@@ -3,6 +3,7 @@ package com.innomes.main.master.service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,6 +53,12 @@ public class MasterPriceService {
 		return getPriceList(masterPriceItemParam, pageable);
 	}
 	
+	//판매단가정보 거래처별 단가리스트 (이력보기)
+	public List<MasterPriceDTO> getSellPriceRevLog(MasterPriceItemParam masterPriceItemParam) {
+		masterPriceItemParam.setPriceType("TPS002001"); // 판매단가
+		return getPriceRevLog(masterPriceItemParam);
+	}
+	
 	//구매단가정보 품목리스트(메인그리드)
 	public Page<MasterPriceItemDTO> getPurchaseItemList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {
 		masterPriceItemParam.setPriceType("TPS002002");		//구매단가
@@ -62,6 +69,12 @@ public class MasterPriceService {
 	public Page<MasterPriceDTO> getPurchasePriceList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {
 		masterPriceItemParam.setPriceType("TPS002002");		//구매단가
 		return getPriceList(masterPriceItemParam, pageable);
+	}
+	
+	//구매단가정보 거래처별 단가리스트 (이력보기)
+	public List<MasterPriceDTO> getPurchasePriceRevLog(MasterPriceItemParam masterPriceItemParam) {
+		masterPriceItemParam.setPriceType("TPS002002"); // 구매단가
+		return getPriceRevLog(masterPriceItemParam);
 	}
 	
 	//단가정보 개정
@@ -125,8 +138,6 @@ public class MasterPriceService {
 	}
 	
 	
-	
-	
 	private Page<MasterPriceDTO> getPriceList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {
 		
 		Page<MST151> output = mst151Repository.findAllLike(masterPriceItemParam, pageable);
@@ -150,10 +161,48 @@ public class MasterPriceService {
 					.deliveryType(mst151.getDeliveryType())
 					.deliveryDay(mst151.getDeliveryDay())
 					.description(mst151.getDescription())
+					.createUser(mst151.getCreateUser())
+					.createTime(mst151.getCreateTime())
+					.updateUser(mst151.getUpdateUser())
+					.updateTime(mst151.getUpdateTime())
+					.used(mst151.getUsed())
 					.build());	
 			dtoList.add(dto);
 		}
 		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
+	}
+	
+	private List<MasterPriceDTO> getPriceRevLog(MasterPriceItemParam masterPriceItemParam) {
+		
+		List<MST151> output = mst151Repository.findPriceRevLog(masterPriceItemParam);
+		List<MasterPriceDTO> dtoList = new ArrayList<MasterPriceDTO>();
+		
+		for(MST151 mst151 : output) {
+			MasterPriceDTO dto = (MasterPriceDTO.builder()
+					.itemId(mst151.getItemId())
+					.itemCode(mst151.getMst110().getItemCode())
+					.itemName(mst151.getMst110().getItemName())
+					.compId(mst151.getCompId())
+					.compName(masterPoolService.getMST150(mst151.getCompId()).getCompName())
+					.priceRev(mst151.getPriceRev())
+					.priceType(mst151.getPriceType())
+					.priceRevCause(mst151.getPriceRevCause())
+					.priceRevUser(mst151.getPriceRevUser())
+					.compItemId(mst151.getCompItemId())
+					.priceStd(mst151.getPriceStd())
+					.priceUnit(mst151.getPriceUnit())
+					.deliveryType(mst151.getDeliveryType())
+					.deliveryDay(mst151.getDeliveryDay())
+					.description(mst151.getDescription())
+					.createUser(mst151.getCreateUser())
+					.createTime(mst151.getCreateTime())
+					.updateUser(mst151.getUpdateUser())
+					.updateTime(mst151.getUpdateTime())
+					.used(mst151.getUsed())
+					.build());	
+			dtoList.add(dto);
+		}
+		return dtoList;
 	}
 	
 	private Page<MasterPriceItemDTO> getItemList(MasterPriceItemParam masterPriceItemParam, Pageable pageable) {

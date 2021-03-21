@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.innomes.main.exception.CManufactureProcessSaveException;
 import com.innomes.main.master.dto.MasterManufactureItemDTO;
 import com.innomes.main.master.dto.MasterManufactureProcessDTO;
 import com.innomes.main.master.param.MasterManufactureProcessParam;
@@ -60,7 +61,7 @@ public class MasterManufactureProcessController {
 		if(result == true) {
 			return responseService.getSuccessResult();
 		} else {
-			return responseService.getFailResult("dd", "실패");
+			throw new CManufactureProcessSaveException();
 		}
 	}
 }

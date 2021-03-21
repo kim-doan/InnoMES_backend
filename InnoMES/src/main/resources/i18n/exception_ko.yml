@@ -1,79 +1,82 @@
 unKnown:
-  code: "-9999"
-  msg: "알수 없는 오류가 발생하였습니다."
+  code: '-9999'
+  msg: '알수 없는 오류가 발생하였습니다.'
 sessionNotFoundException:
-  code: "E0002"
-  msg: "세션이 비어있습니다."
+  code: 'E0002'
+  msg: '세션이 비어있습니다.'
 userNotFoundException:
-  code: "E0003"
-  msg: "존재하지 않는 회원입니다."
+  code: 'E0003'
+  msg: '존재하지 않는 회원입니다.'
 authenticationEntryPointException:
-  code: "E0004"
-  msg: "토큰이 만료되었습니다."
+  code: 'E0004'
+  msg: '토큰이 만료되었습니다.'
 accessDeniedException:
-  code: "E0005"
-  msg: "해당 리소스에 접근권한이 없습니다."
+  code: 'E0005'
+  msg: '해당 리소스에 접근권한이 없습니다.'
 userDuplicationException:
-  code: "E0006"
-  msg: "아이디가 중복입니다."
+  code: 'E0006'
+  msg: '아이디가 중복입니다.'
 userRegisterFailException:
-  code: "E0007"
-  msg: "회원가입에 실패하였습니다."
+  code: 'E0007'
+  msg: '회원가입에 실패하였습니다.'
 userSaveException:
-  code: "E0008"
-  msg: "유저정보 저장에 실패했습니다."
+  code: 'E0008'
+  msg: '유저정보 저장에 실패했습니다.'
 productSaveException:
-  code: "E0009"
-  msg: "제품정보 저장에 실패했습니다."
+  code: 'E0009'
+  msg: '제품정보 저장에 실패했습니다.'
 materialSaveException:
-  code: "E0010"
-  msg: "자재정보 저장에 실패했습니다."
+  code: 'E0010'
+  msg: '자재정보 저장에 실패했습니다.'
 toolSaveException:
-  code: "E0011"
-  msg: "공구정보 저장에 실패했습니다."
+  code: 'E0011'
+  msg: '공구정보 저장에 실패했습니다.'
 toolNotFoundException:
-  code: "E0012"
-  msg: "존재하지 않는 공구입니다."
+  code: 'E0012'
+  msg: '존재하지 않는 공구입니다.'
 spareSaveException:
-  code: "E0013"
-  msg: "예비품 정보 저장에 실패했습니다."
+  code: 'E0013'
+  msg: '예비품 정보 저장에 실패했습니다.'
 processNotFoundException:
-  code: "E0014"
-  msg: "존재하지 않는 공정정보입니다."
+  code: 'E0014'
+  msg: '존재하지 않는 공정정보입니다.'
 processSaveException:
-  code: "E0015"
-  msg: "공정정보 저장에 실패했습니다."
+  code: 'E0015'
+  msg: '공정정보 저장에 실패했습니다.'
 companySaveException:
-  code: "E0016"
-  msg: "거래처 정보 저장에 실패했습니다."
+  code: 'E0016'
+  msg: '거래처 정보 저장에 실패했습니다.'
 salesPlanNoNotFoundException:
-  code: "E0017"
-  msg: "판매계획 번호를 찾을 수 없습니다."
+  code: 'E0017'
+  msg: '판매계획 번호를 찾을 수 없습니다.'
 salesPlanSaveException:
-  code: "E0018"
-  msg: "판매계획내역 저장에 실패했습니다."
+  code: 'E0018'
+  msg: '판매계획내역 저장에 실패했습니다.'
 orderIdNotFoundException:
-  code: "E0019"
-  msg: "수주 번호를 찾을 수 없습니다."
+  code: 'E0019'
+  msg: '수주 번호를 찾을 수 없습니다.'
 salesOrderSaveException:
-  code: "E0020"
-  msg: "수주내역 저장에 실패했습니다."
+  code: 'E0020'
+  msg: '수주내역 저장에 실패했습니다.'
 accountNotFoundException:
-  code: "E0021"
-  msg: "존재하지 않는 계정입니다."
+  code: 'E0021'
+  msg: '존재하지 않는 계정입니다.'
 loginFailException:
-  code: "E0022"
-  msg: "아이디/비밀번호를 확인해주세요."
+  code: 'E0022'
+  msg: '아이디/비밀번호를 확인해주세요.'
 valiedationItemCodeException:
-  code: "E0023"
-  msg: "중복된 제품코드 입니다."
+  code: 'E0023'
+  msg: '중복된 제품코드 입니다.'
 priceSaveException:
-  code: "E0024"
-  msg: "단가정보 저장에 실패했습니다."
+  code: 'E0024'
+  msg: '단가정보 저장에 실패했습니다.'
 stopCodeInfoSaveException:
-  code: "E0025"
-  msg: "비가동유형 저장에 실패했습니다."
+  code: 'E0025'
+  msg: '비가동유형 저장에 실패했습니다.'
 stopCodeDuplicateException:
-  code: "E0026"
-  msg: "중복된 비가동유형 코드입니다."
-  
+  code: 'E0026'
+  msg: '중복된 비가동유형 코드입니다.'
+
+manufactureProcessSaveException:
+  code: 'E0025'
+  msg: '제조공정정보 개정에 실패했습니다.'
