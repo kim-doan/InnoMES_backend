@@ -70,3 +70,10 @@ valiedationItemCodeException:
 priceSaveException:
   code: "E0024"
   msg: "단가정보 저장에 실패했습니다."
+stopCodeInfoSaveException:
+  code: "E0025"
+  msg: "비가동유형 저장에 실패했습니다."
+stopCodeDuplicateException:
+  code: "E0026"
+  msg: "중복된 비가동유형 코드입니다."
+  

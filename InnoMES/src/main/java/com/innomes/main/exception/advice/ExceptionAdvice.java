@@ -32,6 +32,8 @@ import com.innomes.main.exception.CSalesPlanNoNotFoundException;
 import com.innomes.main.exception.CSalesPlanSaveException;
 import com.innomes.main.exception.CSessionNotFoundException;
 import com.innomes.main.exception.CSpareSaveException;
+import com.innomes.main.exception.CStopCodeDuplicateException;
+import com.innomes.main.exception.CStopCodeInfoSaveException;
 import com.innomes.main.exception.CToolNotFoundException;
 import com.innomes.main.exception.CToolSaveException;
 import com.innomes.main.exception.CUserDuplicationException;
@@ -47,13 +49,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestControllerAdvice
 public class ExceptionAdvice {
-	
+
 	private final ResponseService responseService;
 
 	private final MessageSource messageSource;
 
-//	@Autowired
-//	private LabelInfoService labelInfoService;
+	//	@Autowired
+	//	private LabelInfoService labelInfoService;
 
 	private String getMessage(String code) {
 		return getMessage(code, null);
@@ -97,118 +99,131 @@ public class ExceptionAdvice {
 	public CommonResult accessDeniedException(HttpServletRequest request, AccessDeniedException e) {
 		return responseService.getFailResult("E0005", getMessage("accessDeniedException.msg"));
 	}
-	
+
 	//유저 아이디 중복
 	@ExceptionHandler(CUserDuplicationException.class)
 	public CommonResult userDuplicationException(HttpServletRequest request, CUserDuplicationException e) {
 		return responseService.getFailResult("E0006", getMessage("userDuplicationException.msg"));
 	}
-	
+
 	//회원가입 실패
 	@ExceptionHandler(CUserRegisterFailException.class)
 	public CommonResult userRegisterFailException(HttpServletRequest request, CUserRegisterFailException e) {
 		return responseService.getFailResult("E0007", getMessage("userRegisterFailException.msg"));
 	}
-	
+
 	//유저정보 저장실패
 	@ExceptionHandler(CUserSaveException.class)
 	public CommonResult userSaveException(HttpServletRequest request, CUserSaveException e) {
 		return responseService.getFailResult("E0008", getMessage("userSaveException.msg"));
 	}
-	
+
 	//제품정보 저장실패
 	@ExceptionHandler(CProductSaveException.class)
 	public CommonResult productSaveException(HttpServletRequest request, CProductSaveException e) {
 		return responseService.getFailResult("E0009", getMessage("productSaveException.msg"));
 	}
-	
+
 	//자재정보 저장실패
 	@ExceptionHandler(CMaterialSaveException.class)
 	public CommonResult materialSaveException(HttpServletRequest request, CMaterialSaveException e) {
 		return responseService.getFailResult("E0010", getMessage("materialSaveException.msg"));
 	}
-	
+
 	// 공구정보 저장실패
 	@ExceptionHandler(CToolSaveException.class)
 	public CommonResult toolSaveException(HttpServletRequest request, CToolSaveException e) {
 		return responseService.getFailResult("E0011", getMessage("toolSaveException.msg"));
 	}
-	
+
 	// 존재하지 않는 공구
 	@ExceptionHandler(CToolNotFoundException.class)
 	public CommonResult toolNotFoundException(HttpServletRequest request, CToolNotFoundException e) {
 		return responseService.getFailResult("E0012", getMessage("toolNotFoundException.msg"));
 	}
-	
+
 	// 예비품 저장실패
 	@ExceptionHandler(CSpareSaveException.class)
 	public CommonResult spareSaveException(HttpServletRequest request, CSpareSaveException e) {
 		return responseService.getFailResult("E0013", getMessage("spareSaveException.msg"));
 	}
-	
+
 	// 공정정보 조회 오류
 	@ExceptionHandler(CProcessNotFoundException.class)
 	public CommonResult processNotFoundException(HttpServletRequest request, CProcessNotFoundException e) {
 		return responseService.getFailResult("E0014", getMessage("processNotFoundException.msg"));
 	}
-	
+
 	// 공정정보 저장실패
 	@ExceptionHandler(CProcessSaveException.class)
 	public CommonResult processSaveException(HttpServletRequest request, CProcessSaveException e) {
 		return responseService.getFailResult("E0015", getMessage("processSaveException.msg"));
 	}
-	
+
 	//거래처 정보 저장실패
 	@ExceptionHandler(CCompanySaveException.class)
 	public CommonResult companySaveException(HttpServletRequest request, CCompanySaveException e) {
 		return responseService.getFailResult("E0016", getMessage("companySaveException.msg"));
 	}
-	
+
 	//판매계획번호 조회오류
 	@ExceptionHandler(CSalesPlanNoNotFoundException.class)
 	public CommonResult salesPlanNoNotFoundException(HttpServletRequest request, CSalesPlanNoNotFoundException e) {
 		return responseService.getFailResult("E0017", getMessage("salesPlanNoNotFoundException.msg"));
 	}
-	
+
 	//판매계획내역 저장실패
 	@ExceptionHandler(CSalesPlanSaveException.class)
 	public CommonResult salesPlanSaveException(HttpServletRequest request, CSalesPlanSaveException e) {
 		return responseService.getFailResult("E0018", getMessage("salesPlanSaveException.msg"));
 	}
-	
+
 	//수주번호 조회오류
 	@ExceptionHandler(COrderIdNotFoundException.class)
 	public CommonResult orderIdNotFoundException(HttpServletRequest request, COrderIdNotFoundException e) {
 		return responseService.getFailResult("E0019", getMessage("orderIdNotFoundException.msg"));
 	}
-	
+
 	//수주내역 저장실패
 	@ExceptionHandler(CSalesOrderSaveException.class)
 	public CommonResult salesOrderSaveException(HttpServletRequest request, CSalesOrderSaveException e) {
 		return responseService.getFailResult("E0020", getMessage("salesOrderSaveException.msg"));
 	}
-	
+
 	//계정 조회오류
 	@ExceptionHandler(CAccountNotFoundException.class)
 	public CommonResult accountNotFoundException(HttpServletRequest request, CAccountNotFoundException e) {
 		return responseService.getFailResult("E0021", getMessage("accountNotFoundException.msg"));
 	}
-	
+
 	//로그인 실패
 	@ExceptionHandler(CLoginFailException.class)
 	public CommonResult loginFailException(HttpServletRequest request, CLoginFailException e) {
 		return responseService.getFailResult("E0022", getMessage("loginFailException.msg"));
 	}
-	
+
 	//아이템코드 중복 에러
 	@ExceptionHandler(CValiedationItemCodeException.class)
 	public CommonResult valiedationItemCodeException(HttpServletRequest request, CValiedationItemCodeException e) {
 		return responseService.getFailResult("E0023", getMessage("valiedationItemCodeException.msg"));
 	}
-	
+
 	//단가정보 저장 실패
 	@ExceptionHandler(CPriceSaveException.class)
 	public CommonResult priceSaveException(HttpServletRequest request, CPriceSaveException e) {
 		return responseService.getFailResult("E0024", getMessage("priceSaveException.msg"));
 	}
+
+	//비가동유형정보 저장 실패
+	@ExceptionHandler(CStopCodeInfoSaveException.class)
+	public CommonResult stopCodeInfoSaveException(HttpServletRequest request, CStopCodeInfoSaveException e) {
+		return responseService.getFailResult("E0025", getMessage("stopCodeInfoSaveException.msg"));
+	}
+
+	//비가동유형정보 중복 에러
+	@ExceptionHandler(CStopCodeDuplicateException.class)
+	public CommonResult stopCodeDuplicateException(HttpServletRequest request, CStopCodeDuplicateException e) {
+		return responseService.getFailResult("E0026", getMessage("stopCodeDuplicateException.msg"));
+	}
+	
 }
