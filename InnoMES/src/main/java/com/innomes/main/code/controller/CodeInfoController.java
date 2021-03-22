@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.innomes.main.code.model.COD100;
 import com.innomes.main.code.param.CodeInfoParam;
 import com.innomes.main.code.service.CodeInfoService;
+import com.innomes.main.pool.service.CodePoolService;
 import com.innomes.main.response.model.PageListResult;
 import com.innomes.main.response.service.ResponseService;
 
@@ -28,6 +29,9 @@ public class CodeInfoController {
 	
 	@Autowired
 	private CodeInfoService codeInfoService;
+	
+	@Autowired
+	private CodePoolService codePoolService;
 	
 	@ApiOperation(value = "코드 전체 조회", notes = "코드정보 전체를 반환합니다. (검색조건 필터링 가능)")
 	@CrossOrigin

@@ -86,6 +86,28 @@ public class MST151RepositoryImpl extends QuerydslRepositorySupport implements M
 	}
 
 	@Override
+	public List<MST151> findPriceRevLog(MasterPriceItemParam masterPriceItemParam) {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QMST151 mst151 = QMST151.mST151;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		if(!StringUtils.isEmpty(masterPriceItemParam.getPriceType())) {
+			builder.and(mst151.priceType.eq(masterPriceItemParam.getPriceType()));
+		}
+		
+		builder.and(mst151.itemId.eq(masterPriceItemParam.getItemId()));
+		builder.and(mst151.compId.eq(masterPriceItemParam.getCompId()));
+		
+		return query.from(mst151)
+				.select(mst151)
+				.where(builder)
+				.orderBy(mst151.priceRev.desc())
+				.fetch();
+	}
+	
+	@Override
 	public Integer findMaxRev(MST151PK pk) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		

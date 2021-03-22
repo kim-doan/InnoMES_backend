@@ -17,6 +17,9 @@ public interface MST151RepositoryCustom {
 	//최상위 단가 조회
 	List<MST151> findPriceRevList(String priceType);
 	
+	//단가 이력 조회
+	List<MST151> findPriceRevLog(MasterPriceItemParam masterPriceItemParam);
+	
 	//최상위 리비젼 조회
 	Integer findMaxRev(MST151PK pk);
 	

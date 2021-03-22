@@ -15,6 +15,7 @@ import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.param.MasterPriceItemParam;
 import com.innomes.main.master.service.MasterPriceService;
 import com.innomes.main.response.model.CommonResult;
+import com.innomes.main.response.model.ListResult;
 import com.innomes.main.response.model.PageListResult;
 import com.innomes.main.response.service.ResponseService;
 
@@ -48,7 +49,16 @@ public class MasterPriceController {
 	public PageListResult<MasterPriceDTO> getSellPriceList(@RequestBody(required = true) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
-		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceService.getSellPriceList(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterPriceDTO.class, masterPriceService.getSellPriceList(masterPriceItemParam, pageable));
+	}
+	
+	@ApiOperation(value = "품목별 판매단가 이력보기", notes = "품목별 판매단가 이력 정보 리스트를 반환합니다.")
+	@CrossOrigin
+	@PostMapping("/master/price/sell/priceRev")
+	public ListResult<MasterPriceDTO> getSellPriceRevLog(@RequestBody(required = true) MasterPriceItemParam masterPriceItemParam) {
+		if(masterPriceItemParam == null)
+			masterPriceItemParam = new MasterPriceItemParam();
+		return responseService.getListResult(MasterPriceDTO.class, masterPriceService.getSellPriceRevLog(masterPriceItemParam));
 	}
 	
 	@ApiOperation(value = "구매단가 품목리스트", notes = "구매단가 유형의 품목리스트를 반환합니다.")
@@ -67,7 +77,16 @@ public class MasterPriceController {
 	public PageListResult<MasterPriceDTO> getPurchasePriceList(@RequestBody(required = true) MasterPriceItemParam masterPriceItemParam, final Pageable pageable){
 		if(masterPriceItemParam == null)
 			masterPriceItemParam = new MasterPriceItemParam();
-		return responseService.getPageListResult(MasterPriceItemDTO.class, masterPriceService.getPurchasePriceList(masterPriceItemParam, pageable));
+		return responseService.getPageListResult(MasterPriceDTO.class, masterPriceService.getPurchasePriceList(masterPriceItemParam, pageable));
+	}
+	
+	@ApiOperation(value = "품목별 구매단가 이력보기", notes = "품목별 구매단가 이력 정보 리스트를 반환합니다.")
+	@CrossOrigin
+	@PostMapping("/master/price/purchase/priceRev")
+	public ListResult<MasterPriceDTO> getPurchasePriceRevLog(@RequestBody(required = true) MasterPriceItemParam masterPriceItemParam) {
+		if(masterPriceItemParam == null)
+			masterPriceItemParam = new MasterPriceItemParam();
+		return responseService.getListResult(MasterPriceDTO.class, masterPriceService.getPurchasePriceRevLog(masterPriceItemParam));
 	}
 	
 	@ApiOperation(value = "단가정보 저장 (판매, 구매)", notes = "단가정보를 저장합니다. (판매, 구매)")
