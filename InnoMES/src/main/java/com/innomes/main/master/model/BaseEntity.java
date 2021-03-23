@@ -27,7 +27,6 @@ public abstract class BaseEntity {
 			+ "\n Created time"
 			+ "\n MST120.CREATE_TIME")
 	//@Temporal(TemporalType.TIME)
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name="CREATE_TIME", insertable = true, updatable = false)
 	private Date createTime;
 	
@@ -40,7 +39,6 @@ public abstract class BaseEntity {
 	@ApiModelProperty(value = "수정일시"
 			+ "\n Modified time"
 			+ "\n MST120.UPDATE_TIME")
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name="UPDATE_TIME", insertable = false, updatable = true)
 	private Date updateTime;
 }

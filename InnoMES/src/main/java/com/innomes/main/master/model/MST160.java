@@ -100,7 +100,6 @@ public class MST160 {
 			+ "\n Created time"
 			+ "\n MST120.CREATE_TIME")
 	
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name="CREATE_TIME", insertable = true, updatable = false)
 	private Date createTime;
 	
@@ -113,7 +112,6 @@ public class MST160 {
 	@ApiModelProperty(value = "수정일시"
 			+ "\n Modified time"
 			+ "\n MST120.UPDATE_TIME")
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name="UPDATE_TIME", insertable = false, updatable = true)
 	private Date updateTime;
 
