@@ -54,9 +54,6 @@ public class MST112 {
 	@Column(name="INC_VOL_UNIT")
 	private String incVolUnit;
 	
-	@Column(name="LOT_YN")
-	private Integer lotYN;
-	
 	@Column(name="MAT_PROC")
 	private String matProc;
 	

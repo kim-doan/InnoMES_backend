@@ -66,7 +66,6 @@ public class MasterToolService {
 					.toolRecycleCnt(mst113.getToolRecycleCnt())
 					.repItemId(mst113.getRepItemId())
 					.prdtionProc(mst113.getPrdtionProc())
-					.lotYN(mst113.getLotYN())
 					.build();
 			dtoList.add(dto);
 		}
@@ -109,7 +108,6 @@ public class MasterToolService {
 					.toolWarningRate(content.get(i).getToolWarningRate())
 					.toolChkCycle(content.get(i).getToolChkCycle())
 					.toolRecycleCnt(content.get(i).getToolRecycleCnt())
-					.lotYN(content.get(i).getLotYN())
 					.build();
 			
 			dtoList.add(dto);
@@ -162,7 +160,6 @@ public class MasterToolService {
 						.toolWarningRate(param.getToolWarningRate())
 						.toolChkCycle(param.getToolChkCycle())
 						.toolRecycleCnt(param.getToolRecycleCnt())
-						.lotYN(param.getLotYN())
 						.repItemId(param.getRepItemId())
 						.build();
 				//mst110.setMst113(mst113);

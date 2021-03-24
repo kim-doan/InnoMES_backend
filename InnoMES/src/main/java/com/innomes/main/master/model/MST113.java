@@ -62,9 +62,6 @@ public class MST113 {
 	@Column(name = "INC_INSP_YN")
 	private Integer incInspYN;
 	
-	@Column(name = "LOT_YN")
-	private int lotYN;
-	
 	@OneToOne(cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "TOOL_ID")

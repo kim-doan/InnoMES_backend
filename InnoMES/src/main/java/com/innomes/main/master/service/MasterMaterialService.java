@@ -78,7 +78,6 @@ public class MasterMaterialService {
 					.incInspYN(content.get(i).getIncInspYN())
 					.incVolStd(content.get(i).getIncVolStd())
 					.incVolUnit(content.get(i).getIncVolUnit())
-					.lotYN(content.get(i).getLotYN())
 					.matProc(content.get(i).getMatProc())
 					.build();
 			
@@ -131,7 +130,6 @@ public class MasterMaterialService {
 						.incInspYN(masterMaterialParams[i].getIncInspYN())
 						.incVolStd(masterMaterialParams[i].getIncVolStd())
 						.incVolUnit(masterMaterialParams[i].getIncVolUnit())
-						.lotYN(masterMaterialParams[i].getLotYN())
 						.matProc(masterMaterialParams[i].getMatProc())
 						.build();
 				
