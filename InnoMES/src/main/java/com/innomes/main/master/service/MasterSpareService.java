@@ -73,7 +73,6 @@ public class MasterSpareService {
 					.partGroup(content.get(i).getPartGroup())
 					.partShiftCycle(content.get(i).getPartShiftCycle())
 					.cycleUnit(content.get(i).getCycleUnit())
-					.lotYN(content.get(i).getLotYN())
 					.incInspYN(content.get(i).getIncInspYN())
 					.build();
 			
@@ -123,7 +122,6 @@ public class MasterSpareService {
 						.partGroup(param.getPartGroup())
 						.partShiftCycle(param.getPartShiftCycle())
 						.cycleUnit(param.getCycleUnit())
-						.lotYN(param.getLotYN())
 						.build();
 				
 				mst114.setMst110(mst110);

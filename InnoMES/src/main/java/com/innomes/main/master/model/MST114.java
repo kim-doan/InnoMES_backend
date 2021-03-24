@@ -44,9 +44,6 @@ public class MST114 {
 	@Column(name="CYCLE_UNIT")
 	private String cycleUnit;
 	
-	@Column(name="LOT_YN")
-	private int lotYN;
-	
 	@OneToOne(cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "PART_ID")
