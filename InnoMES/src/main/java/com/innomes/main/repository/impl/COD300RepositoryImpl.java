@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 
 import com.innomes.main.code.model.COD300;
 import com.innomes.main.code.model.QCOD300;
-import com.innomes.main.code.param.COD300Param;
+import com.innomes.main.code.param.StopCodeParam;
 import com.innomes.main.repository.custom.COD300RepositoryCustom;
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.querydsl.core.BooleanBuilder;
@@ -23,7 +23,7 @@ public class COD300RepositoryImpl extends QuerydslRepositorySupport implements C
 	}
 
 	@Override
-	public Page<COD300> findAllLike(COD300Param cod300Param, Pageable pageable) {
+	public Page<COD300> findAllLike(StopCodeParam cod300Param, Pageable pageable) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		
 		QCOD300 cod300 = QCOD300.cOD300;

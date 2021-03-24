@@ -6,10 +6,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.innomes.main.code.model.COD300;
-import com.innomes.main.code.param.COD300Param;
+import com.innomes.main.code.param.StopCodeParam;
 
 public interface COD300RepositoryCustom {
 	List<COD300> findAll();
 	
-	Page<COD300> findAllLike(COD300Param cod300Param, Pageable pageable);
+	Page<COD300> findAllLike(StopCodeParam cod300Param, Pageable pageable);
 }

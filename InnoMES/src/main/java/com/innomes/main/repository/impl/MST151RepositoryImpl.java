@@ -88,7 +88,7 @@ public class MST151RepositoryImpl extends QuerydslRepositorySupport implements M
 	@Override
 	public List<MST151> findPriceRevLog(MasterPriceItemParam masterPriceItemParam) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
-		
+		QMST110 mst110 = QMST110.mST110;
 		QMST151 mst151 = QMST151.mST151;
 		
 		BooleanBuilder builder = new BooleanBuilder();
@@ -102,6 +102,8 @@ public class MST151RepositoryImpl extends QuerydslRepositorySupport implements M
 		
 		return query.from(mst151)
 				.select(mst151)
+				.innerJoin(mst151.mst110, mst110)
+				.fetchJoin()
 				.where(builder)
 				.orderBy(mst151.priceRev.desc())
 				.fetch();
