@@ -55,7 +55,7 @@ public class StopCodeController {
 	@ApiOperation(value = "비가동유형 정보 저장", notes = "비가동유형정보를 저장합니다.")
 	@CrossOrigin
 	@PostMapping("/master/stopCode/save")
-	public CommonResult saveCodeInfo(@Valid @RequestBody(required = true) List<StopCodeParam> stopCodeParamList) {
+	public CommonResult saveStopCode(@Valid @RequestBody(required = true) List<StopCodeParam> stopCodeParamList) {
 		boolean result = stopCodeService.saveStopCode(stopCodeParamList);
 
 		if (result == true) {

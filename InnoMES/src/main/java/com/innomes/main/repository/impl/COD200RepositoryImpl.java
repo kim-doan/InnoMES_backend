@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 
 import com.innomes.main.code.model.COD200;
 import com.innomes.main.code.model.QCOD200;
-import com.innomes.main.code.param.COD200Param;
+import com.innomes.main.code.param.BadCodeParam;
 import com.innomes.main.repository.custom.COD200RepositoryCustom;
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.querydsl.core.BooleanBuilder;
@@ -23,30 +23,30 @@ public class COD200RepositoryImpl extends QuerydslRepositorySupport implements C
 	}
 
 	@Override
-	public Page<COD200> findAllLike(COD200Param cod200Param, Pageable pageable) {
+	public Page<COD200> findAllLike(BadCodeParam badCodeParam, Pageable pageable) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		
 		QCOD200 cod200 = QCOD200.cOD200;
 		
 		BooleanBuilder builder = new BooleanBuilder();
 		
-		if(!StringUtils.isEmpty(cod200Param.getBadCode())) {
-			builder.and(cod200.badCode.like("%" + cod200Param.getBadCode() + "%"));
+		if(!StringUtils.isEmpty(badCodeParam.getBadCode())) {
+			builder.and(cod200.badCode.like("%" + badCodeParam.getBadCode() + "%"));
 		}
-		if(!StringUtils.isEmpty(cod200Param.getDisplayCode())) {
-			builder.and(cod200.displayCode.like("%" + cod200Param.getDisplayCode() + "%"));
+		if(!StringUtils.isEmpty(badCodeParam.getDisplayCode())) {
+			builder.and(cod200.displayCode.like("%" + badCodeParam.getDisplayCode() + "%"));
 		}
-		if(!StringUtils.isEmpty(cod200Param.getBadName())) {
-			builder.and(cod200.badName.like("%" + cod200Param.getBadName() + "%"));
+		if(!StringUtils.isEmpty(badCodeParam.getBadName())) {
+			builder.and(cod200.badName.like("%" + badCodeParam.getBadName() + "%"));
 		}
-		if(!StringUtils.isEmpty(cod200Param.getBadType())) {
-			builder.and(cod200.badType.like("%" + cod200Param.getBadType() + "%"));
+		if(!StringUtils.isEmpty(badCodeParam.getBadType())) {
+			builder.and(cod200.badType.like("%" + badCodeParam.getBadType() + "%"));
 		}
-		if(!StringUtils.isEmpty(cod200Param.getBadClass())) {
-			builder.and(cod200.badClass.like("%" + cod200Param.getBadClass() + "%"));
+		if(!StringUtils.isEmpty(badCodeParam.getBadClass())) {
+			builder.and(cod200.badClass.like("%" + badCodeParam.getBadClass() + "%"));
 		}
-		if(!StringUtils.isEmpty(cod200Param.getProcType())) {
-			builder.and(cod200.procType.like("%" + cod200Param.getProcType() + "%"));
+		if(!StringUtils.isEmpty(badCodeParam.getProcType())) {
+			builder.and(cod200.procType.like("%" + badCodeParam.getProcType() + "%"));
 		}
 		
 		builder.and(cod200.used.eq(1));

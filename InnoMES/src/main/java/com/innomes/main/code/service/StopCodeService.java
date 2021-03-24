@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.util.StringUtils;
 
 import com.innomes.main.code.model.COD300;
@@ -38,19 +37,11 @@ public class StopCodeService {
 		boolean success = true;
 		
 		List<COD300> cod300List = new ArrayList<COD300>();
-		
-		String stopCode;
 		long totalCount = cod300Repository.count();
 		try {
 			for (StopCodeParam stopCodeParam : stopCodeParamList) {
-				if (stopCodeParam.getStopCode() == null || StringUtils.isEmpty(stopCodeParam.getStopCode().trim())) {
-					totalCount++;
-					stopCode = "STP" + String.format("%05d", totalCount);
-				} else {
-					stopCode = stopCodeParam.getStopCode();
-				}
 				COD300 cod300 = COD300.builder()
-						.stopCode(stopCode)
+						.stopCode(setAutoCode(stopCodeParam.getStopCode(),"STP",totalCount))
 						.displayCode(stopCodeParam.getDisplayCode())
 						.stopName(stopCodeParam.getStopName())
 						.stopType(stopCodeParam.getStopType())
@@ -84,5 +75,12 @@ public class StopCodeService {
 			success = false;
 		}			
 		return success;
+	}
+	public String setAutoCode(String code,String prefix ,long totalCnt) {
+		if (code == null || StringUtils.isEmpty(code.trim())) {
+			totalCnt++;
+			code = "STP" + String.format("%05d", totalCnt);
+		}
+		return code;
 	}
 }
