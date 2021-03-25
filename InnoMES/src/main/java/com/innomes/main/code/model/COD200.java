@@ -46,15 +46,15 @@ public class COD200 {
 
 	@ApiModelProperty(value = "불량구분" + "\n Defect Type" + "\n COD200.BAD_TYPE")
 	@Column(name = "BAD_TYPE")
-	private String badType;
+	private String badType; // TPS004
 
 	@ApiModelProperty(value = "불량분류" + "\n Defect Classification" + "\n COD200.BAD_CLASS")
 	@Column(name = "BAD_CLASS")
-	private String badClass;
+	private String badClass; // TPU004
 
 	@ApiModelProperty(value = "공정유형" + "\n Process type" + "\n COD200.PROC_TYPE")
 	@Column(name = "PROC_TYPE")
-	private String procType;
+	private String procType; // PRC002
 
 	@ApiModelProperty(value = "비고" + "\n Remarks" + "\n COD200.DESCRIPTION")
 	@Column(name = "DESCRIPTION")
@@ -77,7 +77,7 @@ public class COD200 {
 	private Date updateTime;
 
 	@ApiModelProperty(value = "사용여부(1: 가용 / 0: 비가용)" + "\n Use/Unuse(1 : Use / 0 : Unuse)" + "\n COD200.USED")
-	@Column(name = "USED", insertable = false, updatable = true)
+	@Column(name = "USED")
 	private Integer used;
 
 }

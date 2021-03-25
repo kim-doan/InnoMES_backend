@@ -94,6 +94,6 @@ public class COD100 {
 	@Column(name="UPDATE_TIME", insertable = false, updatable = true)
 	private Date updateTime;
 	
-	@Column(name="USED", insertable = false, updatable = true)
+	@Column(name="USED", insertable = true, updatable = true)
 	private Integer used;
 }

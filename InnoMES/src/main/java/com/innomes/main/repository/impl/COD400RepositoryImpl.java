@@ -36,7 +36,7 @@ public class COD400RepositoryImpl extends QuerydslRepositorySupport implements C
 			builder.and(cod400.displayCode.like("%" + failCodeParam.getDisplayCode() + "%"));
 		}
 		if(!StringUtils.isEmpty(failCodeParam.getFailClass())) {
-			builder.and(cod400.failClass.like("%" + failCodeParam.getFailClass() + "%")).or(cod400.failClass.eq("GRP006000"));
+			builder.and(cod400.failClass.like("%" + failCodeParam.getFailClass() + "%"));
 		}
 		if(!StringUtils.isEmpty(failCodeParam.getFailType())) {
 			builder.and(cod400.failType.like("%" + failCodeParam.getFailType() + "%"));
