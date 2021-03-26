@@ -23,14 +23,6 @@ public class PurchaseRequestDetailDTO {
 	private String itemCode;
 	
 	private String itemName;
-	
-	private String attMatType;
-	
-	private String attDiaType;
-	
-	private String attStdType;
-	
-	private String matProc;
 
 	private double reqQnt;
 
@@ -47,6 +39,26 @@ public class PurchaseRequestDetailDTO {
 	private String locName;
 
 	private int orderYN;
-
+	
+	//자재정보
 	private String description;
+	
+	private String attMatType;
+	
+	private String attDiaType;
+	
+	private String attStdType;
+	
+	private String matProc;
+	
+	//공구정보
+	private String toolProc;
+	
+	private String prdtionProc;
+	
+	private String repItemId;
+	
+	private String repItemCode;
+	
+	private String repItemName;
 }

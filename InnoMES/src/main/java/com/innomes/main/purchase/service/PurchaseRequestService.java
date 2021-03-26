@@ -91,16 +91,10 @@ public class PurchaseRequestService {
 			List<PurchaseRequestDetailDTO> detailList = new ArrayList<PurchaseRequestDetailDTO>();
 			for(PUR101 pur101 : pur100.getPur101()) {
 				
-			PurchaseRequestDetailDTO detailDTO = PurchaseRequestDetailDTO.builder()
+			PurchaseRequestDetailDTO detailDTO = PurchaseRequestDetailDTO.builder()	//공통부분
 											.reqNo(pur101.getReqNo())
 											.reqSeq(pur101.getReqSeq())
 											.reqCode(pur101.getReqCode())
-											.itemCode(masterPoolService.getMST112(pur101.getReqCode()).getItemCode())
-											.itemName(masterPoolService.getMST112Map().get(pur101.getReqCode()).getItemName())
-											.attMatType(masterPoolService.getMST112Map().get(pur101.getReqCode()).getAttMatType())
-											.attDiaType(masterPoolService.getMST112Map().get(pur101.getReqCode()).getAttDiaType())
-											.attStdType(masterPoolService.getMST112Map().get(pur101.getReqCode()).getAttStdType())
-											.matProc(masterPoolService.getMST112Map().get(pur101.getReqCode()).getMatProc())
 											.reqQnt(pur101.getReqQnt())
 											.reqUnit(pur101.getReqUnit())
 											.reqComp(pur101.getReqComp())
@@ -111,6 +105,36 @@ public class PurchaseRequestService {
 											.orderYN(pur101.getOrderYN())
 											.description(pur101.getDescription())
 											.build();
+			
+			//품목유형별 컬럼
+			switch (priceType) {
+			case "PCS001001":
+				detailDTO.setItemCode(masterPoolService.getMST111(pur101.getReqCode()).getItemCode());
+				detailDTO.setItemName(masterPoolService.getMST111Map().get(pur101.getReqCode()).getItemName());
+				break;
+			case "PCS001002":
+				detailDTO.setItemCode(masterPoolService.getMST112(pur101.getReqCode()).getItemCode());
+				detailDTO.setItemName(masterPoolService.getMST112Map().get(pur101.getReqCode()).getItemName());
+				detailDTO.setAttMatType(masterPoolService.getMST112Map().get(pur101.getReqCode()).getAttMatType());
+				detailDTO.setAttDiaType(masterPoolService.getMST112Map().get(pur101.getReqCode()).getAttDiaType());
+				detailDTO.setAttStdType(masterPoolService.getMST112Map().get(pur101.getReqCode()).getAttStdType());
+				detailDTO.setMatProc(masterPoolService.getMST112Map().get(pur101.getReqCode()).getMatProc());
+				break;
+			case "PCS001003":
+				detailDTO.setItemCode(masterPoolService.getMST113(pur101.getReqCode()).getItemCode());
+				detailDTO.setItemName(masterPoolService.getMST113Map().get(pur101.getReqCode()).getItemName());
+				detailDTO.setToolProc(masterPoolService.getMST113Map().get(pur101.getReqCode()).getToolProc());
+				detailDTO.setPrdtionProc(masterPoolService.getMST113Map().get(pur101.getReqCode()).getPrdtionProc());
+				detailDTO.setRepItemId(masterPoolService.getMST113Map().get(pur101.getReqCode()).getRepItemId());
+				detailDTO.setRepItemCode(masterPoolService.getMST111Map().get(detailDTO.getRepItemId()).getItemCode());
+				detailDTO.setRepItemName(masterPoolService.getMST111Map().get(detailDTO.getRepItemId()).getItemName());
+				break;
+			case "PCS001004":
+				detailDTO.setItemCode(masterPoolService.getMST114(pur101.getReqCode()).getItemCode());
+				detailDTO.setItemName(masterPoolService.getMST114Map().get(pur101.getReqCode()).getItemName());
+				break;
+			}
+			
 			detailList.add(detailDTO);
 			}
 			mainDTO.setPur101(detailList);
