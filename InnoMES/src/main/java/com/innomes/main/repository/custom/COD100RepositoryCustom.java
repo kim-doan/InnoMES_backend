@@ -12,4 +12,6 @@ public interface COD100RepositoryCustom {
 	List<COD100> findAll();
 	
 	Page<COD100> findAllLike(CodeInfoParam codeInfoParam, Pageable pageable);
+
+	List<COD100> findAllLike(CodeInfoParam codeInfoParam);
 }

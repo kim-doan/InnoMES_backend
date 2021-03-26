@@ -25,9 +25,15 @@ public class CodeInfoService {
 	@Autowired
 	private COD100Repository cod100Repository;
 	
+	
 	public Page<COD100> findAllLike(CodeInfoParam codeInfoParam, Pageable pageable) {
 		Page<COD100> output = cod100Repository.findAllLike(codeInfoParam, pageable);
 		List<COD100> content = output.getContent();
 		return new PageImpl<>(content, pageable, output.getTotalElements());
+	}
+	
+	public List<COD100> findAllLike(CodeInfoParam codeInfoParam){
+		
+		return cod100Repository.findAllLike(codeInfoParam);
 	}
 }
