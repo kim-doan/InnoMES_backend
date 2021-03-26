@@ -42,15 +42,5 @@ public class MasterManufactureItemDTO {
 	//MST200
 	private int routingRev;
 	
-//	private String prdtStatus;
-//	
-//	private String revUser;
-//	
-//	private Date revDate;
-//	
-//	private String revCause;
-//	
-//	private String description;
-	
 	private List<MasterManufactureRoutingDTO> routeList = new ArrayList<MasterManufactureRoutingDTO>(); 
 }

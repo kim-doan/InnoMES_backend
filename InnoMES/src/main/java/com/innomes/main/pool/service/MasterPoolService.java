@@ -20,6 +20,7 @@ import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.dto.MasterSpareDTO;
 import com.innomes.main.master.dto.MasterToolDTO;
 import com.innomes.main.master.dto.MasterUserDTO;
+import com.innomes.main.master.model.MST110;
 import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.MST112;
 import com.innomes.main.master.model.MST113;
@@ -42,6 +43,8 @@ import com.innomes.main.repository.MST114Repository;
 @Service
 public class MasterPoolService implements ApplicationListener<ApplicationReadyEvent> {
 	@Autowired
+	private MST110Repository mST110Repository; // 품목 정보
+	@Autowired
 	private MasterProductService masterProductService; // 제품 정보
 	@Autowired
 	private MasterMaterialService masterMaterialService; // 자재 정보
@@ -58,6 +61,7 @@ public class MasterPoolService implements ApplicationListener<ApplicationReadyEv
 	
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent event) {
+		SetMST110List();
 		SetMST111List();
 		SetMST112List();
 		SetMST113List();
@@ -67,6 +71,7 @@ public class MasterPoolService implements ApplicationListener<ApplicationReadyEv
 		SetMST150List();
 	}
 	
+	private static Map<String, MST110> mst110Pool = new Hashtable<String, MST110>();
 	private static Map<String, MasterProductDTO> mst111Pool = new Hashtable<String, MasterProductDTO>();
 	private static Map<String, MasterMaterialDTO> mst112Pool = new Hashtable<String, MasterMaterialDTO>();
 	private static Map<String, MasterToolDTO> mst113Pool = new Hashtable<String, MasterToolDTO>();
@@ -76,6 +81,8 @@ public class MasterPoolService implements ApplicationListener<ApplicationReadyEv
 	private static Map<String, MasterCompanyDTO> mst150Pool = new Hashtable<String, MasterCompanyDTO>();
 	
 
+	/** 품목상세 맵정보 */
+	public Map<String, MST110> getMST110Map() { return mst110Pool; }
 	/** 제품상세 맵정보 */
 	public Map<String, MasterProductDTO> getMST111Map() {return mst111Pool;}
 	/** 자재상세 맵정보 */
@@ -91,6 +98,8 @@ public class MasterPoolService implements ApplicationListener<ApplicationReadyEv
 	/** 거래처정보 맵정보 */
 	public Map<String, MasterCompanyDTO> getMST150Map() { return mst150Pool; }
 	
+	/** 품목상세정보 */
+	public MST110 getMST110(String itemId) { return getMST110Map().get(itemId); }
 	/** 제품상세정보 */
 	public MasterProductDTO getMST111(String prdtId){return getMST111Map().get(prdtId);}	
 	/** 자재상세정보 */
@@ -106,6 +115,11 @@ public class MasterPoolService implements ApplicationListener<ApplicationReadyEv
 	/** 거래처상세정보 */
 	public MasterCompanyDTO getMST150(String compId) { return getMST150Map().get(compId); }
 	
+	
+	public void SetMST110List() {
+		List<MST110> mst110List = mST110Repository.findAll();
+		mst110Pool = Mst110ListToMap(mst110List);
+	}
 	
 	public void SetMST111List() {
 		List<MasterProductDTO> mst111List = masterProductService.findAll();
@@ -142,7 +156,8 @@ public class MasterPoolService implements ApplicationListener<ApplicationReadyEv
 		mst150Pool = Mst150ListToMap(mst150List);
 	}
 	
-	private Map<String, MasterProductDTO> Mst111ListToMap(List<MasterProductDTO> mst111List){return mst111List.stream().collect(Collectors.toMap(MasterProductDTO::getPrdtId, masterProductDTO -> masterProductDTO));}
+	private Map<String, MST110> Mst110ListToMap(List<MST110> mst110List) { return mst110List.stream().collect(Collectors.toMap(MST110::getItemId, Mst110 -> Mst110)); }
+	private Map<String, MasterProductDTO> Mst111ListToMap(List<MasterProductDTO> mst111List){return mst111List.stream().collect(Collectors.toMap(MasterProductDTO::getPrdtId, MasterProductDTO -> MasterProductDTO));}
 	private Map<String, MasterMaterialDTO> Mst112ListToMap(List<MasterMaterialDTO> mst112List){return mst112List.stream().collect(Collectors.toMap(MasterMaterialDTO::getMatId, MasterMaterialDTO -> MasterMaterialDTO));}
 	private Map<String, MasterToolDTO> Mst113ListToMap(List<MasterToolDTO> mst113List){return mst113List.stream().collect(Collectors.toMap(MasterToolDTO::getToolId, MasterToolDTO -> MasterToolDTO));}	
 	private Map<String, MasterSpareDTO> Mst114ListToMap(List<MasterSpareDTO> mst114List){return mst114List.stream().collect(Collectors.toMap(MasterSpareDTO::getPartId, MasterSpareDTO -> MasterSpareDTO));}

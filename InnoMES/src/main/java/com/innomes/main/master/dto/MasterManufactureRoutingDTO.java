@@ -17,6 +17,10 @@ public class MasterManufactureRoutingDTO {
 	
 	private String procCode;
 	
+	private String procName;
+	
+	private String inOutType;
+	
 	private Integer routingSeq;
 	
 	private Integer procSeq;

@@ -22,7 +22,9 @@ import com.innomes.main.master.model.MST210;
 import com.innomes.main.master.model.MST220;
 import com.innomes.main.master.param.MasterManufactureProcessParam;
 import com.innomes.main.master.param.MasterProductParam;
+import com.innomes.main.pool.service.MasterPoolService;
 import com.innomes.main.repository.MST111Repository;
+import com.innomes.main.repository.MST120Repository;
 import com.innomes.main.repository.MST200Repository;
 import com.innomes.main.repository.MST220Repository;
 
@@ -38,6 +40,9 @@ public class MasterManufactureProcessService {
 	
 	@Autowired
 	private MST220Repository mst220Repository;
+	
+	@Autowired
+	private MasterPoolService masterPoolService;
 	
 	//제품 - 제조공정정보 - 라우팅리스트 -> 메인그리드
 	public Page<MasterManufactureItemDTO> getManufactureItem(MasterProductParam masterProductParam, Pageable pageable) {
@@ -70,6 +75,8 @@ public class MasterManufactureProcessService {
 						.prdtId(content.get(i).getMst210().get(j).getPrdtId())
 						.routingRev(content.get(i).getMst210().get(j).getRoutingRev())
 						.procCode(content.get(i).getMst210().get(j).getProcCode())
+						.procName(masterPoolService.getMST120(content.get(i).getMst210().get(j).getProcCode()).getProcName())
+						.inOutType(masterPoolService.getMST120(content.get(i).getMst210().get(j).getProcCode()).getInOutType())
 						.routingSeq(content.get(i).getMst210().get(j).getRoutingSeq())
 						.procSeq(content.get(i).getMst210().get(j).getProcSeq())
 						.inQnt(content.get(i).getMst210().get(j).getInQnt())
@@ -132,6 +139,8 @@ public class MasterManufactureProcessService {
 						.prdtId(content.get(i).getMst210().get(j).getPrdtId())
 						.routingRev(content.get(i).getMst210().get(j).getRoutingRev())
 						.procCode(content.get(i).getMst210().get(j).getProcCode())
+						.procName(masterPoolService.getMST120(content.get(i).getMst210().get(j).getProcCode()).getProcName())
+						.inOutType(masterPoolService.getMST120(content.get(i).getMst210().get(j).getProcCode()).getInOutType())
 						.routingSeq(content.get(i).getMst210().get(j).getRoutingSeq())
 						.procSeq(content.get(i).getMst210().get(j).getProcSeq())
 						.inQnt(content.get(i).getMst210().get(j).getInQnt())
