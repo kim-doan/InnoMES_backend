@@ -21,15 +21,8 @@ public class COD100RepositoryImpl extends QuerydslRepositorySupport implements C
 	public COD100RepositoryImpl() {
 		super(COD100.class);
 	}
-
-	@Override
-	public Page<COD100> findAllLike(CodeInfoParam codeInfoParam, Pageable pageable) {
-		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
-		
-		QCOD100 cod100 = QCOD100.cOD100;
-		
+	private BooleanBuilder setBuilder(QCOD100 cod100,CodeInfoParam codeInfoParam) {
 		BooleanBuilder builder = new BooleanBuilder();
-		
 		if(!StringUtils.isEmpty(codeInfoParam.getCode())) {
 			builder.and(cod100.code.like("%" + codeInfoParam.getCode() + "%"));
 		}
@@ -68,6 +61,31 @@ public class COD100RepositoryImpl extends QuerydslRepositorySupport implements C
 		if(codeInfoParam.getUsed() != null) {
 			builder.and(cod100.used.eq(codeInfoParam.getUsed()));
 		}
+		return builder;
+	}
+	
+	@Override
+	public List<COD100> findAllLike(CodeInfoParam codeInfoParam){
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QCOD100 cod100 = QCOD100.cOD100;
+		
+		BooleanBuilder builder = setBuilder(cod100,codeInfoParam);
+		
+		List<COD100> cod100List = query.from(cod100)
+				.select(cod100)
+				.where(builder)
+				.fetch();
+		
+		return cod100List;
+	}
+	@Override
+	public Page<COD100> findAllLike(CodeInfoParam codeInfoParam, Pageable pageable) {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QCOD100 cod100 = QCOD100.cOD100;
+		
+		BooleanBuilder builder = setBuilder(cod100,codeInfoParam);
 		
 		QueryResults<COD100> result = query.from(cod100)
 				.select(cod100)

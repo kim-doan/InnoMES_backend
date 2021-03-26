@@ -80,7 +80,7 @@ public class COD300 {
 	private Date updateTime;
 
 	@ApiModelProperty(value = "사용여부 (1: 가용 / 0: 비가용)" + "\n Use/Unuse (1: Use / 0: Unuse)" + "\n COD300.USED")
-	@Column(name = "USED", insertable = true, updatable = true)
+	@Column(name = "USED")
 	private Integer used;
 
 }
