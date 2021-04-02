@@ -17,6 +17,7 @@ import com.innomes.main.master.service.MasterManufactureProcessService;
 import com.innomes.main.response.model.CommonResult;
 import com.innomes.main.response.model.ListResult;
 import com.innomes.main.response.model.PageListResult;
+import com.innomes.main.response.model.SingleResult;
 import com.innomes.main.response.service.ResponseService;
 
 import io.swagger.annotations.Api;
@@ -46,10 +47,10 @@ public class MasterManufactureProcessController {
 	@ApiOperation(value = "제조공정정보 조회", notes = "제품 단건 기준으로 제조공정정보를 조회합니다. (검색조건 필터링 가능)")
 	@CrossOrigin
 	@PostMapping("/master/manufactureProcess")
-	private ListResult<MasterManufactureProcessDTO> getManufactureProcess(@RequestBody(required = false) MasterManufactureProcessParam masterManufactureProcessParam) {
+	private SingleResult<MasterManufactureProcessDTO> getManufactureProcess(@RequestBody(required = false) MasterManufactureProcessParam masterManufactureProcessParam) {
 		if (masterManufactureProcessParam == null) masterManufactureProcessParam = new MasterManufactureProcessParam(); // 전체 조회
 		
-		return responseService.getListResult(MasterManufactureProcessDTO.class, masterManufactureProcessService.getManufactureProcess(masterManufactureProcessParam));
+		return responseService.getSingleResult(masterManufactureProcessService.getManufactureProcess(masterManufactureProcessParam));
 	}
 	
 	@ApiOperation(value = "제조공정정보 개정", notes = "제조공정정보를 개정합니다.")

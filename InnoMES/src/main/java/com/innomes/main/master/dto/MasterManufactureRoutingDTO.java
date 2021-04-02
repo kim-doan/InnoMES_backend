@@ -1,5 +1,8 @@
 package com.innomes.main.master.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -38,4 +41,6 @@ public class MasterManufactureRoutingDTO {
 	private Double unitWeight;
 	
 	private String locCode;
+	
+	private List<MasterBomDTO> bomList = new ArrayList<MasterBomDTO>();
 }

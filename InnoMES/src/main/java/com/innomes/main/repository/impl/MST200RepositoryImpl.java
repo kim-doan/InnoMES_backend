@@ -1,6 +1,7 @@
 package com.innomes.main.repository.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.util.StringUtils;
@@ -23,7 +24,7 @@ public class MST200RepositoryImpl extends QuerydslRepositorySupport implements M
 	}
 
 	@Override
-	public List<MST200> getManufactureProcess(MasterManufactureProcessParam masterManufactureProcessParam) {
+	public Optional<MST200> getManufactureProcess(MasterManufactureProcessParam masterManufactureProcessParam) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		
 		QMST200 mst200 = QMST200.mST200;
@@ -39,7 +40,7 @@ public class MST200RepositoryImpl extends QuerydslRepositorySupport implements M
 		
 		builder.and(mst200.used.eq(1));
 		
-		List<MST200> result = query.from(mst200)
+		Optional<MST200> result = Optional.ofNullable(query.from(mst200)
 				.select(mst200)
 				.where(builder)
 				.leftJoin(mst200.mst210, mst210)
@@ -48,7 +49,7 @@ public class MST200RepositoryImpl extends QuerydslRepositorySupport implements M
 				.fetchJoin()
 				.innerJoin(mst111.mst110, mst110)
 				.fetchJoin()
-				.fetch();
+				.fetchOne());
 		
 		return result;
 	}

@@ -180,8 +180,6 @@ public class MST111RepositoryImpl extends QuerydslRepositorySupport implements M
 				.limit(pageable.getPageSize())
 				.fetchResults();
 		
-//		result.getResults().stream().map(MST111::getMst110).forEach(Hibernate::initialize);
-//		result.getResults().stream().map(MST111::getMst210).forEach(Hibernate::initialize);
 		return new PageImpl<>(result.getResults(), pageable, result.getTotal());
 	}
 }
