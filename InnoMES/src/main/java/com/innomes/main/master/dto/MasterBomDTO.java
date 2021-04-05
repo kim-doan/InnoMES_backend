@@ -31,6 +31,15 @@ public class MasterBomDTO {
 	
 	private String inUnit;
 	
+	//MST110, MST111 or MST112
+	private String itemType;
+	
+	private String attMatType;
+	
+	private String attStdType;
+	
+	private String attDiaType;
+	
 	private String description;
 	
 	private String createUser;

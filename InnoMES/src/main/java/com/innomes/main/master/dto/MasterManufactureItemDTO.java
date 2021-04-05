@@ -39,6 +39,8 @@ public class MasterManufactureItemDTO {
 	
 	private String coatingSpec;
 	
+	private String prdtStatus;
+	
 	//MST200
 	private int routingRev;
 	

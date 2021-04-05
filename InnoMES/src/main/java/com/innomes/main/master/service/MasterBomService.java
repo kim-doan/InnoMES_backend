@@ -40,6 +40,7 @@ public class MasterBomService {
 					.itemName(masterPoolService.getMST110(content.getItemId()).getItemName())
 					.inQnt(content.getInQnt())
 					.inUnit(content.getInUnit())
+					.itemType(masterPoolService.getMST110(content.getItemId()).getItemType())
 					.description(content.getDescription())
 					.createUser(content.getCreateUser())
 					.createTime(content.getCreateTime())
@@ -47,6 +48,19 @@ public class MasterBomService {
 					.updateTime(content.getUpdateTime())
 					.used(content.getUsed())
 					.build();
+			
+			switch(dto.getItemType()) {
+				case "ITM001":
+					dto.setAttMatType(masterPoolService.getMST111(content.getItemId()).getAttMatType());
+					dto.setAttDiaType(masterPoolService.getMST111(content.getItemId()).getAttDiaType());
+					dto.setAttStdType(masterPoolService.getMST111(content.getItemId()).getAttStdType());
+					break;
+				case "ITM002":
+					dto.setAttMatType(masterPoolService.getMST112(content.getItemId()).getAttMatType());
+					dto.setAttDiaType(masterPoolService.getMST112(content.getItemId()).getAttDiaType());
+					dto.setAttStdType(masterPoolService.getMST112(content.getItemId()).getAttStdType());
+					break;
+			}
 			
 			dtoList.add(dto);
 		}
