@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.innomes.main.code.model.COD100;
 import com.innomes.main.master.dto.MasterCompanyDTO;
+import com.innomes.main.master.dto.MasterItemDTO;
 import com.innomes.main.master.dto.MasterMaterialDTO;
 import com.innomes.main.master.dto.MasterProcessDTO;
 import com.innomes.main.master.dto.MasterProductDTO;
 import com.innomes.main.master.dto.MasterSpareDTO;
 import com.innomes.main.master.dto.MasterToolDTO;
 import com.innomes.main.master.dto.MasterUserDTO;
+import com.innomes.main.master.model.MST110;
 import com.innomes.main.pool.service.MasterPoolService;
 
 import io.swagger.annotations.Api;
@@ -29,6 +31,14 @@ import lombok.RequiredArgsConstructor;
 public class MasterPoolController {
 	@Autowired
 	private MasterPoolService masterPoolService;
+	
+	@CrossOrigin
+	@ApiOperation(value = "품목 전체 조회", notes = "품목 전체 정보를 반환합니다.(캐시)")
+	@GetMapping("/pool/master/item")
+	public Map<String, MasterItemDTO> getItemLookUp() {
+		
+		return masterPoolService.getMST110Map();
+	}
 	
 	@CrossOrigin
 	@ApiOperation(value = "제품 전체 조회", notes = "제품 전체 정보를 반환합니다.(캐시)")
