@@ -1,5 +1,7 @@
 package com.innomes.main.repository.impl;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -8,6 +10,7 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 import com.innomes.main.master.model.MST110;
 import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.QMST110;
+import com.innomes.main.master.param.MasterItemParam;
 import com.innomes.main.master.param.MasterPriceItemParam;
 import com.innomes.main.repository.custom.MST110RepositoryCustom;
 import com.microsoft.sqlserver.jdbc.StringUtils;
@@ -19,6 +22,38 @@ public class MST110RepositoryImpl extends QuerydslRepositorySupport implements M
 	public MST110RepositoryImpl() {
 		super(MST111.class);
 	}
+	
+	@Override
+	public List<MST110> findAllLike(MasterItemParam masterItemParam) {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QMST110 mst110 = QMST110.mST110;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		if(!StringUtils.isEmpty(masterItemParam.getItemCode())) {
+			builder.and(mst110.itemCode.containsIgnoreCase(masterItemParam.getItemCode()));
+		}
+		
+		if(!StringUtils.isEmpty(masterItemParam.getItemName())) {
+			builder.and(mst110.itemName.containsIgnoreCase(masterItemParam.getItemName()));
+		}
+		
+		if(!StringUtils.isEmpty(masterItemParam.getItemType())) {
+			builder.and(mst110.itemType.containsIgnoreCase(masterItemParam.getItemType()));
+		}
+		
+		builder.and(mst110.used.eq(1));
+		
+		List<MST110> result = query.from(mst110)
+				.select(mst110)
+				.from(mst110)
+				.where(builder)
+				.fetch();
+		
+		return result;
+	}
+	
 	@Override
 	public Page<MST110> findAllPriceItem(MasterPriceItemParam masterPriceItemParam, Pageable pageable){
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
