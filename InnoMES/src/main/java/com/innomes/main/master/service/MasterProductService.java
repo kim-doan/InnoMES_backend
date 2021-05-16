@@ -133,7 +133,7 @@ public class MasterProductService {
 			for(int i=0;i<masterProductParam.length;i++) {
 				
 				//itemCode 중복 체크 ( 삭제 아닐경우 )
-				if( masterProductParam[i].getUsed() == 1) {
+				if(masterProductParam[i].getItemId() == null && masterProductParam[i].getUsed() == 1) {
 					valiedationItemCode(masterProductParam[i].getItemCode());
 				}
 				
