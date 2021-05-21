@@ -132,10 +132,10 @@ public class MasterProductService {
 		try {
 			for(int i=0;i<masterProductParam.length;i++) {
 				
-//				//itemCode 중복 체크 ( 삭제 아닐경우 )
-//				if( masterProductParam[i].getUsed() == 1) {
-//					valiedationItemCode(masterProductParam[i].getItemCode());
-//				}
+				//itemCode 중복 체크 ( 삭제 아닐경우 )
+				if(masterProductParam[i].getItemId() == null && masterProductParam[i].getUsed() == 1) {
+					valiedationItemCode(masterProductParam[i].getItemCode());
+				}
 				
 				MST110 mst110 = MST110.builder()
 						.itemId(masterProductParam[i].getItemId())
