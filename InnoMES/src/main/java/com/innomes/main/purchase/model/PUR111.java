@@ -11,18 +11,26 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.springframework.data.domain.Persistable;
 
+import com.innomes.main.master.model.MST110;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @IdClass(PUR111PK.class)
 @Data
 @Table(name = "PUR111")
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class PUR111 implements Persistable<PUR111PK> {
 
@@ -32,7 +40,7 @@ public class PUR111 implements Persistable<PUR111PK> {
 
 	@Id
 	@Column(name = "PO_SEQ")
-	private int poSeq;
+	private Integer poSeq;
 
 	@Column(name = "ORDER_ITEM")
 	private String orderItem;
@@ -96,6 +104,11 @@ public class PUR111 implements Persistable<PUR111PK> {
 			@JoinColumn(name = "PO_NO", referencedColumnName = "PO_NO", insertable = false, updatable = false)
 	})
 	private PUR110 pur110;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+    @MapsId
+    @JoinColumn(name = "ORDER_ITEM")
+    private MST110 mst110;
 	
 	@Transient
 	private boolean isNew = false;

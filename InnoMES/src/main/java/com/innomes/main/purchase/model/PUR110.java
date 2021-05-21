@@ -1,16 +1,11 @@
 package com.innomes.main.purchase.model;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -53,9 +48,6 @@ public class PUR110 implements Persistable<String>{
 	@Column(name = "ORDER_DATE")
 	private Date orderDate;
 
-	@Column(name = "DESCRIPTION")
-	private String description;
-
 	@Column(name = "CREATE_USER", insertable = true, updatable = false)
 	private String createUser;
 
@@ -70,9 +62,6 @@ public class PUR110 implements Persistable<String>{
 
 	@Column(name = "USED")
 	private int used;
-	
-	@OneToMany(mappedBy = "pur110", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<PUR111> pur111 = new ArrayList<PUR111>();
 	
 	@Transient
 	private boolean isNew = false;
