@@ -33,7 +33,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class PUR111 implements Persistable<PUR111PK> {
-
+ 
 	@Id
 	@Column(name = "PO_NO")
 	private String poNo;
