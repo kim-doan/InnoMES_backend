@@ -2,7 +2,9 @@ package com.innomes.main.master.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -82,7 +84,7 @@ public class MST200 implements Persistable<MST200PK>{
 	private MST111 mst111;
 	
 	@OneToMany(mappedBy = "mst200", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<MST210> mst210 = new ArrayList<MST210>();
+	private Set<MST210> mst210 = new HashSet<MST210>();
 	
 	@Transient
 	private boolean isNew = false;

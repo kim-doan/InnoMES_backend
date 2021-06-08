@@ -25,33 +25,34 @@ public class MST200RepositoryImpl extends QuerydslRepositorySupport implements M
 
 	@Override
 	public Optional<MST200> getManufactureProcess(MasterManufactureProcessParam masterManufactureProcessParam) {
-		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
-		
-		QMST200 mst200 = QMST200.mST200;
-		QMST210 mst210 = QMST210.mST210;
-		QMST111 mst111 = QMST111.mST111;
-		QMST110 mst110 = QMST110.mST110;
-		
-		BooleanBuilder builder = new BooleanBuilder();
-		
-		if(!StringUtils.isEmpty(masterManufactureProcessParam.getPrdtId())) {
-			builder.and(mst200.prdtId.eq(masterManufactureProcessParam.getPrdtId()));
-		}
-		
-		builder.and(mst200.used.eq(1));
-		
-		Optional<MST200> result = Optional.ofNullable(query.from(mst200)
-				.select(mst200)
-				.where(builder)
-				.leftJoin(mst200.mst210, mst210)
-				.fetchJoin()
-				.leftJoin(mst200.mst111, mst111)
-				.fetchJoin()
-				.innerJoin(mst111.mst110, mst110)
-				.fetchJoin()
-				.fetchOne());
-		
-		return result;
+//		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+//		
+//		QMST200 mst200 = QMST200.mST200;
+//		QMST210 mst210 = QMST210.mST210;
+//		QMST111 mst111 = QMST111.mST111;
+//		QMST110 mst110 = QMST110.mST110;
+//		
+//		BooleanBuilder builder = new BooleanBuilder();
+//		
+//		if(!StringUtils.isEmpty(masterManufactureProcessParam.getPrdtId())) {
+//			builder.and(mst200.prdtId.eq(masterManufactureProcessParam.getPrdtId()));
+//		}
+//		
+//		builder.and(mst200.used.eq(1));
+//		
+//		Optional<MST200> result = Optional.ofNullable(query.from(mst200)
+//				.select(mst200)
+//				.where(builder)
+//				.leftJoin(mst200.mst210, mst210)
+//				.fetchJoin()
+//				.leftJoin(mst200.mst111, mst111)
+//				.fetchJoin()
+//				.innerJoin(mst111.mst110, mst110)
+//				.fetchJoin()
+//				.fetchOne());
+//		
+//		return result;
+		return null;
 	}
 
 	@Override

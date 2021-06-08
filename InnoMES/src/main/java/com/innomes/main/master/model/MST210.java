@@ -74,6 +74,9 @@ public class MST210 implements Persistable<MST210PK> {
 	@Column(name = "LOC_CODE")
 	private String locCode;
 	
+	@Column(name = "USED")
+	private int used;
+	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
 	@JoinColumns(value = {
 			@JoinColumn(name = "PRDT_ID", referencedColumnName = "PRDT_ID", insertable = false, updatable = false),
@@ -108,4 +111,5 @@ public class MST210 implements Persistable<MST210PK> {
 	public boolean isNew() {
 		return isNew;
 	}
+	
 }

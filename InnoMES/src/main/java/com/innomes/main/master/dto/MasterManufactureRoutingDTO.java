@@ -22,6 +22,8 @@ public class MasterManufactureRoutingDTO {
 	
 	private String procName;
 	
+	private boolean passYN;
+	
 	private String inOutType;
 	
 	private Integer routingSeq;

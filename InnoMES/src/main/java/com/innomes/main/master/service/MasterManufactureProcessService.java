@@ -3,8 +3,10 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -22,6 +24,7 @@ import com.innomes.main.master.model.MST111;
 import com.innomes.main.master.model.MST200;
 import com.innomes.main.master.model.MST200PK;
 import com.innomes.main.master.model.MST210;
+import com.innomes.main.master.model.MST210PK;
 import com.innomes.main.master.model.MST220;
 import com.innomes.main.master.param.MasterBomParam;
 import com.innomes.main.master.param.MasterManufactureProcessParam;
@@ -30,6 +33,7 @@ import com.innomes.main.pool.service.MasterPoolService;
 import com.innomes.main.repository.MST111Repository;
 import com.innomes.main.repository.MST120Repository;
 import com.innomes.main.repository.MST200Repository;
+import com.innomes.main.repository.MST210Repository;
 import com.innomes.main.repository.MST220Repository;
 
 @Service
@@ -41,6 +45,9 @@ public class MasterManufactureProcessService {
 	
 	@Autowired
 	private MST200Repository mst200Repository;
+	
+	@Autowired
+	private MST210Repository mst210Repository;
 	
 	@Autowired
 	private MST220Repository mst220Repository;
@@ -77,31 +84,34 @@ public class MasterManufactureProcessService {
 			
 			List<MasterManufactureRoutingDTO> routeList = new ArrayList<MasterManufactureRoutingDTO>();
 			
-			for(int j=0;j<content.get(i).getMst210().size();j++) {
-				MasterManufactureRoutingDTO routeProcess = MasterManufactureRoutingDTO.builder()
-						.prdtId(content.get(i).getMst210().get(j).getPrdtId())
-						.routingRev(content.get(i).getMst210().get(j).getRoutingRev())
-						.procCode(content.get(i).getMst210().get(j).getProcCode())
-						.procName(masterPoolService.getMST120(content.get(i).getMst210().get(j).getProcCode()).getProcName())
-						.inOutType(masterPoolService.getMST120(content.get(i).getMst210().get(j).getProcCode()).getInOutType())
-						.routingSeq(content.get(i).getMst210().get(j).getRoutingSeq())
-						.procSeq(content.get(i).getMst210().get(j).getProcSeq())
-						.inQnt(content.get(i).getMst210().get(j).getInQnt())
-						.outQnt(content.get(i).getMst210().get(j).getOutQnt())
-						.qntUnit(content.get(i).getMst210().get(j).getQntUnit())
-						.leadTime(content.get(i).getMst210().get(j).getLeadTime())
-						.settingTime(content.get(i).getMst210().get(j).getSettingTime())
-						.unitWeight(content.get(i).getMst210().get(j).getUnitWeight())
-						.locCode(content.get(i).getMst210().get(j).getLocCode())
-						.build();
-				
-				List<MasterBomDTO> bomList = masterBomService.getBomList(MasterBomParam.builder()
-							.prdtId(content.get(i).getMst210().get(j).getPrdtId())
-							.procCode(content.get(i).getMst210().get(j).getProcCode())
-							.build());
-				
-				routeProcess.setBomList(bomList);
-				routeList.add(routeProcess);
+			for(MST210 mst210 : content.get(i).getMst210()) {
+				if(mst210.getUsed() == 1) {
+					MasterManufactureRoutingDTO routeProcess = MasterManufactureRoutingDTO.builder()
+							.prdtId(mst210.getPrdtId())
+							.routingRev(mst210.getRoutingRev())
+							.procCode(mst210.getProcCode())
+							.procName(masterPoolService.getMST120(mst210.getProcCode()).getProcName())
+							.passYN(mst210.getRoutingSeq() <= 0 ? true : false)
+							.inOutType(masterPoolService.getMST120(mst210.getProcCode()).getInOutType())
+							.routingSeq(mst210.getRoutingSeq())
+							.procSeq(mst210.getProcSeq())
+							.inQnt(mst210.getInQnt())
+							.outQnt(mst210.getOutQnt())
+							.qntUnit(mst210.getQntUnit())
+							.leadTime(mst210.getLeadTime())
+							.settingTime(mst210.getSettingTime())
+							.unitWeight(mst210.getUnitWeight())
+							.locCode(mst210.getLocCode())
+							.build();
+					
+					List<MasterBomDTO> bomList = masterBomService.getBomList(MasterBomParam.builder()
+								.prdtId(mst210.getPrdtId())
+								.procCode(mst210.getProcCode())
+								.build());
+					
+					routeProcess.setBomList(bomList);
+					routeList.add(routeProcess);
+				}
 			}
 			
 			//라우팅 정렬
@@ -149,28 +159,28 @@ public class MasterManufactureProcessService {
 					.build();
 			
 			List<MasterManufactureRoutingDTO> routeList = new ArrayList<MasterManufactureRoutingDTO>();
-			
-			for(int j=0;j<content.get().getMst210().size();j++) {
+				
+			for (MST210 mst210 : content.get().getMst210()) {
 				MasterManufactureRoutingDTO routeProcess = MasterManufactureRoutingDTO.builder()
-						.prdtId(content.get().getMst210().get(j).getPrdtId())
-						.routingRev(content.get().getMst210().get(j).getRoutingRev())
-						.procCode(content.get().getMst210().get(j).getProcCode())
-						.procName(masterPoolService.getMST120(content.get().getMst210().get(j).getProcCode()).getProcName())
-						.inOutType(masterPoolService.getMST120(content.get().getMst210().get(j).getProcCode()).getInOutType())
-						.routingSeq(content.get().getMst210().get(j).getRoutingSeq())
-						.procSeq(content.get().getMst210().get(j).getProcSeq())
-						.inQnt(content.get().getMst210().get(j).getInQnt())
-						.outQnt(content.get().getMst210().get(j).getOutQnt())
-						.qntUnit(content.get().getMst210().get(j).getQntUnit())
-						.leadTime(content.get().getMst210().get(j).getLeadTime())
-						.settingTime(content.get().getMst210().get(j).getSettingTime())
-						.unitWeight(content.get().getMst210().get(j).getUnitWeight())
-						.locCode(content.get().getMst210().get(j).getLocCode())
+						.prdtId(mst210.getPrdtId())
+						.routingRev(mst210.getRoutingRev())
+						.procCode(mst210.getProcCode())
+						.procName(masterPoolService.getMST120(mst210.getProcCode()).getProcName())
+						.inOutType(masterPoolService.getMST120(mst210.getProcCode()).getInOutType())
+						.routingSeq(mst210.getRoutingSeq())
+						.procSeq(mst210.getProcSeq())
+						.inQnt(mst210.getInQnt())
+						.outQnt(mst210.getOutQnt())
+						.qntUnit(mst210.getQntUnit())
+						.leadTime(mst210.getLeadTime())
+						.settingTime(mst210.getSettingTime())
+						.unitWeight(mst210.getUnitWeight())
+						.locCode(mst210.getLocCode())
 						.build();
 				
 				List<MasterBomDTO> bomList = masterBomService.getBomList(MasterBomParam.builder()
-						.prdtId(content.get().getMst210().get(j).getPrdtId())
-						.procCode(content.get().getMst210().get(j).getProcCode())
+						.prdtId(mst210.getPrdtId())
+						.procCode(mst210.getProcCode())
 						.build());
 			
 				routeProcess.setBomList(bomList);
@@ -225,7 +235,9 @@ public class MasterManufactureProcessService {
 					.build();
 			
 			/* 신규 라우팅 (무조건 INSERT) */
-			List<MST210> mst210List = new ArrayList<MST210>();
+			Set<MST210> mst210List = new HashSet<MST210>();
+			
+			mst210Repository.delManufactureRoute(manufactureProcessParam.getPrdtId(), 0);
 			
 			for(int i=0;i<manufactureProcessParam.getRouteList().size();i++) {
 				MST210 mst210 = MST210.builder()
@@ -241,6 +253,7 @@ public class MasterManufactureProcessService {
 						.settingTime(manufactureProcessParam.getRouteList().get(i).getSettingTime())
 						.unitWeight(manufactureProcessParam.getRouteList().get(i).getUnitWeight())
 						.locCode(manufactureProcessParam.getRouteList().get(i).getLocCode())
+						.used(1)
 						.isNew(true)
 						.build();
 				
@@ -251,7 +264,7 @@ public class MasterManufactureProcessService {
 				/* 투입소재 등록 */
 				for(int j=0;j<manufactureProcessParam.getRouteList().get(i).getBomList().size();j++) {
 					MST220 mst220 = MST220.builder()
-							.prdtId(manufactureProcessParam.getRouteList().get(i).getPrdtId())
+							.prdtId(manufactureProcessParam.getPrdtId())
 							.procCode(manufactureProcessParam.getRouteList().get(i).getProcCode())
 							.bomSeq(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getBomSeq())
 							.swapSeq(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getSwapSeq())
@@ -260,9 +273,9 @@ public class MasterManufactureProcessService {
 							.inUnit(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getInUnit())
 							.description(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getDescription())
 							.createUser(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getCreateUser())
-							.createTime(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getCreateTime())
+							.createTime(new Date())
 							.updateUser(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getUpdateUser())
-							.updateTime(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getUpdateTime())
+							.updateTime(new Date())
 							.used(manufactureProcessParam.getRouteList().get(i).getBomList().get(j).getUsed())
 							.build();
 					

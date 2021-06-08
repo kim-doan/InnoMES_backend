@@ -20,6 +20,7 @@ import com.innomes.main.repository.custom.MST111RepositoryCustom;
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryResults;
+import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 
