@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -66,25 +67,35 @@ public class MasterManufactureProcessService {
 		
 		List<MasterManufactureItemDTO> dtoList = new ArrayList<MasterManufactureItemDTO>();
 		
-		for(int i=0;i<content.size();i++) {
+		for(MST111 mst111 : content) {
 			MasterManufactureItemDTO manufactureItemDTO = MasterManufactureItemDTO.builder()
-					.prdtId(content.get(i).getPrdtId())
-					.itemCode(content.get(i).getMst110().getItemCode())
-					.itemName(content.get(i).getMst110().getItemName())
-					.prdtType(content.get(i).getPrdtType())
-					.prdtCtg(content.get(i).getPrdtCtg())
-					.prdtGroup(content.get(i).getPrdtGroup())
-					.attMatType(content.get(i).getAttMatType())
-					.attStdType(content.get(i).getAttStdType())
-					.attDiaType(content.get(i).getAttDiaType())
-					.heatSpec(content.get(i).getHeatSpec())
-					.surfaceSpec(content.get(i).getSurfaceSpec())
-					.coatingSpec(content.get(i).getCoatingSpec())
+					.prdtId(mst111.getPrdtId())
+					.itemCode(mst111.getMst110().getItemCode())
+					.itemName(mst111.getMst110().getItemName())
+					.prdtType(mst111.getPrdtType())
+					.prdtCtg(mst111.getPrdtCtg())
+					.prdtGroup(mst111.getPrdtGroup())
+					.attMatType(mst111.getAttMatType())
+					.attStdType(mst111.getAttStdType())
+					.attDiaType(mst111.getAttDiaType())
+					.heatSpec(mst111.getHeatSpec())
+					.surfaceSpec(mst111.getSurfaceSpec())
+					.coatingSpec(mst111.getCoatingSpec())
 					.build();
 			
+			//라우트 목록
 			List<MasterManufactureRoutingDTO> routeList = new ArrayList<MasterManufactureRoutingDTO>();
+			//BOM 목록
+			List<MasterBomDTO> bomList = new ArrayList<MasterBomDTO>();
 			
-			for(MST210 mst210 : content.get(i).getMst210()) {
+			//라우트가 있을 경우 해당 품목 BOM 조회
+			if(mst111.getMst210().size() > 0) {
+				bomList = masterBomService.getBomList(MasterBomParam.builder()
+						.prdtId(mst111.getPrdtId())
+						.build());
+			}
+			
+			for(MST210 mst210 : mst111.getMst210()) {
 				if(mst210.getUsed() == 1) {
 					MasterManufactureRoutingDTO routeProcess = MasterManufactureRoutingDTO.builder()
 							.prdtId(mst210.getPrdtId())
@@ -104,12 +115,11 @@ public class MasterManufactureProcessService {
 							.locCode(mst210.getLocCode())
 							.build();
 					
-					List<MasterBomDTO> bomList = masterBomService.getBomList(MasterBomParam.builder()
-								.prdtId(mst210.getPrdtId())
-								.procCode(mst210.getProcCode())
-								.build());
+					//BOM 목록 중 라우팅 공정 필터링 
+					List<MasterBomDTO> procBomList = bomList.stream().filter(c -> c.getProcCode().equals(mst210.getProcCode()))
+					.collect(Collectors.toList());
+					routeProcess.setBomList(procBomList);
 					
-					routeProcess.setBomList(bomList);
 					routeList.add(routeProcess);
 				}
 			}
@@ -198,6 +208,7 @@ public class MasterManufactureProcessService {
 			return manufactureProcessDTO;
 	}
 	
+	//제조공정정보 저장
 	public boolean saveManufactureProcess(MasterManufactureProcessParam manufactureProcessParam) {
 		boolean success = true;
 		

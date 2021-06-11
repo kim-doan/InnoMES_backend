@@ -3,6 +3,7 @@ package com.innomes.main.repository.impl;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.util.StringUtils;
 
 import com.innomes.main.master.dto.MasterBomDTO;
 import com.innomes.main.master.model.MST220;
@@ -27,7 +28,11 @@ public class MST220RepositoryImpl extends QuerydslRepositorySupport implements M
 		BooleanBuilder builder = new BooleanBuilder();
 		
 		builder.and(mst220.prdtId.eq(masterBomParam.getPrdtId()));
-		builder.and(mst220.procCode.eq(masterBomParam.getProcCode()));
+		
+		if(!StringUtils.isEmpty(masterBomParam.getProcCode())) {
+			builder.and(mst220.procCode.eq(masterBomParam.getProcCode()));
+		}
+		
 		builder.and(mst220.used.eq(1));
 		
 		List<MST220> result = query.from(mst220)
