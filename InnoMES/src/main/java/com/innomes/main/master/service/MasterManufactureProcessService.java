@@ -127,7 +127,7 @@ public class MasterManufactureProcessService {
 			//라우팅 정렬
 			List<MasterManufactureRoutingDTO> sortRouteList = new ArrayList<MasterManufactureRoutingDTO>();
 			
-			routeList.stream().sorted(Comparator.comparing(MasterManufactureRoutingDTO::getRoutingSeq))
+			routeList.stream().sorted(Comparator.comparing(MasterManufactureRoutingDTO::getProcSeq))
 			.forEach(x -> sortRouteList.add(x));
 			
 			manufactureItemDTO.setRouteList(sortRouteList);
