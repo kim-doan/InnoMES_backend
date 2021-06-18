@@ -38,26 +38,40 @@ public class MasterManufactureProcessController {
 	@ApiOperation(value = "제조공정정보 조회", notes = "제품 전체 기준으로 제조공정정보를 조회합니다. (검색조건 필터링 가능)")
 	@CrossOrigin
 	@PostMapping("/master/manufactureItem")
-	private PageListResult<MasterManufactureItemDTO> getManufactureItem(@RequestBody(required = false) MasterProductParam masterProductParam, final Pageable pageable) {
-		if (masterProductParam == null) masterProductParam = new MasterProductParam(); // 전체 조회
+	private PageListResult<MasterManufactureItemDTO> getManufactureItem(@RequestBody(required = false) MasterProductParam param, 
+			final Pageable pageable) {
+		if (param == null) param = new MasterProductParam(); // 전체 조회
 		
-		return responseService.getPageListResult(MasterManufactureItemDTO.class, masterManufactureProcessService.getManufactureItem(masterProductParam, pageable));
+		return responseService.getPageListResult(MasterManufactureItemDTO.class, masterManufactureProcessService.getManufactureItem(param, pageable));
 	}
 	
 	@ApiOperation(value = "제조공정정보 조회", notes = "제품 단건 기준으로 제조공정정보를 조회합니다. (검색조건 필터링 가능)")
 	@CrossOrigin
 	@PostMapping("/master/manufactureProcess")
-	private SingleResult<MasterManufactureProcessDTO> getManufactureProcess(@RequestBody(required = false) MasterManufactureProcessParam masterManufactureProcessParam) {
-		if (masterManufactureProcessParam == null) masterManufactureProcessParam = new MasterManufactureProcessParam(); // 전체 조회
+	private SingleResult<MasterManufactureProcessDTO> getManufactureProcess(@RequestBody(required = false) MasterManufactureProcessParam param) {
+		if (param == null) param = new MasterManufactureProcessParam(); // 전체 조회
 		
-		return responseService.getSingleResult(masterManufactureProcessService.getManufactureProcess(masterManufactureProcessParam));
+		return responseService.getSingleResult(masterManufactureProcessService.getManufactureProcess(param));
 	}
 	
 	@ApiOperation(value = "제조공정정보 개정", notes = "제조공정정보를 개정합니다.")
 	@CrossOrigin
 	@PostMapping("/master/manufactureProcess/save")
-	private CommonResult setManufactureProcess(@RequestBody(required = true) MasterManufactureProcessParam masterManufactureProcessParam) {		
-		boolean result = masterManufactureProcessService.saveManufactureProcess(masterManufactureProcessParam);
+	private CommonResult saveManufactureProcess(@RequestBody MasterManufactureProcessParam param) {		
+		boolean result = masterManufactureProcessService.saveManufactureProcess(param);
+		
+		if(result == true) {
+			return responseService.getSuccessResult();
+		} else {
+			throw new CManufactureProcessSaveException();
+		}
+	}
+	
+	@ApiOperation(value = "제조공정정보 수정", notes = "제조공정정보를 수정합니다.")
+	@CrossOrigin
+	@PostMapping("master/manufactureProcess/update")
+	private CommonResult updateManufactureProcess(@RequestBody MasterManufactureProcessParam param) {
+		boolean result = masterManufactureProcessService.updateManufactureProcess(param);
 		
 		if(result == true) {
 			return responseService.getSuccessResult();

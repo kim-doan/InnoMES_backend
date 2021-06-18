@@ -21,6 +21,7 @@ import com.innomes.main.exception.CAccountNotFoundException;
 import com.innomes.main.exception.CAuthenticationEntryPointException;
 import com.innomes.main.exception.CCompanySaveException;
 import com.innomes.main.exception.CLoginFailException;
+import com.innomes.main.exception.CManufactureProcessNotFoundException;
 import com.innomes.main.exception.CManufactureProcessSaveException;
 import com.innomes.main.exception.CMaterialSaveException;
 import com.innomes.main.exception.COrderIdNotFoundException;
@@ -227,10 +228,15 @@ public class ExceptionAdvice {
 		return responseService.getFailResult("E0026", getMessage("stopCodeDuplicateException.msg"));
 	}
 	
-	
 	//제조공정정보 개정 실패
 	@ExceptionHandler(CManufactureProcessSaveException.class)
 	public CommonResult manufactureProcessSaveException(HttpServletRequest request, CManufactureProcessSaveException e) {
-		return responseService.getFailResult("E0025", getMessage("manufactureProcessSaveException.msg"));
+		return responseService.getFailResult("E0027", getMessage("manufactureProcessSaveException.msg"));
+	}
+	
+	//제조공정정보 존재 하지 않음
+	@ExceptionHandler(CManufactureProcessNotFoundException.class)
+	public CommonResult manufactureProcessNotFoundException(HttpServletRequest request, CManufactureProcessNotFoundException e) {
+		return responseService.getFailResult("E0028", getMessage("manufactureProcessNotFoundException.msg"));
 	}
 }

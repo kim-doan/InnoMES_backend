@@ -47,10 +47,10 @@ public class MST210 implements Persistable<MST210PK> {
 	@Column(name = "PROC_CODE", insertable = false, updatable = false)
 	private String procCode;
 	
-	@Column(name = "ROUTING_SEQ")
+	@Column(name = "ROUTING_SEQ", insertable = true, updatable = false)
 	private Integer routingSeq;
 	
-	@Column(name = "PROC_SEQ")
+	@Column(name = "PROC_SEQ" , insertable = true, updatable = false)
 	private Integer procSeq;
 	
 	@Column(name = "IN_QNT")

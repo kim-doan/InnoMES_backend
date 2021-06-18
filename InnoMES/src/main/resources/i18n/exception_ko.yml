@@ -76,7 +76,9 @@ stopCodeInfoSaveException:
 stopCodeDuplicateException:
   code: 'E0026'
   msg: '중복된 비가동유형 코드입니다.'
-
 manufactureProcessSaveException:
-  code: 'E0025'
+  code: 'E0027'
   msg: '제조공정정보 개정에 실패했습니다.'
+manufactureProcessNotFoundException:
+  code: 'E0028'
+  msg: '제조공정정보가 존재하지 않습니다.'
