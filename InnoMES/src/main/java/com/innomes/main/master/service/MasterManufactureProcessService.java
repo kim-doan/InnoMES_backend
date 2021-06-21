@@ -113,7 +113,12 @@ public class MasterManufactureProcessService {
 							.unitWeight(mst210.getUnitWeight())
 							.locCode(mst210.getLocCode())
 							.build();
-
+					
+					manufactureItemDTO.setPrdtStatus(mst210.getMst200().getPrdtStatus());
+					manufactureItemDTO.setRevCause(mst210.getMst200().getRevCause());
+					manufactureItemDTO.setDescription(mst210.getMst200().getDescription());
+					
+					
 					// BOM 목록 중 라우팅 공정 필터링
 					List<MasterBomDTO> procBomList = bomList.stream()
 							.filter(c -> c.getProcCode().equals(mst210.getProcCode())).collect(Collectors.toList());

@@ -39,10 +39,16 @@ public class MasterManufactureItemDTO {
 	
 	private String coatingSpec;
 	
-	private String prdtStatus;
 	
 	//MST200
 	private int routingRev;
+	
+	private String prdtStatus;
+	
+	private String revCause;
+	
+	private String description;
+	
 	
 	private List<MasterManufactureRoutingDTO> routeList = new ArrayList<MasterManufactureRoutingDTO>(); 
 }
