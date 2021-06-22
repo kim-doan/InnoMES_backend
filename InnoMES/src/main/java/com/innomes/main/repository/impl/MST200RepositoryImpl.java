@@ -56,6 +56,24 @@ public class MST200RepositoryImpl extends QuerydslRepositorySupport implements M
 	}
 
 	@Override
+	public List<MST200> getManufactureProcessRevLog(MasterManufactureProcessParam masterManufactureProcessParam) {
+		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
+		
+		QMST200 mst200 = QMST200.mST200;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		
+		builder.and(mst200.prdtId.eq(masterManufactureProcessParam.getPrdtId()));
+		
+		List<MST200> result = query.from(mst200)
+				.select(mst200)
+				.where(builder)
+				.fetch();
+		
+		return result;
+	}
+	
+	@Override
 	public Integer getMaxRoutingRev(String prdtId) {
 		JPAQueryFactory query = new JPAQueryFactory(this.getEntityManager());
 		

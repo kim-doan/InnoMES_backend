@@ -17,6 +17,10 @@ public interface MST200RepositoryCustom {
 	//제조공정 라우팅 리비젼 MAX값 조회
 	Integer getMaxRoutingRev(String prdtId);
 	
+	//제조공정정보 이력보기
+	List<MST200> getManufactureProcessRevLog(MasterManufactureProcessParam masterManufactureProcessParam);
+	
 	//제조공정정보 비활성화 / 활성화
 	Long delManufactureProcess(MST200PK pk, int used);
+	
 }

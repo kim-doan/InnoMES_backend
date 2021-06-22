@@ -82,3 +82,6 @@ manufactureProcessSaveException:
 manufactureProcessNotFoundException:
   code: 'E0028'
   msg: '제조공정정보가 존재하지 않습니다.'
+parametersShortException:
+  code: 'E0029'
+  msg: '필수 파라메터가 입력되지 않았습니다.'

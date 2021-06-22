@@ -115,7 +115,6 @@ public class MasterManufactureProcessService {
 							.build();
 					
 					manufactureItemDTO.setPrdtStatus(mst210.getMst200().getPrdtStatus());
-					manufactureItemDTO.setRevCause(mst210.getMst200().getRevCause());
 					manufactureItemDTO.setDescription(mst210.getMst200().getDescription());
 					
 					
@@ -141,7 +140,35 @@ public class MasterManufactureProcessService {
 
 		return new PageImpl<>(dtoList, pageable, output.getTotalElements());
 	}
-
+	
+	//제조공정정보 이력보기
+	public List<MasterManufactureProcessDTO> getManufactureProcessRevLog(MasterManufactureProcessParam masterManufactureProcessParam) {
+		List<MasterManufactureProcessDTO> dtoList = new ArrayList<MasterManufactureProcessDTO>();
+		
+		List<MST200> content = mst200Repository.getManufactureProcessRevLog(masterManufactureProcessParam);
+		
+		for (MST200 mst200 : content) {
+			MasterManufactureProcessDTO manufactureProcessDTO = MasterManufactureProcessDTO.builder()
+					.prdtId(mst200.getPrdtId())
+					.routingRev(mst200.getRoutingRev())
+					.prdtStatus(mst200.getPrdtStatus())
+					.revUser(mst200.getRevUser())
+					.revDate(mst200.getRevDate())
+					.revCause(mst200.getRevCause())
+					.description(mst200.getDescription())
+					.createUser(mst200.getCreateUser())
+					.createTime(mst200.getCreateTime())
+					.updateUser(mst200.getUpdateUser())
+					.updateTime(mst200.getUpdateTime())
+					.used(mst200.getUsed())
+					.build();
+			
+			dtoList.add(manufactureProcessDTO);
+		}
+		
+		return dtoList;
+	}
+	
 	// 제조공정정보 - 라우팅 리스트 -> 다이얼로그
 	public MasterManufactureProcessDTO getManufactureProcess(
 			MasterManufactureProcessParam masterManufactureProcessParam) {

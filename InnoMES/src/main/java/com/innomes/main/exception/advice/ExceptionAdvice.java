@@ -25,6 +25,7 @@ import com.innomes.main.exception.CManufactureProcessNotFoundException;
 import com.innomes.main.exception.CManufactureProcessSaveException;
 import com.innomes.main.exception.CMaterialSaveException;
 import com.innomes.main.exception.COrderIdNotFoundException;
+import com.innomes.main.exception.CParametersShortException;
 import com.innomes.main.exception.CPriceSaveException;
 import com.innomes.main.exception.CProcessNotFoundException;
 import com.innomes.main.exception.CProcessSaveException;
@@ -238,5 +239,11 @@ public class ExceptionAdvice {
 	@ExceptionHandler(CManufactureProcessNotFoundException.class)
 	public CommonResult manufactureProcessNotFoundException(HttpServletRequest request, CManufactureProcessNotFoundException e) {
 		return responseService.getFailResult("E0028", getMessage("manufactureProcessNotFoundException.msg"));
+	}
+	
+	//요청 파라메터가 적음
+	@ExceptionHandler(CParametersShortException.class)
+	public CommonResult parametersShortException(HttpServletRequest request, CParametersShortException e) {
+		return responseService.getFailResult("E0029", getMessage("parametersShortException.msg"));
 	}
 }

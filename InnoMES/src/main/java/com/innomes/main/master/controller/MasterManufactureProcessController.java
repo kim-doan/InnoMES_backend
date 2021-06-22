@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.innomes.main.exception.CManufactureProcessSaveException;
+import com.innomes.main.exception.CParametersShortException;
 import com.innomes.main.master.dto.MasterManufactureItemDTO;
 import com.innomes.main.master.dto.MasterManufactureProcessDTO;
 import com.innomes.main.master.param.MasterManufactureProcessParam;
@@ -37,7 +38,7 @@ public class MasterManufactureProcessController {
 	
 	@ApiOperation(value = "제조공정정보 조회", notes = "제품 전체 기준으로 제조공정정보를 조회합니다. (검색조건 필터링 가능)")
 	@CrossOrigin
-	@PostMapping("/master/manufactureItem")
+	@PostMapping("/master/manufactureProcess")
 	private PageListResult<MasterManufactureItemDTO> getManufactureItem(@RequestBody(required = false) MasterProductParam param, 
 			final Pageable pageable) {
 		if (param == null) param = new MasterProductParam(); // 전체 조회
@@ -45,13 +46,13 @@ public class MasterManufactureProcessController {
 		return responseService.getPageListResult(MasterManufactureItemDTO.class, masterManufactureProcessService.getManufactureItem(param, pageable));
 	}
 	
-	@ApiOperation(value = "제조공정정보 조회", notes = "제품 단건 기준으로 제조공정정보를 조회합니다. (검색조건 필터링 가능)")
+	@ApiOperation(value = "제조공정정보 이력보기", notes = "선택 제품의 제조공정 개정 이력을 조회합니다.")
 	@CrossOrigin
-	@PostMapping("/master/manufactureProcess")
-	private SingleResult<MasterManufactureProcessDTO> getManufactureProcess(@RequestBody(required = false) MasterManufactureProcessParam param) {
-		if (param == null) param = new MasterManufactureProcessParam(); // 전체 조회
+	@PostMapping("/master/manufactureProcess/revLog")
+	private ListResult<MasterManufactureProcessDTO> getManufactureProcessRevLog(@RequestBody(required = true) MasterManufactureProcessParam param) {
+		if(param == null) throw new CParametersShortException();
 		
-		return responseService.getSingleResult(masterManufactureProcessService.getManufactureProcess(param));
+		return responseService.getListResult(MasterManufactureProcessDTO.class, masterManufactureProcessService.getManufactureProcessRevLog(param));
 	}
 	
 	@ApiOperation(value = "제조공정정보 개정", notes = "제조공정정보를 개정합니다.")
